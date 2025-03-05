@@ -1,0 +1,35 @@
+<header class="top-header" [class.hidden]="!isHeaderVisible">
+    <div class="header-container">
+      <!-- Sección izquierda - Logo K con estética streetwear -->
+      <div class="header-section left-section">
+        <div class="logo-container">
+            <div class="logo-combined">
+              <span class="logo-hash text-accent"></span><span class="logo-badge">189</span>
+            </div>
+            <div class="logo-name text-uppercase fw-bold">
+              <span class="faded-text">kau</span><span class="text-accent"></span>
+            </div>
+          </div>
+      </div>
+  
+      <!-- Sección central - Carrusel de tecnologías con estilo underground -->
+      <div class="header-section center-section">
+        <div class="tech-showcase">
+          <div class="tech-container">
+            @for (tech of visibleTechnologies; track trackByFn($index, tech)) {
+              <div class="tech-item" [title]="tech.name">
+                <i [class]="tech.logo" [attr.aria-label]="tech.name"></i>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+<!-- Sección derecha - SOLO DECORACION visual con texto DIGITAL CRAFT -->
+<div class="header-section right-section">
+    <div class="visual-element">
+      <div class="corner-text">
+        DIGITAL<br><span>CRAFT</span>
+      </div>
+    </div>
+  </div>

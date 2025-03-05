@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globales básicos - Complemento a Bootstrap */
+
+:root {
+    /* Paleta principal */
+    --primary-color: #0080ff;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.15);
+    
+    /* Fuentes */
+    --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --font-headings: 'Montserrat', 'Inter', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+  }
+  
+  body {
+    font-family: var(--font-main);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    line-height: 1.6;
+    padding-top: 80px; /* Espacio para header fijo */
+  }
+  
+  /* Estilos básicos para tipografía */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-accent {
+    color: var(--primary-color);
+  }
+  
+  /* Bordes sutiles para divisores de sección */
+  .border-subtle {
+    border-color: var(--border-color) !important;
+  }
+  
+  /* Espaciado de sección estándar */
+  .section {
+    padding: 3rem 0;
+  }
+  
+  /* Estilos básicos para tarjetas oscuras */
+  .card-dark {
+    background-color: #111111;
+    border: 1px solid var(--border-color);
+  }
+  
+  /* Botón con estilo minimalista */
+  .btn-outline-minimal {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--light-color);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-minimal:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+  
+  /* Imagen con efecto hover suave */
+  .img-hover {
+    transition: transform 0.3s ease;
+  }
+  
+  .img-hover:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Solucionar inconsistencia con textos en Bootstrap oscuro */
+  .bg-dark {
+    color: var(--light-color);
+  }

@@ -1,0 +1,739 @@
+/* Sección de Social Media con Efectos Visuales */
+.social-showcase-section {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 3rem;
+  }
+  
+  /* Grid de redes sociales */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+  }
+  
+  @media (max-width: 992px) {
+    .social-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .social-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Tarjeta de red social con efectos avanzados */
+  .social-item {
+    position: relative;
+  }
+  
+  .social-card {
+    display: block;
+    position: relative;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-decoration: none;
+    color: white;
+    backdrop-filter: blur(10px);
+    aspect-ratio: 3/2;
+    height: 100%;
+  }
+  
+  .social-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+  }
+  
+  .social-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(var(--primary-rgb), 0.3) 0%,
+      rgba(var(--primary-rgb), 0) 70%
+    );
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+  }
+  
+  .social-card:hover .social-glow {
+    opacity: 0.8;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+  }
+  
+  .social-icon-container {
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+  }
+  
+  .social-card:hover .social-icon-container {
+    transform: translateY(-5px);
+    text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.8);
+  }
+  
+  .social-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .social-platform {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .social-action {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 25px;
+  }
+  
+  .social-cta {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .btn-minimal {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .social-card:hover .btn-minimal {
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .particle-trail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.8);
+  }
+  
+  .social-card:hover .particle-trail {
+    width: 100%;
+    animation: particleAnimation 2s infinite;
+  }
+  
+  @keyframes particleAnimation {
+    0% {
+      box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.8);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(var(--primary-rgb), 1);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.8);
+    }
+  }
+  
+  /* Acentos en las esquinas de las tarjetas */
+  .corner-accent {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-color: var(--primary-color);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  
+  .top-left {
+    top: 15px;
+    left: 15px;
+    border-width: 1px 0 0 1px;
+  }
+  
+  .bottom-right {
+    bottom: 15px;
+    right: 15px;
+    border-width: 0 1px 1px 0;
+  }
+  
+  .social-card:hover .corner-accent {
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Estilos específicos por plataforma */
+  .linkedin-card:hover {
+    box-shadow: 0 15px 30px rgba(10, 102, 194, 0.2);
+  }
+  
+  .behance-card:hover {
+    box-shadow: 0 15px 30px rgba(23, 105, 255, 0.2);
+  }
+  
+  .instagram-card:hover {
+    box-shadow: 0 15px 30px rgba(225, 48, 108, 0.2);
+  }
+  
+  /* Digital Noise Canvas - Efecto galaxia sutil */
+  .digital-noise-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin: 80px 0;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+  }
+  
+  .noise-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  
+  .noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .glitch-text {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  .connect-text {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  /* Footer avanzado con efectos visuales */
+  .advanced-footer {
+    position: relative;
+    margin-top: 100px;
+    padding-top: 60px;
+    overflow: hidden;
+    border-top: 1px solid var(--border-color);
+    background-color: rgba(10, 10, 15, 0.8);
+  }
+  
+  .footer-grid-container {
+    position: relative;
+  }
+  
+  /* Fondo con efecto motion */
+  .motion-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .grid-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .horizontal {
+    width: 100%;
+    height: 1px;
+    transform-origin: left center;
+  }
+  
+  .vertical {
+    width: 1px;
+    height: 100%;
+    transform-origin: center top;
+  }
+  
+  #h-line-1 {
+    top: 20%;
+    animation: gridLineAnimation 25s infinite linear;
+  }
+  
+  #h-line-2 {
+    top: 50%;
+    animation: gridLineAnimation 30s infinite linear;
+  }
+  
+  #h-line-3 {
+    top: 80%;
+    animation: gridLineAnimation 35s infinite linear;
+  }
+  
+  #v-line-1 {
+    left: 25%;
+    animation: gridLineFlicker 15s infinite ease-in-out;
+  }
+  
+  #v-line-2 {
+    left: 50%;
+    animation: gridLineFlicker 20s infinite ease-in-out;
+  }
+  
+  #v-line-3 {
+    left: 75%;
+    animation: gridLineFlicker 25s infinite ease-in-out;
+  }
+  
+  @keyframes gridLineAnimation {
+    0% {
+      opacity: 0.05;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0.05;
+    }
+  }
+  
+  @keyframes gridLineFlicker {
+    0%, 100% {
+      opacity: 0.05;
+    }
+    50% {
+      opacity: 0.15;
+    }
+  }
+  
+  /* Formas flotantes */
+  .floating-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(var(--primary-rgb), 0.02);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: 10%;
+    animation: floatAnimation 20s infinite ease-in-out;
+  }
+  
+  .shape-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    right: 20%;
+    animation: floatAnimation 15s infinite ease-in-out reverse;
+  }
+  
+  .shape-3 {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    right: 10%;
+    animation: floatAnimation 10s infinite ease-in-out;
+  }
+  
+  @keyframes floatAnimation {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-20px, 20px);
+    }
+    50% {
+      transform: translate(20px, 40px);
+    }
+    75% {
+      transform: translate(40px, 20px);
+    }
+  }
+  
+  /* Contenido del footer */
+  .footer-logo {
+    position: relative;
+  }
+  
+  .logo-symbol {
+    font-size: 2rem;
+    font-weight: 900;
+    display: inline-block;
+    position: relative;
+    color: var(--primary-color);
+  }
+  
+  .logo-symbol::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    bottom: 5px;
+    right: -8px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+  
+  .small-text {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    max-width: 300px;
+  }
+  
+  .footer-heading {
+    position: relative;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    padding-bottom: 10px;
+  }
+  
+  .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background-color: var(--primary-color);
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+  
+  .footer-link:hover {
+    color: var(--primary-color);
+    opacity: 1;
+  }
+  
+  .footer-link:hover::after {
+    width: 100%;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .copyright {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  
+  .copyright-symbol {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-right: 5px;
+  }
+  
+  .dot-separator {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 8px;
+    vertical-align: middle;
+    opacity: 0.7;
+  }
+  
+  /* Botón de volver arriba */
+  .scroll-to-top {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .scroll-text {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .scroll-to-top i {
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .scroll-to-top:hover .scroll-text {
+    color: var(--primary-color);
+    opacity: 1;
+  }
+  
+  .scroll-to-top:hover i {
+    transform: translateY(-5px);
+    color: var(--primary-color);
+  }
+  
+  /* Estilos para los modales */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    outline: 0;
+  }
+  
+  .modal.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+  }
+  
+  .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 1.75rem auto;
+    max-width: 600px;
+    z-index: 1050;
+  }
+  
+  @media (max-width: 767px) {
+    .modal-dialog {
+      margin: 1rem;
+      max-width: calc(100% - 2rem);
+    }
+  }
+  
+  .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(20, 20, 25, 0.9);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .modal-close:hover {
+    opacity: 1;
+    color: var(--primary-color);
+  }
+  
+  .modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1.5rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .modal-body h6 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+  }
+  
+  .modal-body h6:first-child {
+    margin-top: 0;
+  }
+  
+  .modal-body p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilos para contenedor modal cuando está abierto */
+  body.modal-open {
+    overflow: hidden;
+  }
+  
+  /* Efecto de aparición */
+  .modal.show .modal-dialog {
+    animation: modalFadeIn 0.3s ease forwards;
+  }
+  
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Personalización adicional de la barra de desplazamiento para el modal */
+  .modal-body::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .modal-body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+  }
+  
+  /* Optimizaciones específicas para dispositivos móviles */
+  @media (max-width: 576px) {
+    .glitch-text {
+      font-size: 2rem;
+      letter-spacing: 3px;
+    }
+    
+    .connect-text {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    
+    .social-platform {
+      font-size: 1.2rem;
+    }
+    
+    .social-card {
+      padding: 20px;
+    }
+    
+    .social-icon-container {
+      font-size: 2rem;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+    }
+    
+    .footer-bottom .col-md-6:last-child {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }

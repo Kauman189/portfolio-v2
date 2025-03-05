@@ -1,0 +1,39 @@
+<nav class="book-nav" [class.header-hidden]="isHeaderHidden">
+    <!-- Logo que aparece cuando el header se oculta -->
+    <div class="nav-logo" [class.visible]="isHeaderHidden">
+      <div class="logo-icon">MW</div>
+    </div>
+  
+    <!-- Navegación para escritorio -->
+    <ul>
+      <li>
+        <a routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <div class="nav-indicator"></div>
+          <div class="nav-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <span class="nav-label">Proyectos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <div class="nav-indicator"></div>
+          <div class="nav-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <span class="nav-label">Contacto</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <div class="nav-indicator"></div>
+          <div class="nav-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <span class="nav-label">Sobre mí</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  <router-outlet></router-outlet>
