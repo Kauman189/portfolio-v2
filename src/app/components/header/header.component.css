@@ -1,9 +1,24 @@
-/* Estilo streetwear/underground para el header - Versión simplificada */
+/* Estilo streetwear/underground para el header - Versión optimizada para móviles */
 :root {
     --accent-color: #0080ff;
     --border-color: rgba(255, 255, 255, 0.15);
   }
   
+  /* Prevención general de desbordamiento horizontal */
+  body {
+    font-family: var(--font-main);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    line-height: 1.6;
+    padding-top: 80px; /* Espacio para header fijo */
+  }
+  
+  /* Ajuste del padding-top en dispositivos móviles */
+  @media (max-width: 576px) {
+    body {
+      padding-top: 60px; /* Espacio reducido para el header más pequeño */
+    }
+  }
   .top-header {
     width: 100%;
     background-color: #000;
@@ -24,13 +39,14 @@
   .header-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px; /* Reducido para menos problemas en móviles */
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 2;
+    box-sizing: border-box; /* Importante: incluir padding en el ancho total */
   }
   
   /* Decoración de ruido para el header */
@@ -88,8 +104,10 @@
   /* Sección izquierda - Logo y nombre */
   .left-section {
     flex: 1;
+    min-width: 0; /* Importante para evitar que se desborde */
     border-right: 1px solid var(--border-color);
-    padding-right: 30px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
   
   .logo-container {
@@ -97,20 +115,65 @@
     align-items: center;
     gap: 12px;
     position: relative;
+    flex-wrap: nowrap; /* Previene salto de línea en logo */
+    max-width: 100%;
+    overflow: hidden; /* Previene desbordamiento */
   }
   
-  /* Logo badge con efecto simple */
+  /* Logo combinado con # y 189 */
+  .logo-combined {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 5px 8px;
+    background: rgba(0, 35, 80, 0.2);
+    border: 1px solid rgba(0, 128, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 128, 255, 0.15);
+    box-sizing: border-box;
+    flex-shrink: 0; /* Previene que se encoja en móviles */
+  }
+  
+  .logo-combined::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(0, 128, 255, 0.7), 
+      transparent
+    );
+    animation: pulse 2s infinite ease-in-out;
+  }
+  
+  .logo-hash {
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline-block;
+    color: var(--accent-color);
+    text-shadow: 0 0 8px rgba(0, 128, 255, 0.8);
+  }
+  
   .logo-badge {
     position: relative;
-    padding: 8px 12px;
-    background-color: transparent;
-    border: 1px solid var(--accent-color);
+    font-size: 1rem;
     font-weight: 700;
-    font-size: 18px;
     color: white;
-    letter-spacing: 0.5px;
-    box-shadow: 0 0 10px rgba(0, 128, 255, 0.15);
-    text-transform: uppercase;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  /* Para el hover effect */
+  .logo-combined:hover {
+    border-color: rgba(0, 128, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 128, 255, 0.25);
   }
   
   .logo-name {
@@ -119,6 +182,9 @@
     letter-spacing: 1px;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 128, 255, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .faded-text {
@@ -132,11 +198,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 10px; /* Reducido para prevenir desbordamiento */
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     margin: 0 -1px; /* Evita la duplicación de bordes */
     position: relative;
+    min-width: 0; /* Previene desbordamiento */
+    box-sizing: border-box;
   }
   
   .tech-showcase {
@@ -165,24 +233,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
-    padding: 0 20px;
-    min-height: 70px; /* Altura fija para evitar redimensionamientos */
+    gap: 40px; /* Reducido para móviles */
+    padding: 0 10px;
+    min-height: 70px;
     width: 100%;
   }
   
   /* Estilo monocromático para los iconos */
   .tech-item {
     flex-shrink: 0;
-    width: 70px;
-    height: 70px;
+    width: 40px; /* Reducido para móviles */
+    height: 40px; /* Reducido para móviles */
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
   .tech-item i {
-    font-size: 36px;
+    font-size: 28px; /* Reducido para móviles */
     color: #ffffff !important;
     filter: grayscale(1);
     opacity: 0.8;
@@ -202,10 +270,12 @@
     display: flex;
     justify-content: flex-end;
     border-left: 1px solid var(--border-color);
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
     height: 100%;
     align-items: center;
+    min-width: 0; /* Importante para evitar desbordamiento */
+    box-sizing: border-box;
   }
   
   /* Elemento visual con el texto - ocupa todo el espacio */
@@ -215,18 +285,20 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    overflow: hidden; /* Previene desbordamiento */
   }
   
   /* Texto DIGITAL CRAFT con estilo simplificado */
   .corner-text {
-    font-size: 24px;
+    font-size: 20px; /* Reducido para prevenir desbordamiento */
     line-height: 0.9;
     text-align: center;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 1px; /* Reducido para móviles */
     color: white;
     text-transform: uppercase;
     width: 100%;
+    white-space: nowrap; /* Mantiene texto en una línea */
   }
   
   /* Resaltado de CRAFT con color y efecto */
@@ -244,144 +316,7 @@
     transform: translateY(-4px);
   }
   
-  /* Responsividad - unificado */
-  @media (max-width: 768px) {
-    .top-header {
-      height: 70px;
-    }
-    
-    .header-container {
-      padding: 0 20px;
-    }
-    
-    .tech-container {
-      gap: 40px;
-    }
-    
-    .tech-item i {
-      font-size: 30px;
-    }
-    
-    .logo-badge {
-      padding: 6px 8px;
-      font-size: 16px;
-    }
-    
-    .logo-name {
-      font-size: 14px;
-    }
-    
-    .left-section {
-      padding-right: 15px;
-    }
-    
-    .right-section {
-      padding-left: 15px;
-    }
-    
-    .corner-text {
-      font-size: 18px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .top-header {
-      height: auto;
-    }
-    
-    .header-container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 15px;
-    }
-    
-    .left-section, .right-section {
-      height: 50px;
-      border: none;
-      padding: 0;
-    }
-    
-    .center-section {
-      order: 3;
-      width: 100%;
-      flex: 0 0 100%;
-      margin-top: 10px;
-      border: none;
-      border-top: 1px solid var(--border-color);
-      padding-top: 10px;
-      height: 60px;
-    }
-    
-    .tech-container {
-      gap: 30px;
-    }
-    
-    .tech-item i {
-      font-size: 24px;
-    }
-    
-    .corner-text {
-      font-size: 16px;
-    }
-  }
-  
-  @media (max-width: 374px) {
-    .tech-container {
-      gap: 20px;
-    }
-    
-    .logo-name {
-      font-size: 12px;
-    }
-    
-    .corner-text {
-      font-size: 14px;
-    }
-  }
-
-  .logo-combined {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    padding: 5px 8px;
-    background: rgba(0, 35, 80, 0.2);
-    border: 1px solid rgba(0, 128, 255, 0.3);
-    box-shadow: 0 0 15px rgba(0, 128, 255, 0.15);
-  }
-  
-  .logo-combined::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(0, 128, 255, 0.7), 
-      transparent
-    );
-    animation: pulse 2s infinite ease-in-out;
-  }
-  
-  .logo-hash {
-    font-size: 1rem;
-    font-weight: 700;
-    display: inline-block;
-    color: var(--accent-color);
-    text-shadow: 0 0 8px rgba(0, 128, 255, 0.8);
-  }
-  
-  .logo-badge {
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    display: inline-block;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  }
-  
+  /* Animación de pulso */
   @keyframes pulse {
     0%, 100% {
       opacity: 0.3;
@@ -391,17 +326,238 @@
     }
   }
   
-  /* Para el hover effect */
-  .logo-combined:hover {
-    border-color: rgba(0, 128, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 128, 255, 0.25);
+  /* Responsividad mejorada para prevenir desbordamiento */
+  @media (max-width: 768px) {
+    .top-header {
+      height: 70px;
+    }
+    
+    .header-container {
+      padding: 0 15px;
+    }
+    
+    .tech-container {
+      gap: 30px;
+    }
+    
+    .tech-item i {
+      font-size: 26px;
+    }
+    
+    .logo-combined {
+      padding: 4px 6px;
+    }
+    
+    .logo-hash, .logo-badge {
+      font-size: 0.9rem;
+    }
+    
+    .logo-name {
+      font-size: 14px;
+      max-width: 70px; /* Limita ancho para prevenir desbordamiento */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .left-section {
+      padding-right: 10px;
+    }
+    
+    .right-section {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .corner-text {
+      font-size: 16px;
+      letter-spacing: 0.8px;
+    }
   }
   
-  /* Reemplazo el estilo anterior del logo-badge para que no interfiera */
-  .logo-badge {
-    position: relative;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
+  /* Optimización para dispositivos móviles pequeños */
+  @media (max-width: 576px) {
+    .top-header {
+      height: auto;
+    }
+    
+    .header-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .left-section, .right-section {
+      height: 40px;
+      border: none;
+      padding: 0;
+      flex: 0 0 auto; /* Evita que crezcan más de lo necesario */
+    }
+    
+    .left-section {
+      flex: 1;
+      justify-content: flex-start;
+    }
+    
+    .right-section {
+      flex: 1;
+      justify-content: flex-end;
+    }
+    
+    .center-section {
+      order: 3;
+      width: 100%;
+      flex: 0 0 100%;
+      margin-top: 8px;
+      border: none;
+      border-top: 1px solid var(--border-color);
+      padding: 8px 0;
+      height: 50px;
+      max-width: 100%;
+      overflow-x: auto; /* Permite scroll horizontal si es necesario */
+      -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    }
+    
+    .tech-container {
+      gap: 25px;
+      justify-content: flex-start; /* Alineación a la izquierda */
+      padding: 0 10px;
+      width: auto; /* Permite que sea más ancho que el viewport */
+      flex-wrap: nowrap;
+    }
+    
+    .tech-item {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .tech-item i {
+      font-size: 22px;
+    }
+    
+    .logo-combined {
+      padding: 3px 5px;
+    }
+    
+    .logo-hash, .logo-badge {
+      font-size: 0.85rem;
+    }
+    
+    .corner-text {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+    
+    .logo-name {
+      display: none; /* Ocultar en pantallas muy pequeñas */
+    }
+  }
+  
+  /* Ajustes específicos para dispositivos muy pequeños */
+  @media (max-width: 374px) {
+    .header-container {
+      padding: 8px;
+      gap: 5px;
+    }
+    
+    .tech-container {
+      gap: 20px;
+    }
+    
+    .tech-item i {
+      font-size: 20px;
+    }
+    
+    .corner-text {
+      font-size: 12px;
+      letter-spacing: 0px;
+    }
+    
+    /* Simplificar en pantallas muy pequeñas */
+    .logo-combined::before {
+      display: none;
+    }
+    
+    .tech-item:hover i {
+      transform: none;
+    }
+  }
+
+  /* Optimización para dispositivos móviles pequeños */
+@media (max-width: 576px) {
+    .top-header {
+      height: auto;
+      padding: 0;
+    }
+    
+    .header-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 15px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      justify-content: space-between;
+    }
+    
+    .left-section, .right-section {
+      height: 40px;
+      border: none;
+      padding: 0;
+      flex: 0 0 auto;
+    }
+    
+    .left-section {
+      flex: 1;
+      justify-content: flex-start;
+    }
+    
+    .right-section {
+      flex: 1;
+      justify-content: flex-end;
+    }
+    
+    /* Ocultar completamente el carrusel en dispositivos móviles */
+    .center-section {
+      display: none;
+    }
+    
+    .logo-combined {
+      padding: 3px 5px;
+    }
+    
+    .logo-hash, .logo-badge {
+      font-size: 0.85rem;
+    }
+    
+    .corner-text {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+    
+    .logo-name {
+      display: none; /* Ocultar en pantallas muy pequeñas */
+    }
+  }
+  
+  /* Ajustes específicos para dispositivos muy pequeños */
+  @media (max-width: 374px) {
+    .header-container {
+      padding: 8px;
+      gap: 5px;
+    }
+    
+    .corner-text {
+      font-size: 12px;
+      letter-spacing: 0px;
+    }
+    
+    /* Simplificar en pantallas muy pequeñas */
+    .logo-combined::before {
+      display: none;
+    }
   }
