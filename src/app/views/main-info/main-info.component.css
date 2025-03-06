@@ -5,7 +5,15 @@
     align-items: center;
     position: relative;
   }
-  
+
+  .btn-outline-minimal,
+  .btn-connect,
+  .control-btn,
+  .icon-btn {
+    border-radius: var(--border-radius);
+  }
+
+
   /* Elementos decorativos estilo underground */
 .streetwear-badge {
     display: inline-block;
@@ -204,7 +212,9 @@
   
   .skill-tag {
     position: relative;
-    padding-left: 15px;
+    padding-left: 25px; 
+    display: block;
+    margin-bottom: 12px;
   }
   
   .skill-tag::before {
@@ -212,7 +222,9 @@
     position: absolute;
     left: 0;
     color: var(--primary-color);
+    margin-right: 10px; 
   }
+  
   
   /* Proyectos estilo zine/revista */
   .project-card {
@@ -274,16 +286,21 @@
   }
   
   /* Tech pills estilo streetwear */
-  .tech-pill {
-    display: inline-block;
-    padding: 5px 10px;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-color);
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
+ /* Reemplaza esta definición que está haciendo las pills redondeadas */
+.tech-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2px; /* Forzar a cuadrado */
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
   
   /* Link con flecha */
   .arrow-link {
@@ -440,53 +457,6 @@
     box-shadow: 0 0 15px rgba(0, 128, 255, 0.5);
   }
   
-  .vinyl-grooves {
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: absolute;
-    animation: vinyl-spin 5s linear infinite paused;
-  }
-  
-  .vinyl-grooves::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .vinyl-grooves::after {
-    content: '';
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .album-art:hover .album-overlay {
-    opacity: 1;
-  }
-  
-  .album-art:hover .vinyl-grooves {
-    animation-play-state: running;
-  }
-  
-  @keyframes vinyl-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
   
   .track-title {
     letter-spacing: -0.5px;
@@ -514,7 +484,7 @@
     position: absolute;
     height: 100%;
     background-color: var(--primary-color);
-    width: 30%; /* Valor inicial, se actualizaría con JavaScript */
+    width: 30%; 
   }
   
   .time-info {
@@ -617,45 +587,7 @@
     }
   }
 
-  /* Estilos actualizados para el reproductor de música streetwear */
-.music-player-container {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    position: relative;
-    overflow: hidden;
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
-  
-  .music-player-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
-    z-index: 0;
-  }
-  
-  /* Añadir borde estilo streetwear al reproductor de YouTube */
-  .ratio-16x9 {
-    border: 1px solid var(--border-color);
-    position: relative;
-  }
-  
-  .ratio-16x9::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
-  }
+
   
   /* Estilo para la portada del álbum */
   .album-art {
@@ -688,60 +620,6 @@
     z-index: 1;
   }
   
-  .album-art:hover .album-overlay {
-    opacity: 1;
-  }
-  
-  /* Efectos especiales del vinilo */
-  .vinyl-center {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    position: absolute;
-    z-index: 3;
-    box-shadow: 0 0 15px rgba(0, 128, 255, 0.8);
-  }
-  
-  .vinyl-grooves {
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    position: absolute;
-    animation: vinyl-spin 5s linear infinite;
-  }
-  
-  .vinyl-grooves::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  
-  .vinyl-grooves::after {
-    content: '';
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  
-  @keyframes vinyl-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
   
   /* Detalles de la canción */
   .track-title {
@@ -765,20 +643,7 @@
     border-top: 1px solid var(--border-color);
   }
   
-  /* Pill style para etiquetas de género */
-  .tech-pill {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
+
   
   /* Optimizaciones para móvil */
   @media (max-width: 576px) {
@@ -884,15 +749,6 @@
     transform: scale(1.05);
   }
   
-  /* Video container específico */
-  .video-container {
-    background-color: #000;
-  }
-  
-  .video-container video {
-    opacity: 0.8;
-  }
-  
   /* Overlay de inspiración */
   .inspiration-overlay {
     position: absolute;
@@ -918,21 +774,6 @@
     opacity: 1;
   }
   
-  .inspiration-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: var(--primary-color);
-    color: white;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.8rem;
-    z-index: 2;
-  }
   
   /* Carrusel de citas */
   .quotes-carousel {
@@ -1190,7 +1031,6 @@
     white-space: nowrap;
   }
 
-  /* Mejoras para el carrusel de citas */
 .quotes-carousel {
     position: relative;
     padding: 40px 20px;
@@ -1198,7 +1038,7 @@
     border: 1px solid var(--border-color);
     margin-top: 50px;
     overflow: hidden;
-    min-height: 200px; /* Altura mínima para evitar saltos */
+    min-height: 200px; 
   }
   
   .quote-container {
@@ -1301,7 +1141,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: rgba(0, 119, 181, 0.15); /* Color LinkedIn sutil */
+    background-color: #0062dae7; /* Color LinkedIn sutil */
     transition: width 0.5s ease;
     z-index: 1;
   }
@@ -1317,7 +1157,6 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s ease;
   }
@@ -1336,7 +1175,6 @@
   .connect-icon {
     font-size: 1.8rem;
     margin-right: 18px;
-    color: #0077B5; /* Color oficial LinkedIn */
     transition: transform 0.3s ease;
   }
   
@@ -1381,3 +1219,68 @@
       padding: 16px 20px;
     }
   }
+  
+  /* Títulos de fondo para todas las secciones, siguiendo la estructura de inspiration-section */
+
+/* Sección Skills - IZQUIERDA */
+.skills-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-section::before {
+  content: 'SKILLS';
+  position: absolute;
+  left: -2%;
+  top: 25.5%;
+  transform: rotate(-90deg);
+  font-size: 11rem;
+  font-weight: 900;
+  opacity: 0.02;
+  z-index: 0;
+  letter-spacing: -5px;
+  white-space: nowrap;
+}
+
+/* Sección Pro  jects - DERECHA */
+.projects-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-section::before {
+  content: 'PROJECTS';
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: rotate(90deg) translateY(-50%);
+  font-size: 12rem;
+  font-weight: 900;
+  opacity: 0.02;
+  z-index: 0;
+  letter-spacing: -5px;
+  white-space: nowrap;
+}
+
+/* Sección Interests - IZQUIERDA */
+.interests-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.interests-section::before {
+  content: 'INTERESTS';
+  position: absolute;
+  left: -2%;
+  top: 35%;
+  transform: rotate(-90deg) translateY(-50%);
+  font-size: 11rem;
+  font-weight: 900;
+  opacity: 0.02;
+  z-index: 0;
+  letter-spacing: -5px;
+  white-space: nowrap;
+}
+
+/* Sección Inspiration - DERECHA - Ya existe y funciona bien */
+/* .inspiration-section tiene exactamente esta estructura */

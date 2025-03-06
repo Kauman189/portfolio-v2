@@ -2,15 +2,17 @@
 
 :root {
     /* Paleta principal */
-    --primary-color: #0080ff;
+    --primary-color: #2b75ffe7;
+    --primary-light: #1b1b1be7;
     --dark-color: #000000;
-    --light-color: #ffffff;
-    --border-color: rgba(255, 255, 255, 0.15);
-    
-    /* Fuentes */
+    --light-color: #ffffffe7;
+    --text-light: #ecfbffee;
+    --text-muted: #b8c5d0;
+    --border-color: rgba(255, 255, 255, 0.091);
+    --border-radius: 0;
     --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    --font-headings: 'Montserrat', 'Inter', sans-serif;
-    --font-mono: 'Roboto Mono', monospace;
+    --font-headings: 'Space Grotesk', 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
   }
   
   body {
@@ -19,6 +21,7 @@
     color: var(--light-color);
     line-height: 1.6;
     padding-top: 80px; /* Espacio para header fijo */
+    position: relative;
   }
   
   /* Estilos básicos para tipografía */
