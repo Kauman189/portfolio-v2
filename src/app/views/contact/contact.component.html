@@ -137,9 +137,9 @@
           <div class="row align-items-center">
             <div class="col-md-6 mb-3 mb-md-0">
               <p class="mb-0 copyright">
-                <span class="copyright-symbol">&copy;</span> 2025 Kauman189. 
+                <span class="copyright-symbol">&copy;</span> 2025 Kauman189
                 <span class="d-block d-sm-inline-block mt-2 mt-sm-0">
-                  <span class="dot-separator"></span> Todos los derechos reservados. Valencia, España.
+                  <span class="dot-separator"></span> Valencia, España.
                 </span>
               </p>
             </div>
@@ -155,84 +155,84 @@
     </div>
   </footer>
   
-  <!-- Modales para contenido legal -->
-  <div class="modal" [class.show]="activeModal === 'terms'">
-    <div class="modal-backdrop" (click)="closeModal()"></div>
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Términos y Condiciones</h5>
-          <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h6>1. Aceptación de los Términos</h6>
-          <p>Al acceder y utilizar este sitio web, aceptas estos términos y condiciones en su totalidad.</p>
-          
-          <h6>2. Propiedad Intelectual</h6>
-          <p>Todo el contenido de este sitio, incluyendo pero no limitado a textos, gráficos, logos, íconos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad exclusiva de Kauman189.</p>
-          
-          <h6>3. Limitación de Responsabilidad</h6>
-          <p>En ningún caso Kauman189 será responsable por daños directos, indirectos, incidentales, consecuentes o punitivos relacionados con el uso de este sitio web.</p>
-          
-          <h6>4. Uso del Contenido</h6>
-          <p>No está permitido modificar, copiar, distribuir, transmitir, mostrar, realizar, reproducir, publicar, licenciar, transferir o vender cualquier información o contenido obtenido de este sitio sin permiso previo por escrito.</p>
-        </div>
+<!-- Modales para contenido legal -->
+<div class="modal" [class.show]="activeModal === 'terms'">
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Términos y Condiciones</h5>
+        <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>1. Uso Libre</h6>
+        <p>Este portfolio es de libre acceso y puede ser utilizado como referencia siempre que se mencione la fuente.</p>
+        
+        <h6>2. Propiedad del Contenido</h6>
+        <p>Todo el código, diseño y estructura pertenecen a su creador, pero los íconos y otros recursos visuales son propiedad de terceros y no se reclama ningún derecho sobre ellos.</p>
+        
+        <h6>3. Limitación de Responsabilidad</h6>
+        <p>No se garantiza ningún tipo de responsabilidad sobre el uso del contenido de este sitio. Se proporciona tal cual, sin garantías de ningún tipo.</p>
+        
+        <h6>4. Reutilización</h6>
+        <p>Se permite la reutilización del código y diseño con fines educativos o de inspiración, pero se recomienda dar crédito al autor.</p>
       </div>
     </div>
   </div>
-  
-  <div class="modal" [class.show]="activeModal === 'privacy'">
-    <div class="modal-backdrop" (click)="closeModal()"></div>
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Política de Privacidad</h5>
-          <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h6>1. Información que Recopilamos</h6>
-          <p>Este sitio web no recopila información personal identificable automáticamente. Solo procesamos información proporcionada voluntariamente a través de interacciones directas.</p>
-          
-          <h6>2. Uso de la Información</h6>
-          <p>Cualquier información proporcionada se utiliza únicamente para responder a consultas específicas y mejorar la experiencia del usuario en este sitio.</p>
-          
-          <h6>3. Protección de Datos</h6>
-          <p>Implementamos medidas de seguridad apropiadas para proteger contra el acceso no autorizado o la alteración, divulgación o destrucción de información personal.</p>
-          
-          <h6>4. Derechos del Usuario</h6>
-          <p>Los usuarios tienen derecho a solicitar acceso, rectificación o eliminación de cualquier dato personal que hayamos recopilado, conforme a las leyes de protección de datos aplicables.</p>
-        </div>
+</div>
+
+<div class="modal" [class.show]="activeModal === 'privacy'">
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Política de Privacidad</h5>
+        <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>1. No se recopilan datos</h6>
+        <p>Este sitio no recopila información personal ni almacena datos de usuarios.</p>
+        
+        <h6>2. Uso de la Información</h6>
+        <p>No se procesa ni almacena ninguna información del usuario. Solo se muestra contenido estático.</p>
+        
+        <h6>3. Protección de Datos</h6>
+        <p>Al no recopilar información, no hay datos que proteger. Sin embargo, se recomienda navegar de forma segura en internet.</p>
+        
+        <h6>4. Derechos del Usuario</h6>
+        <p>Los usuarios pueden visualizar y utilizar el sitio libremente sin preocuparse por el tratamiento de datos personales.</p>
       </div>
     </div>
   </div>
-  
-  <div class="modal" [class.show]="activeModal === 'cookies'">
-    <div class="modal-backdrop" (click)="closeModal()"></div>
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Política de Cookies</h5>
-          <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h6>1. ¿Qué son las Cookies?</h6>
-          <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Se utilizan para recordar tus preferencias y mejorar tu experiencia de navegación.</p>
-          
-          <h6>2. Cookies que Utilizamos</h6>
-          <p>Este sitio utiliza cookies técnicas necesarias para el funcionamiento del sitio y cookies analíticas para entender cómo interactúas con el sitio.</p>
-          
-          <h6>3. Control de Cookies</h6>
-          <p>Puedes controlar y/o eliminar las cookies según lo desees. Puedes eliminar todas las cookies que ya están en tu computadora y puedes configurar la mayoría de los navegadores para que no las acepten.</p>
-          
-          <h6>4. Cookies de Terceros</h6>
-          <p>Este sitio puede utilizar servicios de terceros que establecen sus propias cookies. No tenemos control sobre estas cookies. Para más información, consulta las políticas de privacidad de estos servicios.</p>
-        </div>
+</div>
+
+<div class="modal" [class.show]="activeModal === 'cookies'">
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Política de Cookies</h5>
+        <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>1. No se usan cookies</h6>
+        <p>Este sitio no utiliza cookies propias ni almacena información del usuario en su dispositivo.</p>
+        
+        <h6>2. Recursos de Terceros</h6>
+        <p>Algunos recursos visuales, como íconos o fuentes, pueden provenir de terceros y estar sujetos a sus propias políticas de privacidad.</p>
+        
+        <h6>3. Control de Cookies</h6>
+        <p>Si deseas revisar las cookies de servicios de terceros, puedes hacerlo a través de la configuración de tu navegador.</p>
+        
+        <h6>4. Transparencia</h6>
+        <p>Este sitio es un portfolio personal y no recopila ni analiza información de los visitantes.</p>
       </div>
     </div>
   </div>
+</div>

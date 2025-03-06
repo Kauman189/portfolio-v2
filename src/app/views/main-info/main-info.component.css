@@ -747,11 +747,16 @@
   .track-title {
     font-size: 1.5rem;
     letter-spacing: -0.5px;
+    
   }
   
   .artist-name {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
+    color: #969696;
+    font-weight: 500;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    opacity: 0.9;
   }
   
   .song-details {
