@@ -164,13 +164,13 @@
   }
   
   .boxed-quote::before {
-    content: '"';
+    content: '"\2009'; 
     position: absolute;
-    top: -30px;
+    top: -35px;
     left: 20px;
     font-size: 60px;
     color: var(--primary-color);
-    opacity: 0.5;
+    opacity: 0.9;
   }
   
   /* Primera letra más grande */
