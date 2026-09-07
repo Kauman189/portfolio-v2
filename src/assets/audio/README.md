@@ -1,4 +1,4 @@
-# Audio Files for Music Player
+# Audio Files for Music Player!
 
 ## Instructions
 
@@ -37,6 +37,7 @@ Edit the track name and artist in:
 `src/app/views/main-info/main-info.component.html`
 
 Look for:
+
 ```html
 <h4 class="track-title text-uppercase fw-bold mb-1">Demo Track</h4>
 <p class="artist-name mb-4">Portfolio Music Player</p>
