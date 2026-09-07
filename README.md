@@ -1,27 +1,29 @@
-# Portfoliov2
+# Camilo Arias · K189
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+Portfolio de diseño UX/UI, producto y diseño visual. Angular 18, páginas verticales, movimiento vinculado al scroll y contenido en español e inglés.
 
-## Development server
+## Desarrollo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```sh
+npm install
+npm start
+```
 
-## Code scaffolding
+## Producción y pruebas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+npm run build
+npm test -- --watch=false --browsers=ChromeHeadless
+```
 
-## Build
+La web de producción se genera en `dist/`. Las rutas internas necesitan redirigir a `index.html` en el alojamiento; la configuración de Sites ya incluye ese comportamiento.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Editar contenido
 
-## Running unit tests
+- `src/app/data/projects.ts`: proyectos, herramientas, imágenes y enlaces originales; añadir fotos a `processImages`.
+- `src/app/data/case-studies.ts`: narrativa bilingüe, decisiones y evaluación de cada caso.
+- `src/app/i18n/locale.service.ts`: idioma y preferencia local.
+- [REDESIGN.md](REDESIGN.md): estructura y contenido pendiente.
+- [ASSETS.md](ASSETS.md): procedencia y créditos de las imágenes.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+El formulario prepara un correo a `camiloarias.frg@gmail.com` en la aplicación del visitante. No hay un servicio de envío directo conectado.

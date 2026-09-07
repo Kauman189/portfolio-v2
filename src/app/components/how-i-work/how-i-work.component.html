@@ -1,0 +1,93 @@
+<section class="process-scroll" appScrollScene aria-labelledby="process-title">
+  <div class="process-sticky">
+    <div class="process-top">
+      <h2 id="process-title">
+        {{ t("Cómo trabajo", "How I work") }}<span>.</span>
+      </h2>
+      <span class="eyebrow"
+        >{{ t("De una pregunta", "From a question") }}<br />{{
+          t("a una experiencia.", "to an experience.")
+        }}</span
+      >
+    </div>
+    <div class="process-content">
+      <div class="process-narrative">
+        @for (step of steps; track step.label; let i = $index) {
+          <section
+            class="process-step"
+            [class]="'process-step step-' + i"
+            [id]="'process-step-' + i"
+          >
+            <span class="process-number">0{{ i + 1 }}<span> / 04</span></span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.body }}</p>
+          </section>
+        }
+      </div>
+      <div class="process-visual" aria-hidden="true">
+        <svg viewBox="0 0 420 420" class="process-diagram">
+          <circle class="diagram-orbit" cx="210" cy="210" r="180" />
+          <g class="drawing drawing-0">
+            <path
+              class="diagram-line"
+              d="M105 150 Q210 290 315 150 M105 150 Q210 80 315 150 M210 290 L210 80"
+            />
+            <circle cx="105" cy="150" r="30" />
+            <circle cx="315" cy="150" r="30" />
+            <circle cx="210" cy="290" r="45" class="filled" />
+            <circle cx="210" cy="80" r="10" />
+          </g>
+          <g class="drawing drawing-1">
+            <rect x="85" y="85" width="110" height="110" rx="3" />
+            <rect x="225" y="85" width="110" height="110" rx="3" />
+            <rect x="85" y="225" width="110" height="110" rx="3" />
+            <rect
+              class="filled"
+              x="225"
+              y="225"
+              width="110"
+              height="110"
+              rx="3"
+            />
+            <path d="M210 55V365M55 210H365" class="diagram-line" />
+          </g>
+          <g class="drawing drawing-2">
+            <rect x="80" y="100" width="260" height="220" rx="4" />
+            <path d="M80 138H340M110 118H135M150 118H160" />
+            <rect
+              class="filled"
+              x="105"
+              y="163"
+              width="105"
+              height="128"
+              rx="2"
+            />
+            <path d="M235 173H308M235 195H308M235 217H280M235 270H290" />
+            <path
+              class="diagram-cursor"
+              d="M290 255L302 302L312 286L330 282Z"
+            />
+          </g>
+          <g class="drawing drawing-3">
+            <circle cx="210" cy="210" r="108" />
+            <path class="diagram-check" d="M151 211L194 252L272 165" />
+            <path
+              class="diagram-line"
+              d="M210 55V80M210 340V365M55 210H80M340 210H365"
+            />
+          </g>
+        </svg>
+        <app-living-mark class="process-mark" />
+      </div>
+    </div>
+    <div class="process-navigation" aria-hidden="true">
+      @for (step of steps; track step.label; let i = $index) {
+        <span [class]="'process-nav nav-' + i"
+          ><span>0{{ i + 1 }}</span
+          >{{ step.label }}<span class="nav-dot" aria-hidden="true"></span
+        ></span>
+      }
+    </div>
+    <div class="process-progress" aria-hidden="true"><span></span></div>
+  </div>
+</section>

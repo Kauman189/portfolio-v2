@@ -1,35 +1,58 @@
-<header class="top-header" [class.hidden]="!isHeaderVisible">
-    <div class="header-container">
-      <!-- Sección izquierda - Logo K con estética streetwear -->
-      <div class="header-section left-section">
-        <div class="logo-container">
-            <div class="logo-combined">
-              <span class="logo-hash text-accent"></span><span class="logo-badge">189</span>
-            </div>
-            <div class="logo-name text-uppercase fw-bold">
-              <span class="faded-text">kau</span><span class="text-accent"></span>
-            </div>
-          </div>
-      </div>
-  
-      <!-- Sección central - Carrusel de tecnologías con estilo underground -->
-      <div class="header-section center-section">
-        <div class="tech-showcase">
-          <div class="tech-container">
-            @for (tech of visibleTechnologies; track trackByFn($index, tech)) {
-              <div class="tech-item" [title]="tech.name">
-                <i [class]="tech.logo" [attr.aria-label]="tech.name"></i>
-              </div>
-            }
-          </div>
-        </div>
-      </div>
-
-<!-- Sección derecha - SOLO DECORACION visual con texto DIGITAL CRAFT -->
-<div class="header-section right-section">
-    <div class="visual-element">
-      <div class="corner-text">
-        DIGITAL<br><span>CRAFT</span>
-      </div>
-    </div>
+<a class="skip-link" href="#main-content">{{
+  t("Saltar al contenido", "Skip to content")
+}}</a>
+<header class="site-header" (keydown.escape)="menuOpen = false">
+  <a class="wordmark" routerLink="/" aria-label="K189 — Camilo Arias"
+    >K189<span class="logo-dot"></span></a
+  ><span class="header-description"
+    >{{ t("Diseñador UX/UI y visual", "UX/UI & visual designer") }}<br />{{
+      t("Valencia, España", "Valencia, Spain")
+    }}</span
+  ><button
+    class="menu-toggle"
+    (click)="menuOpen = !menuOpen"
+    [attr.aria-expanded]="menuOpen"
+    aria-controls="primary-navigation"
+  >
+    {{ menuOpen ? t("Cerrar −", "Close −") : t("Menú +", "Menu +") }}
+  </button>
+  <nav
+    id="primary-navigation"
+    [attr.aria-label]="t('Navegación principal', 'Main navigation')"
+    [class.is-open]="menuOpen"
+  >
+    <a routerLink="/projects" routerLinkActive="active"
+      ><span>01</span> {{ t("Proyectos", "Work") }}</a
+    ><a routerLink="/about" routerLinkActive="active"
+      ><span>02</span> {{ t("Sobre mí", "About") }}</a
+    ><a routerLink="/imagine" routerLinkActive="active"
+      ><span>03</span> Imagine</a
+    ><a routerLink="/contact" routerLinkActive="active" class="contact-link"
+      >{{ t("Hablemos", "Let’s talk") }} <span aria-hidden="true">↗</span></a
+    >
+  </nav>
+  <div
+    class="language-switch"
+    role="group"
+    [attr.aria-label]="t('Idioma', 'Language')"
+  >
+    <button
+      (click)="locale.set('es')"
+      [class.selected]="locale.language() === 'es'"
+      [attr.aria-pressed]="locale.language() === 'es'"
+      lang="es"
+      aria-label="Español"
+    >
+      ES</button
+    ><span>/</span
+    ><button
+      (click)="locale.set('en')"
+      [class.selected]="locale.language() === 'en'"
+      [attr.aria-pressed]="locale.language() === 'en'"
+      lang="en"
+      aria-label="English"
+    >
+      EN
+    </button>
   </div>
+</header>

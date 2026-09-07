@@ -1,0 +1,120 @@
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 65px var(--gutter) 25px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  padding-bottom: 60px;
+}
+.footer-invitation {
+  font-size: clamp(35px, 5vw, 75px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+.footer-invitation > span {
+  color: var(--accent);
+}
+.footer-invitation > span:last-child {
+  display: inline-block;
+  transition: transform 0.5s var(--ease);
+}
+.footer-invitation:hover > span:last-child {
+  transform: translate(8px, -8px);
+}
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  font-size: 14px;
+}
+.footer-bottom {
+  padding-top: 22px;
+  border-top: 1px solid #ffffff25;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+  font-size: 11px;
+  color: #b1b1a7;
+}
+.footer-bottom > div {
+  display: flex;
+  gap: 20px;
+}
+.site-footer a:hover {
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .site-footer {
+    padding-top: 40px;
+  }
+  .footer-top {
+    padding-bottom: 40px;
+  }
+  .footer-socials {
+    font-size: 12px;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    gap: 17px;
+  }
+  .footer-bottom > span {
+    display: none;
+  }
+  .footer-bottom > div {
+    gap: 15px;
+  }
+}
+@media (max-width: 380px) {
+  .footer-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .footer-socials {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}
+
+.motion-switch {
+  padding: 0;
+  font-size: 11px;
+  color: inherit;
+}
+.motion-switch:hover {
+  color: var(--accent);
+}
+@media (max-width: 650px) {
+  .footer-bottom > div {
+    flex-wrap: wrap;
+  }
+  .footer-bottom a,
+  .motion-switch {
+    padding: 10px 0;
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 750px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+  .footer-socials {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-socials > a:first-child {
+    flex: 0 0 100%;
+  }
+  .footer-invitation {
+    font-size: 10vw;
+  }
+}

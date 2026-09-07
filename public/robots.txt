@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kauman189.com/sitemap.xml
+Sitemap: https://kauman189.com/sitemap-images.xml

@@ -1,0 +1,215 @@
+<article class="page case-page page-enter">
+  @if (project && study) {
+    <div class="page-topline eyebrow">
+      <a routerLink="/projects"
+        >← {{ t("Todos los proyectos", "All projects") }}</a
+      ><span>{{ l(study.category) }}</span>
+    </div>
+    <header class="case-header">
+      <span class="eyebrow muted">{{ t(project.titleEs, project.title) }}</span>
+      <h1>{{ t(project.shortTitleEs, project.shortTitle) }}<span>.</span></h1>
+      <div>
+        <h2>{{ l(study.headline) }}</h2>
+        <p>{{ l(study.overview) }}</p>
+      </div>
+    </header>
+    <figure class="case-cover" [style.background]="project.color">
+      <img
+        [src]="project.displayImage"
+        [alt]="t(project.titleEs, project.title)"
+        [class.poster]="project.imageFit === 'contain'"
+        width="1500"
+        height="1000"
+        fetchpriority="high"
+      />
+    </figure>
+    <div class="case-context">
+      <div>
+        <span class="eyebrow">{{ t("Mi papel", "My role") }}</span>
+        <p>{{ l(study.role) }}</p>
+      </div>
+      <div>
+        <span class="eyebrow">{{ t("Para quién", "Who it is for") }}</span>
+        <p>{{ l(study.audience) }}</p>
+      </div>
+      <div>
+        <span class="eyebrow">{{ t("Herramientas", "Tools") }}</span>
+        <p>{{ toolsLabel }}</p>
+      </div>
+      <div>
+        <span class="eyebrow">{{ t("Estado", "Status") }}</span>
+        <p>
+          {{
+            project.status
+              ? t("En desarrollo", "In progress")
+              : t("Diseño presentado", "Design presented")
+          }}
+        </p>
+        @if (project.externalUrl) {
+          <a
+            [href]="project.externalUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ t("Ver proyecto", "View project") }} ↗</a
+          >
+        }
+      </div>
+    </div>
+    <section class="case-challenge">
+      <span class="eyebrow"
+        >01 / {{ t("El punto de partida", "The starting point") }}</span
+      >
+      <div>
+        <h2>
+          {{ t("El problema,", "The problem,") }}<br /><span>{{
+            t("antes que la solución.", "before the solution.")
+          }}</span>
+        </h2>
+        <p>{{ l(study.challenge) }}</p>
+      </div>
+    </section>
+    <section class="case-journey">
+      <div class="case-section-head">
+        <span class="eyebrow">02 / {{ t("El recorrido", "The journey") }}</span>
+        <h2>
+          {{ t("Cada paso tiene un porqué.", "Every step has a reason.") }}
+        </h2>
+      </div>
+      <ol class="case-flow">
+        @for (step of study.flow; track $index; let i = $index) {
+          <li>
+            <span class="eyebrow">0{{ i + 1 }}</span>
+            <h3>{{ l(step) }}</h3>
+            <span class="flow-arrow" aria-hidden="true">↗</span>
+          </li>
+        }
+      </ol>
+    </section>
+    <section class="case-decisions">
+      <div class="decisions-title">
+        <span class="eyebrow"
+          >03 / {{ t("Las decisiones", "The decisions") }}</span
+        >
+        <h2>
+          {{ t("Del criterio", "From intent") }}<br />{{
+            t("al detalle.", "to detail.")
+          }}
+        </h2>
+        <app-living-mark variant="frog" />
+      </div>
+      <div>
+        @for (chapter of study.chapters; track $index) {
+          <section class="case-decision">
+            <h3>{{ l(chapter.title) }}</h3>
+            <p>{{ l(chapter.body) }}</p>
+          </section>
+        }
+      </div>
+    </section>
+    <section class="case-visual-study">
+      <figure class="case-detail-image" [style.background]="project.color">
+        <img
+          [src]="project.displayImage"
+          [alt]="l(study.detail)"
+          loading="lazy"
+          width="1440"
+          height="1000"
+        />
+      </figure>
+      <div class="case-detail-caption">
+        <span class="eyebrow">{{ t("Mirar de cerca", "Looking closer") }}</span>
+        <p>{{ l(study.detail) }}</p>
+      </div>
+    </section>
+    <section class="case-results">
+      <div class="case-section-head">
+        <span class="eyebrow"
+          >04 / {{ t("Alcance y evaluación", "Scope and evaluation") }}</span
+        >
+        <h2>
+          {{ t("Diseñar también es", "Design also means") }}<br /><span>{{
+            t("saber qué medir.", "knowing what to measure.")
+          }}</span>
+        </h2>
+      </div>
+      <div class="case-facts">
+        @for (fact of study.facts; track fact.value) {
+          <div>
+            <span>{{ fact.value }}</span>
+            <p>{{ l(fact.label) }}</p>
+          </div>
+        }
+        <div class="metric-pending">
+          <span>—<small>%</small></span>
+          <p>{{ l(study.metric) }}</p>
+          <small>{{
+            t("Resultado aún no medido", "Result not yet measured")
+          }}</small>
+        </div>
+      </div>
+      <div class="case-measurement">
+        <span class="eyebrow">{{
+          t("Cómo lo evaluaría", "How I would evaluate it")
+        }}</span>
+        <p>{{ l(study.measure) }}</p>
+      </div>
+    </section>
+    <section class="case-learning">
+      <span class="eyebrow"
+        >05 / {{ t("Lo que me llevo", "What I take away") }}</span
+      >
+      <h2>{{ l(study.learning) }}</h2>
+    </section>
+    <section class="case-process-gallery">
+      <div class="case-section-head">
+        <span class="eyebrow">{{
+          t("Documentación del proceso", "Process documentation")
+        }}</span>
+        <h2>
+          {{ t("Entre la primera idea", "Between the first idea") }}<br />{{
+            t("y la última versión.", "and the final version.")
+          }}
+        </h2>
+      </div>
+      @if (project.processImages.length) {
+        @for (photo of project.processImages; track photo.src) {
+          <figure>
+            <img [src]="photo.src" [alt]="photo.alt" loading="lazy" />
+            <figcaption>{{ photo.alt }}</figcaption>
+          </figure>
+        }
+      } @else {
+        <div class="case-placeholder">
+          <span class="placeholder-registration" aria-hidden="true">+</span>
+          <p>{{ t("Aquí irá el proceso.", "The process goes here.") }}</p>
+          <span>{{
+            t(
+              "Bocetos, wireframes y pruebas del proyecto. Material pendiente de añadir.",
+              "Sketches, wireframes and project tests. Material to be added."
+            )
+          }}</span
+          ><span class="placeholder-registration last" aria-hidden="true"
+            >+</span
+          >
+        </div>
+      }
+    </section>
+    <a class="next-project" [routerLink]="['/projects', nextProject.slug]"
+      ><span class="eyebrow">{{
+        t("La siguiente historia", "The next story")
+      }}</span>
+      <div>
+        <h2>{{ t(nextProject.shortTitleEs, nextProject.shortTitle) }}</h2>
+        <span aria-hidden="true">↗</span>
+      </div></a
+    >
+  } @else {
+    <span class="eyebrow">404</span>
+    <h1 class="display-title">
+      {{ t("Proyecto no encontrado.", "Project not found.") }}
+    </h1>
+    <a routerLink="/projects" class="text-link"
+      >{{ t("Volver a los proyectos", "Back to projects") }} ↗</a
+    >
+  }
+</article>

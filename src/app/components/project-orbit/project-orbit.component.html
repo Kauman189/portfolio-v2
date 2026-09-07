@@ -1,0 +1,73 @@
+<section
+  class="orbit"
+  [attr.aria-label]="
+    t(
+      'Proyectos seleccionados, galería circular',
+      'Selected projects, circular gallery'
+    )
+  "
+  aria-roledescription="carousel"
+  tabindex="0"
+  (keydown)="onKey($event)"
+  (focusin)="paused = true"
+  (focusout)="onFocusOut($event)"
+>
+  <div
+    class="orbit-stage"
+    [class.is-dragging]="dragging"
+    (pointerdown)="startDrag($event)"
+    (dragstart)="$event.preventDefault()"
+  >
+    <div class="orbit-guide" aria-hidden="true"></div>
+    <div class="orbit-center">
+      <span class="eyebrow"
+        >Camilo Arias<br />{{ t("Valencia, España", "Valencia, Spain") }}</span
+      ><app-living-mark class="center-mark" variant="frog" />
+      <p>UX/UI &amp;<br />{{ t("Diseño visual.", "Visual design.") }}</p>
+    </div>
+    @for (project of projects; track project.slug; let i = $index) {
+      <a
+        #orbitCard
+        class="orbit-card"
+        [class.selected]="i === activeIndex"
+        [href]="'/projects/' + project.slug"
+        (click)="openProject($event, project.slug)"
+        [attr.aria-label]="
+          t('Ver ', 'View ') + t(project.titleEs, project.title)
+        "
+      >
+        <div class="orbit-art" [style.background]="project.color">
+          <img
+            [src]="project.thumbnail"
+            [alt]="t(project.titleEs, project.title)"
+            draggable="false"
+            [style.object-fit]="project.imageFit"
+            width="240"
+            height="170"
+            [attr.fetchpriority]="i === 0 ? 'high' : 'auto'"
+          />
+        </div>
+        <div class="orbit-caption">
+          <span>{{ t(project.shortTitleEs, project.shortTitle) }}</span
+          ><span aria-hidden="true">↗</span>
+        </div>
+      </a>
+    }
+  </div>
+  <div class="orbit-bottom">
+    <span class="eyebrow muted">{{
+      t("Selección 2025—2026.", "Selected work 2025—2026.")
+    }}</span>
+    <div class="current-project" aria-live="off">
+      <span class="project-count"
+        >0{{ activeIndex + 1 }} / 0{{ projects.length }}</span
+      ><a [routerLink]="['/projects', activeProject.slug]"
+        >{{ t(activeProject.shortTitleEs, activeProject.shortTitle) }}
+        <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <span class="eyebrow orbit-scroll"
+      >{{ t("Sigue bajando", "Keep scrolling") }} ↓</span
+    >
+  </div>
+</section>

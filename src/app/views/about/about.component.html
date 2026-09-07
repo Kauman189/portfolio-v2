@@ -1,0 +1,275 @@
+<div class="page about-page page-enter">
+  <div class="page-topline eyebrow">
+    <span>02 / {{ t("Sobre mí", "About") }}</span
+    ><span>Camilo Arias · K189</span>
+  </div>
+  <h1 class="display-title">
+    {{ t("Camilo Arias.", "Camilo Arias.") }}<br /><span class="about-italic">{{
+      t("Diseñador UX/UI.", "UX/UI designer.")
+    }}</span>
+  </h1>
+  <div class="about-main" appScrollScene>
+    <figure class="about-portrait">
+      <img
+        src="/assets/images/optimized/me.webp"
+        [alt]="
+          t(
+            'Camilo fotografiando su reflejo junto a una ventana de aeropuerto',
+            'Camilo photographing his reflection by an airport window'
+          )
+        "
+        width="685"
+        height="900"
+      />
+      <figcaption class="eyebrow">
+        {{
+          t(
+            "Archivo personal / Camilo Arias",
+            "Personal archive / Camilo Arias"
+          )
+        }}
+      </figcaption>
+    </figure>
+    <div class="about-copy">
+      <span class="eyebrow">{{
+        t("Desde Valencia, España", "Based in Valencia, Spain")
+      }}</span>
+      <h2>
+        {{ t("Diseño de producto", "Product design") }}<br />{{
+          t("y desarrollo.", "and development.")
+        }}
+      </h2>
+      <p>
+        {{
+          t(
+            "Soy diseñador UX/UI en Valencia. Trabajo en interfaces, sistemas de diseño y comunicación visual, desde la investigación hasta la implementación.",
+            "I’m a UX/UI designer based in Valencia. I work on interfaces, design systems and visual communication, from research to implementation."
+          )
+        }}
+      </p>
+      <p>
+        {{
+          t(
+            "Mi camino empezó en el desarrollo, donde aprendí a construir experiencias funcionales. El diseño me dio otra manera de abordar los problemas: observar, hacer preguntas y decidir con intención cómo debería sentirse una experiencia.",
+            "My journey started in development, where I learned to build functional experiences. Design gave me another way to approach problems: observe, ask questions and decide intentionally how an experience should feel."
+          )
+        }}
+      </p>
+      <p>
+        {{
+          t(
+            "Trabajo con curiosidad y empatía. Mi proceso conecta investigación, iteración y colaboración. La formación técnica me permite acercar la visión de diseño a lo que finalmente se construye.",
+            "I work with curiosity and empathy. My process connects research, iteration and collaboration. A technical background helps bring the design vision closer to what is ultimately built."
+          )
+        }}
+      </p>
+      <a
+        class="text-link"
+        href="/assets/pdf/Camilo_Arias_Curriculum.pdf"
+        download="Camilo_Arias_CV.pdf"
+        >{{ t("Descargar mi CV", "Download my CV") }}
+        <span aria-hidden="true">↓</span></a
+      >
+    </div>
+  </div>
+  <section class="about-moodboard" appScrollScene>
+    <div class="moodboard-heading">
+      <span class="eyebrow">{{
+        t("Referencias visuales", "Visual references")
+      }}</span>
+      <h2>
+        {{ t("Forma, luz", "Form, light") }}<br /><span>{{
+          t("y color.", "and color.")
+        }}</span>
+      </h2>
+      <p>
+        {{
+          t(
+            "Arquitectura, fotografía y composición. Referencias que acompañan mi trabajo visual.",
+            "Architecture, photography and composition. References that inform my visual work."
+          )
+        }}
+      </p>
+    </div>
+    <figure class="mood-photo mood-architecture">
+      <img
+        src="/assets/images/about/about-mediterranean-architecture.webp"
+        [alt]="
+          t(
+            'Escaleras rosas de La Muralla Roja',
+            'Pink stairs at La Muralla Roja'
+          )
+        "
+        width="960"
+        height="1200"
+        loading="lazy"
+      />
+      <figcaption>
+        La Muralla Roja /
+        <a
+          href="https://unsplash.com/photos/a-pink-room-with-stairs-leading-to-a-door-dXdEcV6Wyqc"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Anthony DEVEL ↗</a
+        >
+      </figcaption>
+    </figure>
+    <figure class="mood-photo mood-shutter">
+      <img
+        src="/assets/images/about/about-valencia-detail.webp"
+        [alt]="
+          t(
+            'Contraventana turquesa en una fachada de Valencia',
+            'Turquoise shutter on a facade in Valencia'
+          )
+        "
+        width="675"
+        height="1200"
+        loading="lazy"
+      />
+      <figcaption>
+        Valencia /
+        <a
+          href="https://unsplash.com/photos/a-white-building-with-blue-shutters-and-a-bench-RgD99mPLWqo"
+          target="_blank"
+          rel="noopener noreferrer"
+          >David Pisnoy ↗</a
+        >
+      </figcaption>
+    </figure>
+    <span class="mood-registration" aria-hidden="true">+</span>
+    <div class="mood-palette" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+    </div>
+  </section>
+  <section class="about-principles" appScrollScene>
+    <div class="principles-heading">
+      <span class="eyebrow">{{ t("Mi práctica", "My practice") }}</span>
+      <h2>
+        {{ t("Del contexto", "From context") }}<br />{{
+          t("a la entrega.", "to delivery.")
+        }}
+      </h2>
+    </div>
+    <div class="principle-card">
+      <span class="eyebrow">01 / {{ t("Investigación", "Research") }}</span>
+      <h3>{{ t("Comprender.", "Understand.") }}</h3>
+      <p>
+        {{
+          t(
+            "Analizar las necesidades, ordenar la información y definir el problema.",
+            "Analyze needs, organize information and define the problem."
+          )
+        }}
+      </p>
+      <span class="principle-drawing drawing-circles" aria-hidden="true"
+        ><i></i><i></i><i></i
+      ></span>
+    </div>
+    <div class="principle-card">
+      <span class="eyebrow">02 / {{ t("Diseño", "Design") }}</span>
+      <h3>{{ t("Desarrollar.", "Develop.") }}</h3>
+      <p>
+        {{
+          t(
+            "Explorar alternativas, prototipar y revisar las decisiones con el equipo.",
+            "Explore alternatives, prototype and review decisions with the team."
+          )
+        }}
+      </p>
+      <span class="principle-drawing drawing-grid" aria-hidden="true"
+        ><i></i><i></i><i></i><i></i
+      ></span>
+    </div>
+    <div class="principle-card">
+      <span class="eyebrow"
+        >03 / {{ t("Implementación", "Implementation") }}</span
+      >
+      <h3>{{ t("Construir.", "Build.") }}</h3>
+      <p>
+        {{
+          t(
+            "Trasladar el diseño al producto y comprobar su comportamiento.",
+            "Translate the design into the product and check its behavior."
+          )
+        }}
+      </p>
+      <span class="principle-drawing drawing-lines" aria-hidden="true"
+        ><i></i><i></i><i></i
+      ></span>
+    </div>
+  </section>
+  <section class="capabilities">
+    <span class="eyebrow">{{
+      t("Cómo doy forma a las ideas", "How I bring ideas to life")
+    }}</span>
+    <div>
+      @for (skill of skills; track skill.name; let i = $index) {
+        <section class="ability">
+          <div>
+            <span class="eyebrow muted">0{{ i + 1 }}</span>
+            <h3>{{ skill.name }}</h3>
+          </div>
+          <p>{{ skill.items }}</p>
+        </section>
+      }
+    </div>
+  </section>
+  <section class="off-duty">
+    <span class="eyebrow">{{
+      t("Fuera de la pantalla", "Away from the screen")
+    }}</span>
+    <div>
+      <h2>
+        {{ t("Fotografía.", "Photography.") }}<br />{{
+          t("Editorial. Música.", "Editorial. Music.")
+        }}
+      </h2>
+      <p>
+        {{
+          t(
+            "Otras maneras de observar, encontrar un ritmo y prestar atención a los detalles.",
+            "Other ways to observe, find a rhythm and pay attention to details."
+          )
+        }}
+      </p>
+      <div class="personal-references">
+        @for (reference of references; track reference.name) {
+          <div>
+            <h3>{{ reference.name }}</h3>
+            <p>{{ reference.items }}</p>
+          </div>
+        }
+        <div>
+          <h3>{{ t("Explorando ahora", "Currently exploring") }}</h3>
+          <p>
+            {{
+              t(
+                "Motion design · Sistemas de diseño · IA en diseño · Accesibilidad · Interfaces 3D",
+                "Motion design · Design systems · AI in design · Accessibility · 3D interfaces"
+              )
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about-listening">
+    <div class="listening-heading">
+      <span class="eyebrow">{{ t("Fuera del trabajo", "Outside work") }}</span>
+      <h2>{{ t("Lo que escucho.", "What I listen to.") }}</h2>
+    </div>
+    <app-music-player />
+  </section>
+  <a routerLink="/imagine" class="about-next"
+    ><span class="eyebrow">{{
+      t("Una historia en movimiento", "A story in motion")
+    }}</span>
+    <h2>
+      {{ t("Experimentos", "Experiments") }}<br />{{
+        t("en movimiento.", "in motion.")
+      }}
+      <span class="accent" aria-hidden="true">↗</span>
+    </h2></a
+  >
+</div>

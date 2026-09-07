@@ -1,1 +1,38 @@
-<p>footer works!</p>
+<footer class="site-footer">
+  <div class="footer-top">
+    <a routerLink="/contact" class="footer-invitation"
+      >{{ t("Proyectos y colaboraciones.", "Projects and collaborations.")
+      }}<br /><span>{{ t("Hablemos.", "Let’s talk.") }}</span>
+      <span aria-hidden="true">↗</span></a
+    >
+    <div class="footer-socials">
+      <a href="mailto:camiloarias.frg@gmail.com"
+        >camiloarias.frg&#64;gmail.com ↗</a
+      ><a
+        href="https://www.behance.net/camiloariasg"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Behance ↗</a
+      ><a
+        href="https://www.linkedin.com/in/camilo-arias-web-developer/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn ↗</a
+      ><a
+        href="https://www.instagram.com/kauman189/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Instagram ↗</a
+      >
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a routerLink="/">© {{ year }} Camilo Arias / K189</a
+    ><span>{{ t("Valencia, España.", "Valencia, Spain.") }}</span>
+    <div>
+      <a routerLink="/legal/terms">{{ t("Términos", "Terms") }}</a
+      ><a routerLink="/legal/privacy">{{ t("Privacidad", "Privacy") }}</a
+      ><a routerLink="/legal/cookies">Cookies</a>
+    </div>
+  </div>
+</footer>

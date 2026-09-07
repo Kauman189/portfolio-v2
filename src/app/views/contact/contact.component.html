@@ -1,238 +1,185 @@
-<!-- Social Media & Contact Section -->
-<section class="social-showcase-section py-5">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12" data-aos="fade-up">
-          <div class="stacked-title">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 3px; font-size: 0.85rem;">05.</h6>
-            <h3 class="fw-bold text-uppercase">CONECTA</h3>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Animated Social Media Grid -->
-      <div class="social-grid">
-        <!-- LinkedIn -->
-        <div class="social-item" data-aos="fade-up">
-          <a href="https://www.linkedin.com/in/camilo-arias-web-developer/" target="_blank" class="social-card linkedin-card">
-            <div class="social-glow"></div>
-            <div class="social-icon-container">
-              <i class="bi bi-linkedin"></i>
-            </div>
-            <div class="social-content">
-              <h4 class="social-platform">LinkedIn</h4>
-              <p class="social-action">Conecta Profesionalmente</p>
-              <div class="social-cta">
-                <span class="btn-minimal">VISITAR</span>
-                <div class="particle-trail"></div>
-              </div>
-            </div>
-            <div class="corner-accent top-left"></div>
-            <div class="corner-accent bottom-right"></div>
-          </a>
-        </div>
-  
-        <!-- Behance -->
-        <div class="social-item" data-aos="fade-up" data-aos-delay="100">
-          <a href="https://www.behance.net/camiloariasg" target="_blank" class="social-card behance-card">
-            <div class="social-glow"></div>
-            <div class="social-icon-container">
-              <i class="bi bi-behance"></i>
-            </div>
-            <div class="social-content">
-              <h4 class="social-platform">Behance</h4>
-              <p class="social-action">Explora mi Portfolio</p>
-              <div class="social-cta">
-                <span class="btn-minimal">VISITAR</span>
-                <div class="particle-trail"></div>
-              </div>
-            </div>
-            <div class="corner-accent top-left"></div>
-            <div class="corner-accent bottom-right"></div>
-          </a>
-        </div>
-  
-        <!-- Instagram -->
-        <div class="social-item" data-aos="fade-up" data-aos-delay="200">
-          <a href="https://instagram.com/kauman189" target="_blank" class="social-card instagram-card">
-            <div class="social-glow"></div>
-            <div class="social-icon-container">
-              <i class="bi bi-instagram"></i>
-            </div>
-            <div class="social-content">
-              <h4 class="social-platform">Instagram</h4>
-              <p class="social-action">Sigue mi creatividad</p>
-              <div class="social-cta">
-                <span class="btn-minimal">VISITAR</span>
-                <div class="particle-trail"></div>
-              </div>
-            </div>
-            <div class="corner-accent top-left"></div>
-            <div class="corner-accent bottom-right"></div>
-          </a>
-        </div>
-      </div>
-  
-      <!-- Digital Noise Canvas -->
-      <div class="digital-noise-container mt-5" data-aos="fade-up">
-        <canvas id="noiseCanvas" class="noise-canvas"></canvas>
-        <div class="noise-overlay">
-          <div class="glitch-text" data-text="Kauman189">Kauman189</div>
-          <div class="connect-text">DISEÑADOR / DESARROLLADOR / CREATIVO</div>
-        </div>
-      </div>
+<div class="page contact-page page-enter">
+  <div class="page-topline eyebrow">
+    <span>04 / {{ t("Contacto", "Contact") }}</span
+    ><span>{{ t("Valencia, España", "Valencia, Spain") }}</span>
+  </div>
+  <div class="contact-heading">
+    <h1>
+      {{ t("Contacto.", "Contact.") }}<br />{{ t("Proyectos y", "Projects and")
+      }}<br /><span>{{ t("colaboraciones.", "collaborations.") }}</span>
+    </h1>
+    <app-living-mark class="contact-mark" />
+  </div>
+  <section class="enquiry-section" aria-labelledby="enquiry-title">
+    <div class="enquiry-intro">
+      <span class="eyebrow">{{
+        t("Empezamos una conversación", "Start a conversation")
+      }}</span>
+      <h2 id="enquiry-title">
+        {{ t("¿Qué tienes", "What do you have") }}<br />{{
+          t("en mente?", "in mind?")
+        }}
+      </h2>
+      <a [href]="'mailto:' + email" class="contact-email"
+        >{{ email }} <span aria-hidden="true">↗</span></a
+      ><app-living-mark class="form-mark" variant="frog" />
     </div>
+    <form #enquiry="ngForm" (ngSubmit)="prepare(enquiry)" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="enquiry-name"
+            >{{ t("Tu nombre", "Your name") }} <span>*</span></label
+          ><input
+            id="enquiry-name"
+            name="name"
+            [(ngModel)]="name"
+            #nameField="ngModel"
+            required
+            maxlength="100"
+            autocomplete="name"
+            [placeholder]="t('¿Cómo te llamas?', 'What should I call you?')"
+            [attr.aria-invalid]="
+              submitted && (nameField.invalid || !name.trim())
+            "
+            aria-describedby="name-error"
+          />
+          @if (submitted && (nameField.invalid || !name.trim())) {
+            <small id="name-error" class="field-error">{{
+              t("Escribe tu nombre.", "Please enter your name.")
+            }}</small>
+          }
+        </div>
+        <div class="form-field">
+          <label for="enquiry-email">Email <span>*</span></label
+          ><input
+            id="enquiry-email"
+            name="email"
+            [(ngModel)]="replyTo"
+            #emailField="ngModel"
+            required
+            email
+            type="email"
+            maxlength="254"
+            autocomplete="email"
+            placeholder="you@example.com"
+            [attr.aria-invalid]="submitted && emailField.invalid"
+            aria-describedby="email-error"
+          />
+          @if (submitted && emailField.invalid) {
+            <small id="email-error" class="field-error">{{
+              t("Escribe un email válido.", "Please enter a valid email.")
+            }}</small>
+          }
+        </div>
+      </div>
+      <fieldset class="service-options">
+        <legend>{{ t("Me interesa", "I’m interested in") }}</legend>
+        @for (option of serviceOptions; track option.id) {
+          <label class="service-choice" [class.chosen]="service === option.id"
+            ><input
+              type="radio"
+              name="service"
+              [value]="option.id"
+              [(ngModel)]="service"
+            /><span>{{ l(option.name) }}</span></label
+          >
+        }
+      </fieldset>
+      <div class="form-field">
+        <label for="enquiry-message"
+          >{{ t("Cuéntame tu idea", "A little about your idea") }}
+          <span>*</span></label
+        ><textarea
+          id="enquiry-message"
+          name="message"
+          [(ngModel)]="message"
+          #messageField="ngModel"
+          required
+          maxlength="1600"
+          rows="4"
+          [placeholder]="
+            t(
+              'La idea, el contexto, los detalles…',
+              'The idea, the context, the details…'
+            )
+          "
+          [attr.aria-invalid]="
+            submitted && (messageField.invalid || !message.trim())
+          "
+          aria-describedby="message-error"
+        ></textarea>
+        @if (submitted && (messageField.invalid || !message.trim())) {
+          <small id="message-error" class="field-error">{{
+            t(
+              "Cuéntame algo sobre el proyecto.",
+              "Tell me a little about your project."
+            )
+          }}</small>
+        }
+      </div>
+      <div class="form-submit">
+        <p>
+          {{
+            t(
+              "Se abre tu aplicación de correo con el mensaje listo para enviar.",
+              "Opens your email app with the message ready to send."
+            )
+          }}
+        </p>
+        <button type="submit" class="send-enquiry">
+          {{ t("Hablemos", "Let’s talk") }} <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+      @if (prepared) {
+        <div class="prepared-message" role="status">
+          <h3>
+            {{ t("Tu mensaje está preparado.", "Your message is ready.") }}
+          </h3>
+          <p>
+            {{
+              t(
+                "Envíalo desde tu aplicación de correo. Si no se abrió, copia el mensaje y envíalo a",
+                "Send it from your email app. If it didn’t open, copy your message and email it to"
+              )
+            }}
+            {{ email }}.
+          </p>
+          <button type="button" class="text-link" (click)="copyDraft()">
+            {{ t("Copiar mensaje", "Copy message") }}
+            <span aria-hidden="true">↗</span>
+          </button>
+          <p aria-live="polite">{{ copyState }}</p>
+          <details>
+            <summary>{{ t("Ver mensaje", "View message") }}</summary>
+            <pre>{{ draft }}</pre>
+          </details>
+        </div>
+      }
+    </form>
   </section>
-  
-  <!-- Footer with animated elements -->
-  <footer class="advanced-footer">
-    <div class="footer-grid-container">
-      <!-- Motion background -->
-      <div class="motion-background">
-        <div class="grid-line horizontal" id="h-line-1"></div>
-        <div class="grid-line horizontal" id="h-line-2"></div>
-        <div class="grid-line horizontal" id="h-line-3"></div>
-        <div class="grid-line vertical" id="v-line-1"></div>
-        <div class="grid-line vertical" id="v-line-2"></div>
-        <div class="grid-line vertical" id="v-line-3"></div>
-        
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="floating-shape shape-3"></div>
-      </div>
-      
-      <div class="container position-relative">
-        <div class="row py-4">
-          <!-- Logo Section -->
-          <div class="col-md-4 mb-4 mb-md-0">
-            <div class="footer-logo" data-aos="fade-up">
-              <div class="logo-symbol">#189</div>
-              <p class="mt-3 mb-0 small-text">Diseñador apasionado por la intersección entre el diseño y la tecnología.</p>
-            </div>
-          </div>
-          
-          <!-- Links Section -->
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h6 class="text-uppercase mb-3 footer-heading" data-aos="fade-up">Navegación</h6>
-            <ul class="footer-links" data-aos="fade-up" data-aos-delay="100">
-              <li><a [routerLink]="['/']" class="footer-link">Inicio</a></li>
-              <li><a [routerLink]="['/main-info']" fragment="about" class="footer-link">Sobre mí</a></li>
-              <li><a [routerLink]="['/projects']" class="footer-link">Proyectos</a></li>
-              <li><a [routerLink]="['/main-info']" fragment="inspiration" class="footer-link">Inspiración</a></li>
-            </ul>
-          </div>
-          
-          <!-- Legal Section -->
-          <div class="col-md-4">
-            <h6 class="text-uppercase mb-3 footer-heading" data-aos="fade-up">Legal</h6>
-            <ul class="footer-links" data-aos="fade-up" data-aos-delay="200">
-              <li><a href="javascript:void(0)" (click)="openModal('terms')" class="footer-link">Términos y condiciones</a></li>
-              <li><a href="javascript:void(0)" (click)="openModal('privacy')" class="footer-link">Política de privacidad</a></li>
-              <li><a href="javascript:void(0)" (click)="openModal('cookies')" class="footer-link">Cookies</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="footer-bottom mt-4 pt-4">
-          <div class="row align-items-center">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <p class="mb-0 copyright">
-                <span class="copyright-symbol">&copy;</span> 2025 Kauman189
-                <span class="d-block d-sm-inline-block mt-2 mt-sm-0">
-                  <span class="dot-separator"></span> Valencia, España.
-                </span>
-              </p>
-            </div>
-            <div class="col-md-6 text-md-end">
-              <div class="scroll-to-top" id="scrollTop">
-                <span class="scroll-text">VOLVER ARRIBA</span>
-                <i class="bi bi-arrow-up"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="contact-bottom">
+    <div>
+      <p>
+        {{ t("Las buenas conversaciones", "Good conversations") }}<br />{{
+          t("pueden empezar por cualquier sitio.", "can start anywhere.")
+        }}
+      </p>
+      <a
+        href="/assets/pdf/Camilo_Arias_Curriculum.pdf"
+        download="Camilo_Arias_CV.pdf"
+        class="text-link"
+        >{{ t("Descargar CV", "Download CV") }}
+        <span aria-hidden="true">↓</span></a
+      >
     </div>
-  </footer>
-  
-<!-- Modales para contenido legal -->
-<div class="modal" [class.show]="activeModal === 'terms'">
-  <div class="modal-backdrop" (click)="closeModal()"></div>
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Términos y Condiciones</h5>
-        <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
-          <i class="bi bi-x"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h6>1. Uso Libre</h6>
-        <p>Este portfolio es de libre acceso y puede ser utilizado como referencia siempre que se mencione la fuente.</p>
-        
-        <h6>2. Propiedad del Contenido</h6>
-        <p>Todo el código, diseño y estructura pertenecen a su creador, pero los íconos y otros recursos visuales son propiedad de terceros y no se reclama ningún derecho sobre ellos.</p>
-        
-        <h6>3. Limitación de Responsabilidad</h6>
-        <p>No se garantiza ningún tipo de responsabilidad sobre el uso del contenido de este sitio. Se proporciona tal cual, sin garantías de ningún tipo.</p>
-        
-        <h6>4. Reutilización</h6>
-        <p>Se permite la reutilización del código y diseño con fines educativos o de inspiración, pero se recomienda dar crédito al autor.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal" [class.show]="activeModal === 'privacy'">
-  <div class="modal-backdrop" (click)="closeModal()"></div>
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Política de Privacidad</h5>
-        <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
-          <i class="bi bi-x"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h6>1. No se recopilan datos</h6>
-        <p>Este sitio no recopila información personal ni almacena datos de usuarios.</p>
-        
-        <h6>2. Uso de la Información</h6>
-        <p>No se procesa ni almacena ninguna información del usuario. Solo se muestra contenido estático.</p>
-        
-        <h6>3. Protección de Datos</h6>
-        <p>Al no recopilar información, no hay datos que proteger. Sin embargo, se recomienda navegar de forma segura en internet.</p>
-        
-        <h6>4. Derechos del Usuario</h6>
-        <p>Los usuarios pueden visualizar y utilizar el sitio libremente sin preocuparse por el tratamiento de datos personales.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal" [class.show]="activeModal === 'cookies'">
-  <div class="modal-backdrop" (click)="closeModal()"></div>
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Política de Cookies</h5>
-        <button type="button" class="modal-close" aria-label="Close" (click)="closeModal()">
-          <i class="bi bi-x"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h6>1. No se usan cookies</h6>
-        <p>Este sitio no utiliza cookies propias ni almacena información del usuario en su dispositivo.</p>
-        
-        <h6>2. Recursos de Terceros</h6>
-        <p>Algunos recursos visuales, como íconos o fuentes, pueden provenir de terceros y estar sujetos a sus propias políticas de privacidad.</p>
-        
-        <h6>3. Control de Cookies</h6>
-        <p>Si deseas revisar las cookies de servicios de terceros, puedes hacerlo a través de la configuración de tu navegador.</p>
-        
-        <h6>4. Transparencia</h6>
-        <p>Este sitio es un portfolio personal y no recopila ni analiza información de los visitantes.</p>
-      </div>
+    <div class="contact-links">
+      @for (link of links; track link.label) {
+        <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+          ><span
+            >{{ link.label }}<small>{{ l(link.note) }}</small></span
+          ><span aria-hidden="true">↗</span></a
+        >
+      }
     </div>
   </div>
 </div>

@@ -1,0 +1,19 @@
+{
+  "name": "Camilo Arias Portfolio",
+  "short_name": "K189 Portfolio",
+  "description": "Portfolio de diseño UX/UI y visual de Camilo Arias",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FF6B35",
+  "background_color": "#FAFAF8",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["design", "portfolio"],
+  "lang": "es",
+  "dir": "ltr"
+}

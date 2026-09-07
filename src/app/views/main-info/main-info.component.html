@@ -1,512 +1,69 @@
-<section class="container-fluid hero-section py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-7 mb-4 mb-lg-0" data-aos="fade-right">
-          <div class="streetwear-badge mb-3">EST. 2025</div>
-          <h6 class="text-uppercase glitch-text" style="letter-spacing: 4px; opacity: 0.7;">
-            UX/UI Designer & Frontend Dev
-         </h6>
-          <h1 class="display-3 fw-bold mb-4 text-uppercase" style="letter-spacing: -1px;">CAMILO<span class="text-accent">.ARIAS</span></h1>
-          <p class="lead mb-4 fw-light">
-            Diseño con alma y propósito. Me inspira crear experiencias que conectan, donde cada detalle cuenta una historia y cada interfaz transmite sensaciones.
-        </p>
-                  
-          <div class="d-flex flex-wrap gap-3 mt-5">
-            <a href="https://linkedin.com/in/camiloarias" class="btn-connect" data-aos="fade-up">
-              <div class="btn-connect-inner">
-                <div class="connect-icon">
-                  <i class="bi bi-linkedin"></i>
-                </div>
-                <div class="connect-text">
-                  <span class="connect-label">Conectemos en</span>
-                  <span class="connect-platform">LinkedIn</span>
-                </div>
-              </div>
-              <div class="btn-connect-arrow">
-                <i class="bi bi-arrow-right"></i>
-              </div>
-            </a>
-          </div>
-
-        </div>
-        <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-          <div class="position-relative border-subtle noise-bg">
-            <div class="glitch-effect"></div>
-            <img src="assets/images/me.png" alt="Camilo Arias" class="img-fluid noise-img">
-                        <div class="position-absolute bottom-0 start-0 p-3 bg-black bg-opacity-75 w-100">
-              <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3">
-                    <a href="https://github.com/Kauman189" target="_blank" class="text-white"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/camilo-arias-web-developer/" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://open.spotify.com/user/kauman190" target="_blank" class="text-white"><i class="bi bi-spotify"></i></a>
-                  </div>
-                <div class="digital-label">DIGITAL / CREATIVE / CODE</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="custom-divider my-5" data-aos="fade-up">
-        <div class="line"></div>
-        <div class="dot"></div>
-        <div class="line"></div>
-      </div>
+<div class="home-page page-enter">
+  <section class="home-intro" aria-labelledby="home-title">
+    <div class="intro-meta">
+      <span class="eyebrow"
+        >UX/UI ·
+        {{
+          t(
+            "Diseño visual · Desarrollo creativo",
+            "Visual design · Creative development"
+          )
+        }}</span
+      >
+    </div>
+    <h1 id="home-title">Camilo Arias<span class="title-period">.</span></h1>
+    <div class="intro-bottom">
+      <span class="eyebrow"
+        >{{ t("Proyectos seleccionados", "Selected work") }}
+        <span class="muted">(06)</span></span
+      >
+      <p>
+        {{ t("Producto digital.", "Digital product.") }}<br />{{
+          t("Diseño visual.", "Visual design.")
+        }}
+      </p>
+      <a routerLink="/projects" class="all-work-link"
+        >{{ t("Todos los proyectos", "All projects") }}
+        <span aria-hidden="true">↗</span></a
+      >
     </div>
   </section>
-  
-  <!-- About Section -->
-  <section class="container-fluid section py-5 skills-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-right">
-          <div class="stacked-title">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 3px; font-size: 0.85rem;">01.</h6>
-            <h3 class="fw-bold text-uppercase mb-4">BIO</h3>
-          </div>
-          <div class="boxed-quote">
-            "El diseño no es solo apariencia, es cómo funciona."
-          </div>
-        </div>
-        <div class="col-md-8" data-aos="fade-left" data-aos-delay="100">
-            <p class="first-letter">Soy un desarrollador web con una fuerte inclinación por el diseño, buscando crear interfaces que no solo sean funcionales, sino también visualmente impactantes. Mi objetivo es fusionar creatividad y usabilidad para ofrecer experiencias digitales que destaquen.</p>
-
-            <p class="mb-5">Aunque mi pasión está en el diseño, también cuento con conocimientos sólidos en desarrollo backend, trabajando con PHP y Symfony, así como en frameworks JavaScript como Angular. Esta combinación me permite construir soluciones completas, donde la estética y la arquitectura técnica van de la mano.</p>
-            
-          <div class="skills-container">
-            <div class="row">
-              <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="skill-box">
-                  <h6 class="text-uppercase">DEV STACK</h6>
-                  <ul class="skill-list">
-                    <li><span class="skill-tag">Angular</span></li>
-                    <li><span class="skill-tag">Symfony</span></li>
-                    <li><span class="skill-tag">Node.js</span></li>
-                    <li><span class="skill-tag">TypeScript</span></li>
-                    <li><span class="skill-tag">JavaScript</span></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="skill-box">
-                  <h6 class="text-uppercase">VISUAL STACK</h6>
-                  <ul class="skill-list">
-                    <li><span class="skill-tag">UI/UX</span></li>
-                    <li><span class="skill-tag">Figma</span></li>
-                    <li><span class="skill-tag">CSS/SCSS</span></li>
-                    <li><span class="skill-tag">Responsive</span></li>
-                    <li><span class="skill-tag">Bootstrap</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <app-project-orbit />
+  <div class="motion-ticker" aria-hidden="true">
+    <div class="motion-ticker-track">
+      <span
+        >{{ t("Diseño de interfaces", "Interface design") }}
+        <app-living-mark />
+        {{ t("Identidad visual", "Visual identity") }}
+        <app-living-mark variant="frog" /></span
+      ><span
+        >{{ t("Diseño de interfaces", "Interface design") }}
+        <app-living-mark />
+        {{ t("Identidad visual", "Visual identity") }}
+        <app-living-mark variant="frog"
+      /></span>
+    </div>
+  </div>
+  <app-how-i-work />
+  <section class="home-statement">
+    <span class="eyebrow">{{ t("Sobre mí", "About") }}</span>
+    <div>
+      <h2>
+        {{ t("Diseño UX/UI", "UX/UI design") }}<br />{{ t("y", "and") }}
+        <span>{{ t("desarrollo.", "development.") }}</span>
+      </h2>
+      <p>
+        {{
+          t(
+            "Soy diseñador UX/UI con formación técnica y una conexión especial con la fotografía, el diseño editorial y esos detalles que hacen que una experiencia parezca sencilla.",
+            "I’m a UX/UI designer with a technical background and a connection to photography, editorial design and the details that make an experience feel effortless."
+          )
+        }}
+      </p>
+      <a routerLink="/about" class="text-link"
+        >{{ t("Un poco sobre mí", "A little about me") }}
+        <span aria-hidden="true">↗</span></a
+      >
     </div>
   </section>
-  
-  <!-- Projects Section -->
-  <section class="container-fluid section py-5 projects-section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12" data-aos="fade-up">
-          <div class="stacked-title">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 3px; font-size: 0.85rem;">02.</h6>
-            <h3 class="fw-bold text-uppercase">PROYECTOS</h3>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Project 1 -->
-      <div class="row align-items-center mb-5 pb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <div class="project-card">
-            <div class="project-number"></div>
-            <img src="assets/images/landing.png" alt="Newsletter Autotok" class="img-fluid">
-            <div class="project-overlay">
-              <div class="project-actions">
-                <a href="https://autotok.net" class="icon-btn"><i class="bi bi-link-45deg"></i></a>
-                <a href="https://github.com/autotok" class="icon-btn"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100">
-          <h6 class="text-uppercase text-accent mb-2 fw-bold">Angular / Node.js</h6>
-          <h4 class="fw-bold text-uppercase mb-3">Autotok - Newsletter</h4>
-          <p class="mb-4">He desarrollado la web de AutoTok, una plataforma diseñada para automatizar la creación de videos para TikTok. Usando Symfony, MySQL, HTML, CSS y JavaScript, he construido una interfaz optimizada y minimalista, asegurando una experiencia fluida y atractiva. Suscríbete con tu correo para recibir actualizaciones y ser el primero en conocer el lanzamiento oficial.</p>
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="tech-pill">Angular</span>
-            <span class="tech-pill">TypeScript</span>
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">Express</span>
-            <span class="tech-pill">Nodemailer</span>
-            <span class="tech-pill">SMTP</span>
-        </div>        
-          <a href="https://autotok.net" class="btn btn-sm btn-outline-minimal text-uppercase">Explorar</a>
-        </div>
-      </div>
-  
-      <!-- Project 2 -->
-      <div class="row align-items-center mb-5 pb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <div class="col-md-5 mb-4 mb-md-0 order-md-1">
-          <h6 class="text-uppercase text-accent mb-2 fw-bold">Angular / Symfony</h6>
-          <h4 class="fw-bold text-uppercase mb-3">DASHBOARD - AutoTok</h4>  
-          <p class="mb-4">Dashboard desarrollado con Angular y Symfony para visualizar métricas y estadísticas sobre la automatización de videos en AutoTok.</p>          
-          
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="tech-pill">Angular</span>
-            <span class="tech-pill">TypeScript</span>
-            <span class="tech-pill">Symfony</span>
-            <span class="tech-pill">API Platform</span>
-            <span class="tech-pill">MySQL</span>
-            <span class="tech-pill">Chart.js</span>
-            <span class="tech-pill">NGX Charts</span>
-          </div>
-          
-          <a href="#" class="btn btn-sm btn-outline-minimal text-uppercase">Explorar</a>
-        </div>
-        <div class="col-md-6 offset-md-1 order-md-0" data-aos="fade-right" data-aos-delay="100">
-          <div class="project-card">
-            <div class="project-number"></div>
-            <img src="/assets/images/dashboard.png" alt="Hyper Store Project" class="img-fluid">
-            <div class="project-overlay">
-              <div class="project-actions">
-                <a href="https://autotok.net" class="icon-btn"><i class="bi bi-link-45deg"></i></a>
-                <a href="https://github.com/autotok" class="icon-btn"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Project 3 -->
-      <div class="row align-items-center mb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <div class="project-card">
-            <div class="project-number"></div>
-            <img src="/assets/images/lemon.jpg" alt="Figma Design" class="img-fluid" style="filter: grayscale(100%);">            <div class="project-overlay">
-              <div class="project-actions">
-                <a href="#" class="icon-btn"><i class="bi bi-link-45deg"></i></a>
-                <a href="#" class="icon-btn"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100">
-          <h6 class="text-uppercase text-accent mb-2 fw-bold">FIGMA</h6>
-          <h4 class="fw-bold text-uppercase mb-3">LEMON SODA DESIGN</h4>  
-          <p class="mb-4">Diseño en Figma inspirado en las revistas de anime y los fanzines digitales, con tipografías llamativas y composiciones dinámicas.</p>          
-         
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="tech-pill">Figma</span>
-          </div>
-          
-          <a href="https://www.behance.net/camiloariasg" class="btn btn-sm btn-outline-minimal text-uppercase">Explorar</a>
-        </div>
-      </div>
-      
-      <div class="row mt-5 pt-4">
-        <div class="col-12 text-center">
-            <p class="arrow-link" data-aos="fade-up">
-
-            </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Hobbies Section -->
-  <section class="container-fluid section py-5 interests-section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12" data-aos="fade-up">
-          <div class="stacked-title">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 3px; font-size: 0.85rem;">03.</h6>
-            <h3 class="fw-bold text-uppercase">INTERESES</h3>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-right">
-          <div class="boxed-interest">
-            <div class="interest-icon">
-              <i class="bi bi-camera"></i>
-            </div>
-            <h5 class="text-uppercase fw-bold mt-3">Fotografía</h5>
-            <p class="mb-0">
-                Capturando paisajes y rincones donde la luz y la sombra cuentan historias. Me atraen las atmósferas oscuras, los contrastes y las sensaciones que emergen en cada encuadre.
-            </p> 
-            </div>
-        </div>
-        <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-          <div class="boxed-interest">
-            <div class="interest-icon">
-              <i class="bi bi-book"></i>
-            </div>
-            <h5 class="text-uppercase fw-bold mt-3">Diseño Editorial</h5>
-            <p class="mb-0">
-                Explorando revistas de moda, diseño y cultura visual. Me inspira estar al día, descubrir nuevas tendencias y aprender de la creatividad que surge en cada rincón del mundo.
-            </p>
-            </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-left" data-aos-delay="200">
-          <div class="boxed-interest">
-            <div class="interest-icon">
-              <i class="bi bi-music-note-beamed"></i>
-            </div>
-            <h5 class="text-uppercase fw-bold mt-3">Música</h5>
-            <p class="mb-0">
-                La música me inspira y define quién soy. Desde el underground hasta el techo o rock, cada sonido crea experiencias y formas de expresión que me impulsan a diseñar e innovar.
-            </p>
-            </div>
-        </div>
-      </div>
-      
-      <!-- Music Player -->
-      <div class="row mt-5" data-aos="fade-up">
-        <div class="col-lg-10 offset-lg-1">
-          <div class="music-player-container">
-            <!-- Audio element (hidden) -->
-            <audio id="audio-player" preload="metadata">
-              <source src="https://audio-previews.elements.envatousercontent.com/files/282162891/preview.mp3" type="audio/mpeg">
-              Tu navegador no soporta el elemento de audio.
-            </audio>
-            
-            <div class="row align-items-center">
-              <div class="col-md-4 mb-4 mb-md-0">
-                <div class="album-art">
-                    <img src="assets/images/pucho.jpg" alt="Vinilo" class="img-fluid">                  <div class="album-overlay">
-                    <div class="vinyl-center"></div>
-                    <div class="vinyl-grooves"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="player-info">
-                  <h6 class="text-uppercase text-accent">NOW PLAYING</h6>
-                  <h4 class="track-title text-uppercase fw-bold mb-1">Tú Me Dejaste De Querer</h4>
-                  <p class="artist-name mb-4">C. Tangana, Niño de Elche, La Húngara</p>
-                  
-                  <div class="player-controls">
-                    <div class="progress-container mb-3">
-                      <div class="progress-bg" id="progress-container">
-                        <div class="progress-bar" id="song-progress"></div>
-                      </div>
-                      <div class="time-info d-flex justify-content-between mt-1">
-                        <small class="current-time">0:00</small>
-                        <small class="duration">3:41</small>
-                      </div>
-                    </div>
-                    
-                    <div class="player-buttons">
-                      <button class="control-btn" id="prev-btn">
-                        <i class="bi bi-skip-backward-fill"></i>
-                      </button>
-                      <button class="control-btn play-btn" id="play-btn">
-                        <i class="bi bi-play-fill" id="play-icon"></i>
-                      </button>
-                      <button class="control-btn" id="next-btn">
-                        <i class="bi bi-skip-forward-fill"></i>
-                      </button>
-                      <div class="volume-container">
-                        <i class="bi bi-volume-up" id="volume-icon"></i>
-                        <div class="volume-slider">
-                          <div class="volume-bg" id="volume-container">
-                            <div class="volume-level" id="volume-level"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Inspiration Section -->
-<section class="container-fluid section py-5 inspiration-section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12" data-aos="fade-up">
-          <div class="stacked-title">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 3px; font-size: 0.85rem;">04.</h6>
-            <h3 class="fw-bold text-uppercase">INSPIRACIÓN</h3>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Grid de Inspiraciones -->
-      <div class="inspiration-grid">
-        <!-- Inspiración 1: Diseño Minimalista -->
-        <div class="inspiration-item" data-aos="fade-up">
-          <div class="inspiration-card">
-            <div class="inspiration-image">
-              <img src="/assets/images/minimalismo.webp" alt="Diseño Minimalista">
-              <div class="inspiration-overlay">
-                <div class="overlay-content">
-                  <h5 class="text-uppercase fw-bold">Minimalismo</h5>
-                  <p class="mb-0">Menos es más</p>
-                </div>
-              </div>
-            </div>
-            <div class="inspiration-badge">01</div>
-          </div>
-        </div>
-        
-        <!-- Inspiración 2: Tipografía Experimental -->
-        <div class="inspiration-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="inspiration-card">
-            <div class="inspiration-image">
-              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tipografía Experimental">
-              <div class="inspiration-overlay">
-                <div class="overlay-content">
-                  <h5 class="text-uppercase fw-bold">Tipografía</h5>
-                  <p class="mb-0">Expresión visual del lenguaje</p>
-                </div>
-              </div>
-            </div>
-            <div class="inspiration-badge">02</div>
-          </div>
-        </div>
-        
-        <!-- Inspiración 3: Neo-Futurismo Minimalista -->
-        <div class="inspiration-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="inspiration-card">
-            <div class="inspiration-image">
-              <img src="/assets/images/cyberpunk.jpg" alt="Neo-Futurismo Minimalista">
-              <div class="inspiration-overlay">
-                <div class="overlay-content">
-                  <h5 class="text-uppercase fw-bold">Neo-Futurismo Minimalista</h5>
-                  <p class="mb-0">Líneas limpias, geometría audaz y estética tecnológico</p>
-                </div>
-              </div>
-            </div>
-            <div class="inspiration-badge">03</div>
-          </div>
-        </div>
-      </div>
-      <!-- Carrusel de Citas Inspiradoras -->
-      <div class="quotes-carousel mt-5 pt-4" data-aos="fade-up">
-        <div class="quote-container active" id="quote1">
-            <blockquote>
-                "Design is the method of putting form and content together."  
-                <cite>— Paul Rand</cite>
-            </blockquote>
-        </div>
-        <div class="quote-container" id="quote2">
-            <blockquote>
-                "The best way to predict the future is to invent it."  
-                <cite>— Alan Kay</cite>
-            </blockquote>
-        </div>
-        <div class="quote-container" id="quote3">
-            <blockquote>
-              "Code is like humor. When you have to explain it, it’s bad."  
-              <cite>— Cory House</cite>
-          </blockquote>  
-        </div>
-        <div class="quote-container" id="quote4">
-            <blockquote>
-                "Good design is as little design as possible."  
-                <cite>— Dieter Rams</cite>
-            </blockquote>
-        </div>
-        <div class="quote-container" id="quote5">
-            <blockquote>
-                "Code is like humor. When you have to explain it, it’s bad."  
-                <cite>— Cory House</cite>
-            </blockquote>
-        </div>
-        <div class="carousel-indicators">
-            <button class="indicator active" data-target="quote1"></button>
-            <button class="indicator" data-target="quote2"></button>
-            <button class="indicator" data-target="quote3"></button>
-            <button class="indicator" data-target="quote4"></button>
-            <button class="indicator" data-target="quote5"></button>
-        </div>
-    </div>
-    
-      
-      <!-- Sección de Referencias Interactiva -->
-      <div class="references-section mt-5 pt-3">
-        <div class="row align-items-center">
-          <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
-            <div class="reference-tabs">
-              <div class="tab-header">
-                <button class="tab-btn active" data-tab="design">Diseño</button>
-                <button class="tab-btn" data-tab="motion">Motion</button>
-                <button class="tab-btn" data-tab="type">Tipografía</button>
-              </div>
-              <div class="tab-content">
-                <div class="tab-pane active" id="design">
-                  <ul class="reference-list">
-                    <li class="reference-item">
-                      <span class="reference-title">Dieter Rams</span>
-                      <span class="reference-desc">Principios de buen diseño</span>
-                    </li>
-                    <li class="reference-item">
-                      <span class="reference-title">Kenya Hara</span>
-                      <span class="reference-desc">Estética del vacío</span>
-                    </li>
-                    <li class="reference-item">
-                      <span class="reference-title">Bauhaus</span>
-                      <span class="reference-desc">Forma y función</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-pane" id="motion">
-                  <ul class="reference-list">
-                    <li class="reference-item">
-                      <span class="reference-title">Saul Bass</span>
-                      <span class="reference-desc">Secuencias de títulos icónicas</span>
-                    </li>
-                    <li class="reference-item">
-                      <span class="reference-title">Buck Design</span>
-                      <span class="reference-desc">Animación moderna</span>
-                    </li>
-                    <li class="reference-item">
-                      <span class="reference-title">Elastic</span>
-                      <span class="reference-desc">Diseño de motion graphics</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-pane" id="type">
-                  <ul class="reference-list">
-                    <li class="reference-item">
-                      <span class="reference-title">Herb Lubalin</span>
-                      <span class="reference-desc">Tipografía expresiva</span>
-                    </li>
-                    <li class="reference-item">
-                      <span class="reference-title">Erik Spiekermann</span>
-                      <span class="reference-desc">Sistemas tipográficos</span>
-                    </li>
-                    <li class="reference-item">
-                      <span class="reference-title">Zuzana Licko</span>
-                      <span class="reference-desc">Tipografía digital</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
-            <div class="interactive-element">
-              <div class="parallax-container">
-                <div class="parallax-layer layer-1" data-speed="0.5"></div>
-                <div class="parallax-layer layer-2" data-speed="0.8"></div>
-                <div class="parallax-layer layer-3" data-speed="1.2"></div>
-                <div class="parallax-text">EXPLORA</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+</div>
