@@ -1,47 +1,25 @@
-<article class="imagine-film page-enter">
+<article class="imagine-film page-enter" [class.with-fallback]="unavailable()">
   <header class="film-opening">
-    <div class="film-topline eyebrow">
-      <span>03 / Imagine</span
-      ><span>{{
-        t("Una pequeña película al bajar", "A little film as you scroll")
-      }}</span>
-    </div>
-    <div class="film-title-row">
-      <h1>
-        {{ t("Un encuentro", "A little") }}<br /><span>{{
-          t("pequeñito.", "encounter.")
-        }}</span>
-      </h1>
-      <div class="film-dedication">
-        <svg viewBox="0 0 100 90" aria-hidden="true">
-          <path
-            d="M50 81C39 70 5 47 5 26 5 3 36-3 50 18 64-3 95 3 95 26 95 47 61 70 50 81Z"
-          />
-        </svg>
-        <p>
-          {{ t("Dos ranas. Un estanque.", "Two frogs. One pond.") }}<br />{{
-            t("Todo el tiempo del mundo.", "All the time in the world.")
-          }}
-        </p>
-      </div>
-    </div>
-    <div class="film-intro-bottom">
-      <span class="eyebrow"
-        >Milo & June / {{ t("Una historia de amor", "A love story") }}</span
-      >
-      <p>
-        {{
-          t(
-            "Tú bajas. Ellas se encuentran.",
-            "You scroll. They find each other."
-          )
-        }}
-        <span aria-hidden="true">↓</span>
-      </p>
-    </div>
+    <h1>
+      {{ t("La distancia", "The distance") }}<br />{{
+        t("entre dos.", "between two.")
+      }}
+    </h1>
+    <p>
+      {{
+        t(
+          "Un pequeño estudio sobre la atención, el espacio y el tiempo.",
+          "A small study of attention, space and time."
+        )
+      }}
+    </p>
+    <span class="film-scroll-hint"
+      >{{ t("La historia continúa al bajar", "Scroll to follow the story") }}
+      <app-icon name="down"
+    /></span>
   </header>
-  <div #film class="film-reel" [class.with-fallback]="unavailable()">
-    <div #stage class="film-stage" aria-hidden="true">
+  <div class="film-reel" #film>
+    <div class="film-stage" #stage aria-hidden="true">
       <canvas #canvas [class.ready]="ready()"></canvas>
       @if (!ready()) {
         <div class="film-fallback">
@@ -54,63 +32,53 @@
         </div>
       }
       <div class="film-grain"></div>
-      <div class="film-frame">
-        <span>IMAGINE / 001</span><span>MILO + JUNE</span>
-      </div>
-      <div class="film-progress"><i></i></div>
-      <div class="film-running-time">
-        {{ t("Una cosa lleva a la otra.", "One thing leads to another.") }}
-      </div>
     </div>
     <div class="film-narration">
       @for (chapter of chapters; track $index; let i = $index) {
         <section class="film-chapter" [attr.aria-labelledby]="'chapter-' + i">
           <div class="chapter-copy">
-            <span class="eyebrow chapter-number"
-              >{{ i + 1 < 10 ? "0" : "" }}{{ i + 1 }} / 12</span
-            >
             <h2 [id]="'chapter-' + i">{{ l(chapter.title) }}</h2>
             <p>{{ l(chapter.text) }}</p>
-            <span class="chapter-note">{{ l(chapter.note) }}</span>
+            @if (chapter.source) {
+              <cite
+                ><a
+                  href="https://www.cervantesvirtual.com/obra-visor/la-verdad-en-la-poesa-de-antonio-machado-de-la-rima-al-proverbio-0/html/022123c6-82b2-11df-acc7-002185ce6064_4.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Antonio Machado · Nuevas canciones</a
+                >
+                @if (locale.language() === "en") {
+                  <span>English translation for this piece.</span>
+                }
+              </cite>
+            }
           </div>
         </section>
       }
     </div>
   </div>
   <section class="film-credits">
-    <span class="eyebrow">{{ t("Fin. Por ahora.", "The end. For now.") }}</span>
-    <h2>
-      {{ t("A veces, basta", "Sometimes, all it takes") }}<br />{{
-        t("con ", "is a ")
-      }}<span>{{ t("acercarse.", "little courage.") }}</span>
-    </h2>
-    <div class="credits-bottom">
-      <p>
-        {{
-          t(
-            "Una historia pequeña hecha para perder un poco el tiempo. Personajes, escenario y movimiento creados para Imagine.",
-            "A small story made for spending a little time. Characters, scenery and motion created for Imagine."
-          )
-        }}
-      </p>
-      <a routerLink="/contact" class="text-link"
-        >{{ t("Hacemos algo juntos", "Let’s make something together") }}
-        <span>↗</span></a
-      >
-    </div>
+    <h2>{{ t("Todo encuentra su sitio.", "Everything finds its place.") }}</h2>
+    <p>
+      {{
+        t(
+          "Personajes, movimiento y textos originales de Camilo Arias. Con un verso de Antonio Machado.",
+          "Original characters, movement and prose by Camilo Arias. With a verse by Antonio Machado."
+        )
+      }}
+    </p>
+    <a routerLink="/" class="text-link"
+      >{{ t("Volver al inicio", "Back home") }} <app-icon name="right"
+    /></a>
     @if (unavailable()) {
       <p class="render-note">
         {{
           t(
-            "Este dispositivo muestra la versión ilustrada. La historia completa sigue aquí.",
-            "This device is showing the illustrated version. The whole story is still here."
+            "Este dispositivo muestra la versión ilustrada. Puedes seguir leyendo la historia.",
+            "This device is showing the illustrated version. You can still read the story."
           )
         }}
       </p>
     }
-    <span class="film-colophon"
-      >IMAGINE / CAMILO ARIAS / {{ t("Hecho con calma", "Made with care") }}
-      <span aria-hidden="true">♡</span></span
-    >
   </section>
 </article>

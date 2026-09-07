@@ -1,3 +1,4 @@
+import { IconComponent } from '../../components/icon/icon.component';
 import { Localized } from '../../i18n/locale.service';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -6,7 +7,7 @@ import { ElementRef } from '@angular/core';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, LivingMarkComponent],
+  imports: [IconComponent, FormsModule, LivingMarkComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
@@ -37,7 +38,7 @@ export class ContactComponent extends Localized {
         'Empezamos una conversación',
         'Let’s start a conversation',
       ] as const,
-      url: 'https://www.linkedin.com/in/camilo-arias-web-developer/',
+      url: 'https://www.linkedin.com/in/camilo-arias189/',
     },
     {
       label: 'Behance',

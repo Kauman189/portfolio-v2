@@ -1,6 +1,6 @@
 <div class="page work-page page-enter">
   <div class="page-topline eyebrow">
-    <span>01 / {{ t("Proyectos", "Work") }}</span
+    <span>{{ t("Proyectos", "Work") }}</span
     ><span>2025 — 2026</span>
   </div>
   <header class="work-heading">
@@ -20,95 +20,96 @@
         }}
       </p>
       <span class="eyebrow"
-        >{{ t("Archivo / 06 proyectos", "Archive / 06 projects") }} ↓</span
-      >
+        >{{ t("Archivo / 06 proyectos", "Archive / 06 projects") }}
+        <app-icon name="down"
+      /></span>
     </div>
   </header>
-  <div class="work-stream">
-    @for (project of projects; track project.slug; let i = $index) {
-      <article
-        class="work-chapter"
-        [class.work-feature]="i === 0 || i === 4"
-        [class.work-poster]="i === 1 || i === 3"
-        [class.work-reverse]="i === 3"
-        [class.work-panorama]="i === 2"
-        [class.work-dashboard]="i === 5"
-        appScrollScene
-        [style.--project-color]="project.color"
-      >
-        <div class="work-story">
-          <span class="work-number">0{{ i + 1 }}<span> / 06</span></span>
-          <p class="eyebrow muted">{{ l(cases[project.slug].category) }}</p>
-          <h2>
-            <a [routerLink]="['/projects', project.slug]"
-              >{{ t(project.shortTitleEs, project.shortTitle)
-              }}<span aria-hidden="true">↗</span></a
-            >
-          </h2>
-          <h3>{{ l(cases[project.slug].headline) }}</h3>
-          <p class="work-excerpt">{{ l(cases[project.slug].overview) }}</p>
-          <a [routerLink]="['/projects', project.slug]" class="text-link"
-            >{{ t("Dentro del proyecto", "Inside the project") }}
-            <span aria-hidden="true">↗</span></a
-          >
-        </div>
-        <div class="work-visuals">
-          <a
-            class="work-picture"
-            [class.print-picture]="project.imageFit === 'contain'"
-            [routerLink]="['/projects', project.slug]"
-            ><img
-              [src]="project.displayImage"
-              [alt]="t(project.titleEs, project.title)"
-              [style.object-fit]="project.imageFit"
-              width="1000"
-              height="850"
-              loading="lazy"
-            /><span class="image-register" aria-hidden="true">+</span></a
-          >
-          @if (i === 0 || i === 5) {
-            <figure class="work-detail">
-              <div>
-                <img
-                  [src]="project.thumbnail"
-                  [alt]="l(cases[project.slug].detail)"
-                  loading="lazy"
-                  width="900"
-                  height="650"
-                />
-              </div>
-              <figcaption>
-                <span class="eyebrow">{{
-                  t("El detalle también cuenta.", "The details count, too.")
-                }}</span>
-                <p>{{ l(cases[project.slug].detail) }}</p>
-              </figcaption>
-            </figure>
-          }
-        </div>
-      </article>
-      @if (i === 2) {
-        <div class="work-interlude">
-          <span class="eyebrow">{{
-            t("Del producto al papel", "From product to paper")
-          }}</span>
-          <p>
-            {{ t("Otra escala.", "A different scale.") }}<br /><span>{{
-              t("Otro formato.", "A different format.")
+  @if (mobile()) {
+    <app-project-index [projects]="projects" />
+  } @else {
+    <div class="work-stream">
+      @for (project of projects; track project.slug; let i = $index) {
+        <article
+          class="work-chapter"
+          [class.work-feature]="i === 0 || i === 4"
+          [class.work-poster]="i === 1 || i === 3"
+          [class.work-reverse]="i === 3"
+          [class.work-panorama]="i === 2"
+          [class.work-dashboard]="i === 5"
+          appScrollScene
+          [style.--project-color]="project.color"
+        >
+          <div class="work-story">
+            <span class="work-number">0{{ i + 1 }}<span> / 06</span></span>
+            <p class="eyebrow muted">{{ l(cases[project.slug].category) }}</p>
+            <h2>
+              <a [routerLink]="['/projects', project.slug]"
+                >{{ t(project.shortTitleEs, project.shortTitle)
+                }}<span aria-hidden="true"><app-icon name="up-right" /></span
+              ></a>
+            </h2>
+            <h3>{{ l(cases[project.slug].headline) }}</h3>
+            <p class="work-excerpt">{{ l(cases[project.slug].overview) }}</p>
+            <a [routerLink]="['/projects', project.slug]" class="text-link"
+              >{{ t("Dentro del proyecto", "Inside the project") }}
+              <span aria-hidden="true"><app-icon name="up-right" /></span
+            ></a>
+          </div>
+          <div class="work-visuals">
+            <a
+              class="work-picture"
+              [class.print-picture]="project.imageFit === 'contain'"
+              [routerLink]="['/projects', project.slug]"
+              ><img
+                [src]="project.displayImage"
+                [alt]="t(project.titleEs, project.title)"
+                [style.object-fit]="project.imageFit"
+                width="1000"
+                height="850"
+                loading="lazy"
+            /></a>
+            @if (i === 0 || i === 5) {
+              <figure class="work-detail">
+                <div>
+                  <img
+                    [src]="project.thumbnail"
+                    [alt]="l(cases[project.slug].detail)"
+                    loading="lazy"
+                    width="900"
+                    height="650"
+                  />
+                </div>
+                <figcaption>
+                  <span class="eyebrow">{{
+                    t("El detalle también cuenta.", "The details count, too.")
+                  }}</span>
+                  <p>{{ l(cases[project.slug].detail) }}</p>
+                </figcaption>
+              </figure>
+            }
+          </div>
+        </article>
+        @if (i === 2) {
+          <div class="work-interlude">
+            <span class="eyebrow">{{
+              t("Del producto al papel", "From product to paper")
             }}</span>
-          </p>
-          <app-living-mark variant="frog" />
-        </div>
+            <p>
+              {{ t("Otra escala.", "A different scale.") }}<br /><span>{{
+                t("Otro formato.", "A different format.")
+              }}</span>
+            </p>
+            <app-living-mark variant="frog" />
+          </div>
+        }
       }
-    }
-  </div>
+    </div>
+  }
   <div class="work-end">
-    <span class="eyebrow">{{
-      t("Entre un proyecto y el siguiente", "Between one project and the next")
-    }}</span
-    ><a class="work-end-link" routerLink="/imagine"
-      >{{ t("Hay espacio para imaginar.", "There is room to imagine.") }}
-      <span aria-hidden="true">↗</span></a
-    >
+    <a class="work-end-link" routerLink="/contact"
+      >{{ t("Cuéntame tu proyecto.", "Tell me about your project.") }}
+      <app-icon
+    /></a>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="page about-page page-enter">
   <div class="page-topline eyebrow">
-    <span>02 / {{ t("Sobre mí", "About") }}</span
+    <span>{{ t("Sobre mí", "About") }}</span
     ><span>Camilo Arias · K189</span>
   </div>
   <h1 class="display-title">
@@ -39,39 +39,71 @@
           t("y desarrollo.", "and development.")
         }}
       </h2>
+      <p>{{ l(profile.intro) }}</p>
+      <p>{{ l(profile.current) }}</p>
       <p>
         {{
           t(
-            "Soy diseñador UX/UI en Valencia. Trabajo en interfaces, sistemas de diseño y comunicación visual, desde la investigación hasta la implementación.",
-            "I’m a UX/UI designer based in Valencia. I work on interfaces, design systems and visual communication, from research to implementation."
+            "Antes trabajé en herramientas de investigación para JKU en Austria. Mi formación técnica me ayuda a llevar el diseño al producto, revisar los detalles con el equipo y entender qué necesita cada interfaz para funcionar.",
+            "Previously, I worked on research tools at JKU in Austria. My technical background helps me bring design into the product, work through details with the team and understand what each interface needs to work."
           )
         }}
       </p>
-      <p>
-        {{
-          t(
-            "Mi camino empezó en el desarrollo, donde aprendí a construir experiencias funcionales. El diseño me dio otra manera de abordar los problemas: observar, hacer preguntas y decidir con intención cómo debería sentirse una experiencia.",
-            "My journey started in development, where I learned to build functional experiences. Design gave me another way to approach problems: observe, ask questions and decide intentionally how an experience should feel."
-          )
-        }}
-      </p>
-      <p>
-        {{
-          t(
-            "Trabajo con curiosidad y empatía. Mi proceso conecta investigación, iteración y colaboración. La formación técnica me permite acercar la visión de diseño a lo que finalmente se construye.",
-            "I work with curiosity and empathy. My process connects research, iteration and collaboration. A technical background helps bring the design vision closer to what is ultimately built."
-          )
-        }}
-      </p>
-      <a
-        class="text-link"
-        href="/assets/pdf/Camilo_Arias_Curriculum.pdf"
-        download="Camilo_Arias_CV.pdf"
+      <a class="text-link" [href]="cvUrl" download
         >{{ t("Descargar mi CV", "Download my CV") }}
-        <span aria-hidden="true">↓</span></a
-      >
+        <span aria-hidden="true"><app-icon name="down" /></span
+      ></a>
     </div>
   </div>
+  <section class="about-experience" aria-labelledby="experience-title">
+    <h2 id="experience-title">{{ t("Experiencia", "Experience") }}</h2>
+    <div>
+      @for (item of experience; track item.company) {
+        <article class="experience-entry">
+          <div class="experience-meta">
+            <h3>{{ item.company }}</h3>
+            <span>{{ l(item.dates) }}</span>
+          </div>
+          <p class="experience-role">{{ l(item.role) }}</p>
+          <p>{{ l(item.detail) }}</p>
+        </article>
+      }
+    </div>
+  </section>
+  <section class="about-education" aria-labelledby="education-title">
+    <h2 id="education-title">{{ t("Formación", "Education") }}</h2>
+    <div>
+      <div class="education-row">
+        <h3>
+          {{ t("Diseño y Creación Digital", "Digital Design and Creation") }}
+        </h3>
+        <p>UOC · {{ t("2025 — Actualidad", "2025 — Present") }}</p>
+      </div>
+      <div class="education-row">
+        <h3>
+          {{
+            t("Desarrollo de Aplicaciones Web", "Web Application Development")
+          }}
+        </h3>
+        <p>Florida Universitaria · 2024 — 2026</p>
+      </div>
+      <div class="education-row">
+        <h3>Google UX Design</h3>
+        <p>{{ t("Certificado profesional", "Professional Certificate") }}</p>
+      </div>
+      <div class="education-row">
+        <h3>{{ t("Idiomas", "Languages") }}</h3>
+        <p>
+          {{
+            t(
+              "Español nativo · Inglés C1 · Catalán fluido",
+              "Native Spanish · English C1 · Fluent Catalan"
+            )
+          }}
+        </p>
+      </div>
+    </div>
+  </section>
   <section class="about-moodboard" appScrollScene>
     <div class="moodboard-heading">
       <span class="eyebrow">{{
@@ -110,8 +142,8 @@
           href="https://unsplash.com/photos/a-pink-room-with-stairs-leading-to-a-door-dXdEcV6Wyqc"
           target="_blank"
           rel="noopener noreferrer"
-          >Anthony DEVEL ↗</a
-        >
+          >Anthony DEVEL <app-icon name="up-right"
+        /></a>
       </figcaption>
     </figure>
     <figure class="mood-photo mood-shutter">
@@ -133,11 +165,11 @@
           href="https://unsplash.com/photos/a-white-building-with-blue-shutters-and-a-bench-RgD99mPLWqo"
           target="_blank"
           rel="noopener noreferrer"
-          >David Pisnoy ↗</a
-        >
+          >David Pisnoy <app-icon name="up-right"
+        /></a>
       </figcaption>
     </figure>
-    <span class="mood-registration" aria-hidden="true">+</span>
+
     <div class="mood-palette" aria-hidden="true">
       <i></i><i></i><i></i><i></i>
     </div>
@@ -152,7 +184,7 @@
       </h2>
     </div>
     <div class="principle-card">
-      <span class="eyebrow">01 / {{ t("Investigación", "Research") }}</span>
+      <span class="eyebrow">{{ t("Investigación", "Research") }}</span>
       <h3>{{ t("Comprender.", "Understand.") }}</h3>
       <p>
         {{
@@ -167,7 +199,7 @@
       ></span>
     </div>
     <div class="principle-card">
-      <span class="eyebrow">02 / {{ t("Diseño", "Design") }}</span>
+      <span class="eyebrow">{{ t("Diseño", "Design") }}</span>
       <h3>{{ t("Desarrollar.", "Develop.") }}</h3>
       <p>
         {{
@@ -182,9 +214,7 @@
       ></span>
     </div>
     <div class="principle-card">
-      <span class="eyebrow"
-        >03 / {{ t("Implementación", "Implementation") }}</span
-      >
+      <span class="eyebrow">{{ t("Implementación", "Implementation") }}</span>
       <h3>{{ t("Construir.", "Build.") }}</h3>
       <p>
         {{
@@ -201,7 +231,7 @@
   </section>
   <section class="capabilities">
     <span class="eyebrow">{{
-      t("Cómo doy forma a las ideas", "How I bring ideas to life")
+      t("Áreas de trabajo", "Areas of practice")
     }}</span>
     <div>
       @for (skill of skills; track skill.name; let i = $index) {
@@ -261,15 +291,4 @@
     </div>
     <app-music-player />
   </section>
-  <a routerLink="/imagine" class="about-next"
-    ><span class="eyebrow">{{
-      t("Una historia en movimiento", "A story in motion")
-    }}</span>
-    <h2>
-      {{ t("Experimentos", "Experiments") }}<br />{{
-        t("en movimiento.", "in motion.")
-      }}
-      <span class="accent" aria-hidden="true">↗</span>
-    </h2></a
-  >
 </div>

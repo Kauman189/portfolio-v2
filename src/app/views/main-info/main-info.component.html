@@ -1,69 +1,98 @@
 <div class="home-page page-enter">
-  <section class="home-intro" aria-labelledby="home-title">
-    <div class="intro-meta">
-      <span class="eyebrow"
-        >UX/UI ·
+  @if (!mobile()) {
+    <section class="home-intro" aria-labelledby="home-title">
+      <h1 id="home-title">Camilo Arias<span class="title-period">.</span></h1>
+      <div class="intro-bottom">
+        <span class="eyebrow"
+          >{{ t("Proyectos seleccionados", "Selected work") }}
+          <span class="muted">(06)</span></span
+        >
+
+        <a routerLink="/projects" class="all-work-link"
+          >{{ t("Todos los proyectos", "All projects") }}
+          <span aria-hidden="true"><app-icon name="up-right" /></span
+        ></a>
+      </div>
+    </section>
+    <app-project-orbit />
+  } @else {
+    <section class="mobile-intro" aria-labelledby="mobile-title">
+      <img
+        class="mobile-portrait"
+        src="/assets/images/optimized/me.webp"
+        alt="Camilo Arias"
+        width="64"
+        height="72"
+        fetchpriority="high"
+      />
+      <h1 id="mobile-title">
         {{
           t(
-            "Diseño visual · Desarrollo creativo",
-            "Visual design · Creative development"
+            "Soy Camilo, diseñador de producto digital.",
+            "I’m Camilo, a digital product designer."
           )
-        }}</span
-      >
-    </div>
-    <h1 id="home-title">Camilo Arias<span class="title-period">.</span></h1>
-    <div class="intro-bottom">
-      <span class="eyebrow"
-        >{{ t("Proyectos seleccionados", "Selected work") }}
-        <span class="muted">(06)</span></span
-      >
+        }}
+      </h1>
       <p>
-        {{ t("Producto digital.", "Digital product.") }}<br />{{
-          t("Diseño visual.", "Visual design.")
+        {{
+          t(
+            "Trabajo en interfaces y sistemas de diseño, desde los primeros flujos hasta su implementación.",
+            "I work on interfaces and design systems, from early flows through to implementation."
+          )
         }}
       </p>
-      <a routerLink="/projects" class="all-work-link"
-        >{{ t("Todos los proyectos", "All projects") }}
-        <span aria-hidden="true">↗</span></a
-      >
-    </div>
-  </section>
-  <app-project-orbit />
-  <div class="motion-ticker" aria-hidden="true">
-    <div class="motion-ticker-track">
-      <span
-        >{{ t("Diseño de interfaces", "Interface design") }}
-        <app-living-mark />
-        {{ t("Identidad visual", "Visual identity") }}
-        <app-living-mark variant="frog" /></span
-      ><span
-        >{{ t("Diseño de interfaces", "Interface design") }}
-        <app-living-mark />
-        {{ t("Identidad visual", "Visual identity") }}
-        <app-living-mark variant="frog"
-      /></span>
-    </div>
-  </div>
+      <p class="mobile-current">{{ l(profile.current) }}</p>
+      <div class="intro-links">
+        <a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer"
+          >LinkedIn <app-icon /></a
+        ><a [href]="profile.behance" target="_blank" rel="noopener noreferrer"
+          >Behance <app-icon /></a
+        ><a [href]="cvUrl" download>CV <app-icon name="down" /></a>
+      </div>
+    </section>
+    <section class="mobile-selected" aria-labelledby="selected-title">
+      <div class="mobile-section-heading">
+        <h2 id="selected-title">
+          {{ t("Proyectos seleccionados", "Selected work") }}
+        </h2>
+      </div>
+      <app-project-index [projects]="selected" />
+      <a class="mobile-inline-link" routerLink="/projects"
+        >{{ t("Ver todos los proyectos", "View all projects") }}
+        <app-icon name="right"
+      /></a>
+    </section>
+    <section class="mobile-experience">
+      <h2>{{ t("Últimamente", "Recently") }}</h2>
+      @for (item of experience; track item.company) {
+        <div class="experience-row">
+          <div>
+            <h3>{{ item.company }}</h3>
+            <span>{{ l(item.dates) }}</span>
+          </div>
+          <p>{{ l(item.detail) }}</p>
+        </div>
+      }
+      <a class="mobile-inline-link" routerLink="/about"
+        >{{ t("Más sobre mí", "More about me") }} <app-icon name="right"
+      /></a>
+    </section>
+  }
   <app-how-i-work />
-  <section class="home-statement">
-    <span class="eyebrow">{{ t("Sobre mí", "About") }}</span>
-    <div>
-      <h2>
-        {{ t("Diseño UX/UI", "UX/UI design") }}<br />{{ t("y", "and") }}
-        <span>{{ t("desarrollo.", "development.") }}</span>
-      </h2>
-      <p>
-        {{
-          t(
-            "Soy diseñador UX/UI con formación técnica y una conexión especial con la fotografía, el diseño editorial y esos detalles que hacen que una experiencia parezca sencilla.",
-            "I’m a UX/UI designer with a technical background and a connection to photography, editorial design and the details that make an experience feel effortless."
-          )
-        }}
-      </p>
-      <a routerLink="/about" class="text-link"
-        >{{ t("Un poco sobre mí", "A little about me") }}
-        <span aria-hidden="true">↗</span></a
-      >
-    </div>
-  </section>
+  @if (!mobile()) {
+    <section class="home-statement">
+      <span class="eyebrow">{{ t("Sobre mí", "About") }}</span>
+      <div>
+        <h2>
+          {{ t("Diseño UX/UI", "UX/UI design") }}<br />{{ t("y", "and") }}
+          <span>{{ t("desarrollo.", "development.") }}</span>
+        </h2>
+        <p>{{ l(profile.intro) }}</p>
+        <a routerLink="/about" class="text-link"
+          >{{ t("Un poco sobre mí", "A little about me") }}
+          <span aria-hidden="true"><app-icon name="up-right" /></span
+        ></a>
+      </div>
+    </section>
+  }
 </div>

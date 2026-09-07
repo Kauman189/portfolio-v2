@@ -1,3 +1,4 @@
+import { IconComponent } from '../../components/icon/icon.component';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -8,7 +9,7 @@ import { LivingMarkComponent } from '../../components/living-mark/living-mark.co
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [RouterLink, LivingMarkComponent],
+  imports: [IconComponent, RouterLink, LivingMarkComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.css',
 })

@@ -19,11 +19,8 @@
     (dragstart)="$event.preventDefault()"
   >
     <div class="orbit-guide" aria-hidden="true"></div>
-    <div class="orbit-center">
-      <span class="eyebrow"
-        >Camilo Arias<br />{{ t("Valencia, España", "Valencia, Spain") }}</span
-      ><app-living-mark class="center-mark" variant="frog" />
-      <p>UX/UI &amp;<br />{{ t("Diseño visual.", "Visual design.") }}</p>
+    <div class="orbit-center" aria-hidden="true">
+      <app-living-mark class="center-mark" variant="frog" />
     </div>
     @for (project of projects; track project.slug; let i = $index) {
       <a
@@ -49,25 +46,9 @@
         </div>
         <div class="orbit-caption">
           <span>{{ t(project.shortTitleEs, project.shortTitle) }}</span
-          ><span aria-hidden="true">↗</span>
+          ><span aria-hidden="true"><app-icon name="up-right" /></span>
         </div>
       </a>
     }
-  </div>
-  <div class="orbit-bottom">
-    <span class="eyebrow muted">{{
-      t("Selección 2025—2026.", "Selected work 2025—2026.")
-    }}</span>
-    <div class="current-project" aria-live="off">
-      <span class="project-count"
-        >0{{ activeIndex + 1 }} / 0{{ projects.length }}</span
-      ><a [routerLink]="['/projects', activeProject.slug]"
-        >{{ t(activeProject.shortTitleEs, activeProject.shortTitle) }}
-        <span aria-hidden="true">↗</span></a
-      >
-    </div>
-    <span class="eyebrow orbit-scroll"
-      >{{ t("Sigue bajando", "Keep scrolling") }} ↓</span
-    >
   </div>
 </section>

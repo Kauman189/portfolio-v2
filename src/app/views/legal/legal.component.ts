@@ -1,3 +1,4 @@
+import { IconComponent } from '../../components/icon/icon.component';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -33,10 +34,10 @@ const POLICIES_ES: Record<string, { title: string; body: string }> = {
 @Component({
   selector: 'app-legal',
   standalone: true,
-  imports: [RouterLink],
+  imports: [IconComponent, RouterLink],
   template: `<article class="page legal-page page-enter">
     <a class="eyebrow" routerLink="/"
-      >← {{ t('Volver al inicio', 'Back home') }}</a
+      ><app-icon name="left" /> {{ t('Volver al inicio', 'Back home') }}</a
     >
     <h1 class="display-title">{{ policy.title }}</h1>
     <div class="legal-copy" [innerHTML]="policy.body"></div>
@@ -49,6 +50,22 @@ const POLICIES_ES: Record<string, { title: string; body: string }> = {
       }
       .display-title {
         font-size: clamp(42px, 7vw, 100px);
+      }
+      @media (max-width: 759px) {
+        .legal-page {
+          max-width: 560px;
+        }
+        .display-title {
+          font-size: 32px;
+          margin-top: 28px;
+        }
+        :host ::ng-deep .legal-copy h6 {
+          font-size: 18px !important;
+        }
+        :host ::ng-deep .legal-copy p {
+          font-size: 13px !important;
+          line-height: 1.85 !important;
+        }
       }
       :host ::ng-deep .legal-copy h6 {
         font-size: 22px;

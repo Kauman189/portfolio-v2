@@ -391,3 +391,60 @@
     font-size: 32px;
   }
 }
+
+@media (max-width: 759px) {
+  .process-scroll {
+    height: auto;
+    margin: 55px 0 0;
+  }
+  .process-sticky {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 26px 0 50px;
+    overflow: visible;
+  }
+  .process-top h2 {
+    font: 400 13px/1.5 var(--font);
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+  .process-top h2 span,
+  .process-top > .eyebrow,
+  .process-number,
+  .process-navigation,
+  .process-progress,
+  .process-visual {
+    display: none;
+  }
+  .process-content {
+    display: block;
+    padding-top: 30px;
+  }
+  .process-narrative {
+    display: grid;
+    gap: 28px;
+    min-height: 0;
+    margin: 0;
+  }
+  .process-step {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .process-step h3 {
+    font-size: 20px;
+    line-height: 1.35;
+    letter-spacing: -0.035em;
+    white-space: normal;
+    margin-bottom: 9px;
+  }
+  .process-step p {
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 450px;
+  }
+}

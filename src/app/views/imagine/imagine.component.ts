@@ -1,3 +1,4 @@
+import { IconComponent } from '../../components/icon/icon.component';
 import {
   AfterViewInit,
   Component,
@@ -17,7 +18,7 @@ import { storyAtScroll, STORY_BEATS } from './pond/story-motion';
 @Component({
   selector: 'app-imagine',
   standalone: true,
-  imports: [RouterLink],
+  imports: [IconComponent, RouterLink],
   templateUrl: './imagine.component.html',
   styleUrl: './imagine.component.css',
 })
@@ -30,111 +31,91 @@ export class ImagineComponent
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
   ready = signal(false);
   unavailable = signal(false);
-  readonly chapters: { title: Bilingual; text: Bilingual; note: Bilingual }[] =
+  readonly chapters: { title: Bilingual; text: Bilingual; source?: boolean }[] =
     [
       {
-        title: ['Un buen rincón.', 'A good little spot.'],
+        title: ['Antes de la forma.', 'Before form.'],
         text: [
-          'Milo tenía una hoja, sol por la mañana y absolutamente ningún plan. Le iba bastante bien.',
-          'Milo had a leaf, morning sunshine and absolutely no plans. Things were going pretty well.',
-        ],
-        note: ['08:02 / La vida en una hoja', '08:02 / Life on a leaf'],
-      },
-      {
-        title: ['Una onda distinta.', 'A different ripple.'],
-        text: [
-          'Hasta que algo se movió al otro lado. June también buscaba un sitio donde no hacer gran cosa.',
-          'Then something moved on the other side. June was also looking for somewhere to do very little.',
-        ],
-        note: ['08:07 / Alguien llega', '08:07 / Someone arrives'],
-      },
-      {
-        title: ['Hola.\nCreo.', 'Hello.\nI think.'],
-        text: [
-          'Una pata en el aire. Una mirada hacia atrás. Sí, el saludo era para él.',
-          'A little wave. A glance behind. Yes, the hello was meant for him.',
-        ],
-        note: ['08:09 / Primer contacto', '08:09 / First contact'],
-      },
-      {
-        title: ['Parecía\nun salto fácil.', 'It looked like\nan easy jump.'],
-        text: [
-          'La distancia estaba calculada. La confianza, un poco por encima de lo recomendable.',
-          'The distance was calculated. The confidence was a little higher than advisable.',
-        ],
-        note: ['08:10 / Un pequeño impulso', '08:10 / A little courage'],
-      },
-      {
-        title: ['Casi.', 'Almost.'],
-        text: [
-          'El aterrizaje tuvo sus matices. Por suerte, June se rio con él.',
-          'The landing had its subtleties. Fortunately, June laughed with him.',
-        ],
-        note: ['08:10 / Plaf.', '08:10 / Splash.'],
-      },
-      {
-        title: ['No era\ngran cosa.', 'It wasn’t\na big thing.'],
-        text: [
-          'Solo una flor que había encontrado cerca. June hizo espacio para guardarla.',
-          'Just a flower he had found nearby. June made a little room to keep it.',
-        ],
-        note: [
-          '09:24 / Una pequeña atención',
-          '09:24 / A little thoughtfulness',
+          'Antes de elegir una forma, conviene permanecer un rato frente a lo que hay.',
+          'Before choosing a form, it helps to spend some time with what is already there.',
         ],
       },
       {
-        title: ['Un poco\nmás cerca.', 'A little\ncloser.'],
+        title: ['Una presencia.', 'A presence.'],
         text: [
-          'Hablaron de mosquitos, de hojas y de nada en particular. Las pausas también estaban bien.',
-          'They talked about mosquitoes, leaves and nothing in particular. The pauses were nice, too.',
-        ],
-        note: [
-          '12:16 / Sin llenar el silencio',
-          '12:16 / No need to fill the silence',
+          'Algo aparece y cambia la composición. El espacio vacío también tenía algo que decir.',
+          'Something appears and changes the composition. The empty space had something to say, too.',
         ],
       },
       {
-        title: ['Y entonces,\nllovió.', 'And then,\nit rained.'],
+        title: ['Mirar. Ser visto.', 'Seeing. Being seen.'],
         text: [
-          'Ninguna de las dos ranas había mirado el tiempo. Una hoja grande resolvió lo importante.',
-          'Neither frog had checked the weather. One big leaf took care of what mattered.',
+          '«El ojo que ves no es ojo porque tú lo veas; es ojo porque te ve.»',
+          '“The eye you see is not an eye because you see it; it is an eye because it sees you.”',
         ],
-        note: ['16:03 / Sitio para dos', '16:03 / Room for two'],
+        source: true,
       },
       {
-        title: ['Después\ndel ruido.', 'After\nthe noise.'],
+        title: ['Probar la distancia.', 'Trying the distance.'],
         text: [
-          'El estanque olía distinto. Salieron las primeras luces y se quedaron un rato mirando.',
-          'The pond smelled different. The first little lights appeared, and they stayed to watch.',
+          'Hay cosas que solo se entienden al intentarlas. Un primer trazo, una medida, un movimiento.',
+          'Some things only become clear when you try them. A first line, a measurement, a movement.',
         ],
-        note: ['19:48 / Baja la luz', '19:48 / The light changes'],
       },
       {
-        title: ['El mismo\nritmo.', 'The same\nrhythm.'],
+        title: ['Volver a ajustar.', 'Adjusting again.'],
         text: [
-          'Esta vez se movieron a la vez. No especialmente bien. Pero a la vez.',
-          'This time they moved together. Not particularly well. But together.',
+          'Lo que no encaja señala por dónde continuar. Se mira de nuevo. Se cambia un poco.',
+          'What does not fit suggests where to go next. Look again. Change a little.',
         ],
-        note: ['20:12 / Dos pasos torpes', '20:12 / Two awkward steps'],
       },
       {
-        title: ['Ah.\nEra esto.', 'Oh.\nSo this was it.'],
+        title: ['Un detalle.', 'A detail.'],
         text: [
-          'Milo dejó de pensar en qué decir después. June ya no estaba buscando otra hoja.',
-          'Milo stopped thinking about what to say next. June wasn’t looking for another leaf anymore.',
+          'Una forma pequeña puede cambiar el sentido del conjunto. A veces basta con colocarla en el lugar adecuado.',
+          'A small form can change the meaning of the whole. Sometimes it is enough to put it in the right place.',
         ],
-        note: ['21:06 / Sin mucho que explicar', '21:06 / Not much to explain'],
       },
       {
-        title: ['Se quedaron.', 'They stayed.'],
+        title: ['Dejar espacio.', 'Making room.'],
         text: [
-          'El mismo estanque. La misma hoja. Y un buen motivo para volver mañana.',
-          'The same pond. The same leaf. And a good reason to come back tomorrow.',
+          'Acercarse también es aprender cuánto espacio necesita el otro.',
+          'Coming closer also means learning how much space the other needs.',
         ],
-        note: [
-          'Un día después / Continuará',
-          'One day later / To be continued',
+      },
+      {
+        title: ['Responder al momento.', 'Responding to the moment.'],
+        text: [
+          'Cuando cambia el contexto, cambia la forma. La misma hoja encuentra otro uso.',
+          'When the context changes, the form changes. The same leaf finds another use.',
+        ],
+      },
+      {
+        title: ['Lo que permanece.', 'What remains.'],
+        text: [
+          'Pasa la lluvia. Queda lo que ha servido para estar un poco mejor.',
+          'The rain passes. What remains is what helped make things a little better.',
+        ],
+      },
+      {
+        title: ['Encontrar el ritmo.', 'Finding a rhythm.'],
+        text: [
+          'Entre un gesto y el siguiente hay una pausa. El movimiento también se diseña con silencios.',
+          'Between one gesture and the next, there is a pause. Movement is shaped by moments of stillness, too.',
+        ],
+      },
+      {
+        title: ['Entenderse.', 'Understanding.'],
+        text: [
+          'Llega un momento en que sobran las explicaciones. La relación entre las partes se vuelve clara.',
+          'There comes a point when explanations fall away. The relationship between the parts becomes clear.',
+        ],
+      },
+      {
+        title: ['Quedarse.', 'Staying.'],
+        text: [
+          'El lugar es el mismo. La manera de habitarlo ha cambiado.',
+          'The place is the same. The way of being in it has changed.',
         ],
       },
     ];
@@ -242,8 +223,7 @@ export class ImagineComponent
     this.readScroll();
   };
   private preferenceChanged = () => {
-    this.dirty = true;
-    this.wake();
+    this.resize();
   };
   private visibility = () => {
     this.last = 0;

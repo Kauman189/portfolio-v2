@@ -3,28 +3,40 @@
     <a routerLink="/contact" class="footer-invitation"
       >{{ t("Proyectos y colaboraciones.", "Projects and collaborations.")
       }}<br /><span>{{ t("Hablemos.", "Let’s talk.") }}</span>
-      <span aria-hidden="true">↗</span></a
-    >
+      <span aria-hidden="true"><app-icon name="up-right" /></span
+    ></a>
     <div class="footer-socials">
       <a href="mailto:camiloarias.frg@gmail.com"
-        >camiloarias.frg&#64;gmail.com ↗</a
+        >camiloarias.frg&#64;gmail.com <app-icon name="up-right" /></a
       ><a
         href="https://www.behance.net/camiloariasg"
         target="_blank"
         rel="noopener noreferrer"
-        >Behance ↗</a
+        >Behance <app-icon name="up-right" /></a
       ><a
-        href="https://www.linkedin.com/in/camilo-arias-web-developer/"
+        href="https://www.linkedin.com/in/camilo-arias189/"
         target="_blank"
         rel="noopener noreferrer"
-        >LinkedIn ↗</a
+        >LinkedIn <app-icon name="up-right" /></a
       ><a
         href="https://www.instagram.com/kauman189/"
         target="_blank"
         rel="noopener noreferrer"
-        >Instagram ↗</a
-      >
+        >Instagram <app-icon name="up-right"
+      /></a>
     </div>
+  </div>
+  <div class="footer-signoff">
+    <a class="footer-cv" [href]="cvUrl" download
+      >{{ t("Descargar CV", "Download CV") }} <app-icon name="down" /></a
+    ><a
+      class="footer-flower"
+      routerLink="/imagine"
+      [attr.aria-label]="
+        t('Descubrir una historia animada', 'Discover an animated story')
+      "
+      ><app-living-mark
+    /></a>
   </div>
   <div class="footer-bottom">
     <a routerLink="/">© {{ year }} Camilo Arias / K189</a

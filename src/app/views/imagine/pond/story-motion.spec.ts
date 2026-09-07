@@ -1,6 +1,6 @@
 import { storyPose, storyAtScroll, STORY_BEATS } from './story-motion';
 import { PondWorld } from './pond-world';
-import { Mesh, WebGLRenderer } from 'three';
+import { Color, Mesh, WebGLRenderer } from 'three';
 
 describe('Imagine film', () => {
   it('aligns every caption with its action at desktop and mobile reading positions', () => {
@@ -59,6 +59,7 @@ describe('Imagine film', () => {
       world.resize(320, 480);
       for (const p of [0, 0.17, 0.37, 0.44, 0.58, 0.7, 0.85, 1]) {
         world.update(p, 3, false);
+        expect((world.scene.background as Color).getHexString()).toBe('fafaf8');
         renderer.render(world.scene, world.camera);
         expect(renderer.info.render.triangles).toBeGreaterThan(1000);
         expect(gl.getError()).toBe(gl.NO_ERROR);

@@ -2,7 +2,8 @@
   @if (project && study) {
     <div class="page-topline eyebrow">
       <a routerLink="/projects"
-        >← {{ t("Todos los proyectos", "All projects") }}</a
+        ><app-icon name="left" />
+        {{ t("Todos los proyectos", "All projects") }}</a
       ><span>{{ l(study.category) }}</span>
     </div>
     <header class="case-header">
@@ -50,15 +51,15 @@
             [href]="project.externalUrl"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ t("Ver proyecto", "View project") }} ↗</a
-          >
+            >{{ t("Ver proyecto", "View project") }} <app-icon name="up-right"
+          /></a>
         }
       </div>
     </div>
     <section class="case-challenge">
-      <span class="eyebrow"
-        >01 / {{ t("El punto de partida", "The starting point") }}</span
-      >
+      <span class="eyebrow">{{
+        t("El punto de partida", "The starting point")
+      }}</span>
       <div>
         <h2>
           {{ t("El problema,", "The problem,") }}<br /><span>{{
@@ -70,7 +71,7 @@
     </section>
     <section class="case-journey">
       <div class="case-section-head">
-        <span class="eyebrow">02 / {{ t("El recorrido", "The journey") }}</span>
+        <span class="eyebrow">{{ t("El recorrido", "The journey") }}</span>
         <h2>
           {{ t("Cada paso tiene un porqué.", "Every step has a reason.") }}
         </h2>
@@ -80,16 +81,16 @@
           <li>
             <span class="eyebrow">0{{ i + 1 }}</span>
             <h3>{{ l(step) }}</h3>
-            <span class="flow-arrow" aria-hidden="true">↗</span>
+            <span class="flow-arrow" aria-hidden="true"
+              ><app-icon name="up-right"
+            /></span>
           </li>
         }
       </ol>
     </section>
     <section class="case-decisions">
       <div class="decisions-title">
-        <span class="eyebrow"
-          >03 / {{ t("Las decisiones", "The decisions") }}</span
-        >
+        <span class="eyebrow">{{ t("Las decisiones", "The decisions") }}</span>
         <h2>
           {{ t("Del criterio", "From intent") }}<br />{{
             t("al detalle.", "to detail.")
@@ -123,9 +124,9 @@
     </section>
     <section class="case-results">
       <div class="case-section-head">
-        <span class="eyebrow"
-          >04 / {{ t("Alcance y evaluación", "Scope and evaluation") }}</span
-        >
+        <span class="eyebrow">{{
+          t("Alcance y evaluación", "Scope and evaluation")
+        }}</span>
         <h2>
           {{ t("Diseñar también es", "Design also means") }}<br /><span>{{
             t("saber qué medir.", "knowing what to measure.")
@@ -155,9 +156,9 @@
       </div>
     </section>
     <section class="case-learning">
-      <span class="eyebrow"
-        >05 / {{ t("Lo que me llevo", "What I take away") }}</span
-      >
+      <span class="eyebrow">{{
+        t("Lo que me llevo", "What I take away")
+      }}</span>
       <h2>{{ l(study.learning) }}</h2>
     </section>
     <section class="case-process-gallery">
@@ -180,7 +181,6 @@
         }
       } @else {
         <div class="case-placeholder">
-          <span class="placeholder-registration" aria-hidden="true">+</span>
           <p>{{ t("Aquí irá el proceso.", "The process goes here.") }}</p>
           <span>{{
             t(
@@ -200,16 +200,16 @@
       }}</span>
       <div>
         <h2>{{ t(nextProject.shortTitleEs, nextProject.shortTitle) }}</h2>
-        <span aria-hidden="true">↗</span>
-      </div></a
-    >
+        <span aria-hidden="true"><app-icon name="up-right" /></span></div
+    ></a>
   } @else {
     <span class="eyebrow">404</span>
     <h1 class="display-title">
       {{ t("Proyecto no encontrado.", "Project not found.") }}
     </h1>
     <a routerLink="/projects" class="text-link"
-      >{{ t("Volver a los proyectos", "Back to projects") }} ↗</a
-    >
+      >{{ t("Volver a los proyectos", "Back to projects") }}
+      <app-icon name="up-right"
+    /></a>
   }
 </article>

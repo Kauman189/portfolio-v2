@@ -1,3 +1,5 @@
+import { PROFILE, EXPERIENCE } from '../../data/profile';
+import { IconComponent } from '../../components/icon/icon.component';
 import { Component } from '@angular/core';
 import { MusicPlayerComponent } from '../../components/music-player/music-player.component';
 import { ScrollSceneDirective } from '../../components/scroll-scene.directive';
@@ -8,6 +10,7 @@ import { LivingMarkComponent } from '../../components/living-mark/living-mark.co
   selector: 'app-about',
   standalone: true,
   imports: [
+    IconComponent,
     RouterLink,
     LivingMarkComponent,
     MusicPlayerComponent,
@@ -17,6 +20,8 @@ import { LivingMarkComponent } from '../../components/living-mark/living-mark.co
   styleUrl: './about.component.css',
 })
 export class AboutComponent extends Localized {
+  readonly profile = PROFILE;
+  readonly experience = EXPERIENCE;
   get skills() {
     return [
       {

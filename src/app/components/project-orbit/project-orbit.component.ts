@@ -1,3 +1,4 @@
+import { IconComponent } from '../icon/icon.component';
 import { Localized } from '../../i18n/locale.service';
 import {
   AfterViewInit,
@@ -10,14 +11,14 @@ import {
   ViewChildren,
   inject,
 } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { PROJECTS } from '../../data/projects';
 import { orbitPosition, wrapIndex } from './orbit-math';
 import { LivingMarkComponent } from '../living-mark/living-mark.component';
 @Component({
   selector: 'app-project-orbit',
   standalone: true,
-  imports: [RouterLink, LivingMarkComponent],
+  imports: [IconComponent, LivingMarkComponent],
   templateUrl: './project-orbit.component.html',
   styleUrl: './project-orbit.component.css',
 })
@@ -52,9 +53,7 @@ export class ProjectOrbitComponent
     )
       this.paused = false;
   }
-  get activeProject() {
-    return this.projects[this.activeIndex];
-  }
+
   ngAfterViewInit() {
     this.motion.addEventListener('change', this.onMotionChange);
     this.render();

@@ -338,3 +338,54 @@ svg {
     transition: none;
   }
 }
+
+@media (max-width: 759px) {
+  .listening-room {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .record-sleeve {
+    display: none;
+  }
+  .player-console {
+    padding: 27px 23px;
+    background: #e8ecdf;
+  }
+  .player-console > .eyebrow {
+    display: none;
+  }
+  .player-console h3 {
+    font-size: 27px;
+    line-height: 1.18;
+    margin: 0 0 13px;
+  }
+  .artist {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .waveform {
+    height: 40px;
+    margin: 25px 0 14px;
+  }
+  .play-track {
+    width: 44px;
+    height: 44px;
+  }
+  .play-status {
+    font-size: 11px;
+  }
+  .volume-control {
+    margin-left: auto;
+  }
+  .volume-control input {
+    width: 50px;
+  }
+  .spotify-link {
+    font-size: 11px;
+    margin-top: 23px;
+  }
+  .timecodes {
+    font-size: 10px;
+  }
+}

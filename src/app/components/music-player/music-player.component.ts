@@ -1,8 +1,10 @@
+import { IconComponent } from '../icon/icon.component';
 import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Localized } from '../../i18n/locale.service';
 @Component({
   selector: 'app-music-player',
   standalone: true,
+  imports: [IconComponent],
   templateUrl: './music-player.component.html',
   styleUrl: './music-player.component.css',
 })
@@ -45,8 +47,10 @@ export class MusicPlayerComponent extends Localized implements OnDestroy {
     try {
       audio.volume = this.volume;
       await audio.play();
-    } catch {
-      this.failed = true;
+    } catch (error) {
+      this.failed = !(
+        error instanceof DOMException && error.name === 'AbortError'
+      );
       this.waiting = false;
       this.playing = false;
     }

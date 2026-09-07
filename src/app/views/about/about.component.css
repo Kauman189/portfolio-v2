@@ -610,3 +610,319 @@
     animation: none;
   }
 }
+
+.about-experience,
+.about-education {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-top: 85px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.about-experience > h2,
+.about-education > h2 {
+  font-size: 30px;
+}
+.experience-entry {
+  padding: 0 0 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--line);
+}
+.experience-entry:last-child {
+  border: 0;
+  margin: 0;
+}
+.experience-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: baseline;
+}
+.experience-meta h3 {
+  font-size: 25px;
+  letter-spacing: -0.04em;
+}
+.experience-meta > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.experience-entry p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 650px;
+}
+.experience-entry .experience-role {
+  font-size: 12px;
+  margin: 10px 0 18px;
+}
+.education-row {
+  margin-bottom: 28px;
+}
+.education-row h3 {
+  font-size: 20px;
+}
+.education-row p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 10px;
+}
+@media (max-width: 759px) {
+  .about-page .display-title {
+    font-size: 36px;
+    line-height: 1.15;
+    margin: 0 0 35px;
+    letter-spacing: -0.05em;
+  }
+  .about-page .display-title .about-italic {
+    font-size: 1em;
+    color: var(--muted);
+  }
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 0 10px;
+  }
+  .about-portrait {
+    align-self: flex-start;
+    width: 62%;
+    max-width: 250px;
+    padding: 0;
+    transform: none;
+    margin: 0;
+  }
+  .about-portrait:before,
+  .about-portrait:after {
+    display: none;
+  }
+  .about-portrait img {
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 7px;
+    box-shadow: none;
+    animation: none;
+  }
+  .about-portrait figcaption {
+    display: none;
+  }
+  .about-copy > .eyebrow,
+  .about-copy > h2 {
+    display: none;
+  }
+  .about-copy p {
+    font-size: 14px;
+    line-height: 1.85;
+    margin-bottom: 18px;
+  }
+  .about-copy .text-link {
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .about-experience,
+  .about-education {
+    display: block;
+    margin-top: 48px;
+    padding-top: 25px;
+  }
+  .about-experience > h2,
+  .about-education > h2 {
+    font: 400 13px/1.5 var(--font);
+    letter-spacing: 0;
+    color: var(--muted);
+    margin-bottom: 27px;
+  }
+  .experience-entry {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  .experience-meta h3 {
+    font: 500 14px/1.5 var(--font);
+    letter-spacing: -0.025em;
+  }
+  .experience-meta > span {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .experience-entry p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .experience-entry .experience-role {
+    font-size: 11px;
+    margin: 7px 0 11px;
+  }
+  .education-row h3 {
+    font: 500 14px/1.5 var(--font);
+    letter-spacing: -0.015em;
+  }
+  .education-row p {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .about-moodboard {
+    margin: 50px 0 0;
+    padding: 28px 0 0;
+    border-top: 1px solid var(--line);
+    background: none;
+    gap: 17px;
+    overflow: visible;
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .moodboard-heading {
+    display: block;
+  }
+  .moodboard-heading > .eyebrow {
+    display: none;
+  }
+  .moodboard-heading h2 {
+    font-size: 25px;
+    margin: 0 0 15px;
+    line-height: 1.2;
+  }
+  .moodboard-heading h2 br {
+    display: none;
+  }
+  .moodboard-heading h2 > span {
+    color: var(--ink);
+  }
+  .moodboard-heading p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 430px;
+  }
+  .mood-architecture {
+    transform: none;
+  }
+  .mood-shutter {
+    transform: none;
+    padding-top: 38px;
+  }
+  .mood-photo img {
+    border-radius: 5px;
+    box-shadow: none;
+  }
+  .mood-architecture img {
+    height: auto;
+    aspect-ratio: 4/5;
+  }
+  .mood-shutter img {
+    height: auto;
+    aspect-ratio: 3/5;
+  }
+  .mood-photo figcaption {
+    font-size: 9px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .mood-registration,
+  .mood-palette {
+    display: none;
+  }
+  .about-principles {
+    margin-top: 48px;
+    gap: 0;
+  }
+  .principles-heading {
+    margin: 0;
+    padding: 25px 0;
+    border-top: 1px solid var(--line);
+  }
+  .principles-heading > .eyebrow {
+    display: none;
+  }
+  .principles-heading h2 {
+    font: 400 13px/1.5 var(--font);
+    color: var(--muted);
+    letter-spacing: 0;
+    margin: 0;
+  }
+  .principles-heading h2 br {
+    display: none;
+  }
+  .principle-card,
+  .principle-card:nth-child(3),
+  .principle-card:nth-child(4) {
+    min-height: 0;
+    background: none;
+    transform: none;
+    padding: 0 0 25px;
+    border: 0;
+  }
+  .principle-card > .eyebrow,
+  .principle-drawing {
+    display: none;
+  }
+  .principle-card h3 {
+    font-size: 21px;
+    margin: 0 0 10px;
+  }
+  .principle-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 430px;
+  }
+  .capabilities {
+    margin-top: 25px;
+    gap: 22px;
+  }
+  .capabilities > .eyebrow,
+  .off-duty > .eyebrow {
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+  .ability {
+    padding: 22px 0;
+  }
+  .ability > div > .eyebrow {
+    display: none;
+  }
+  .ability h3 {
+    font-size: 19px;
+  }
+  .ability p {
+    font-size: 13px;
+    line-height: 1.85;
+    margin: 12px 0 0;
+  }
+  .off-duty {
+    margin-top: 45px;
+    gap: 23px;
+  }
+  .off-duty h2 {
+    font-size: 27px;
+    line-height: 1.2;
+  }
+  .off-duty p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .personal-references {
+    gap: 25px;
+  }
+  .personal-references h3 {
+    font-size: 14px;
+  }
+  .about-listening {
+    margin: 48px 0 15px;
+    padding-top: 25px;
+    border-top: 1px solid var(--line);
+  }
+  .listening-heading > .eyebrow {
+    display: none;
+  }
+  .listening-heading h2 {
+    font-size: 25px;
+    margin: 0;
+  }
+  .listening-heading {
+    margin-bottom: 25px;
+  }
+}

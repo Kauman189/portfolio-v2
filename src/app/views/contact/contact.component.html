@@ -1,13 +1,10 @@
 <div class="page contact-page page-enter">
   <div class="page-topline eyebrow">
-    <span>04 / {{ t("Contacto", "Contact") }}</span
+    <span>{{ t("Contacto", "Contact") }}</span
     ><span>{{ t("Valencia, España", "Valencia, Spain") }}</span>
   </div>
   <div class="contact-heading">
-    <h1>
-      {{ t("Contacto.", "Contact.") }}<br />{{ t("Proyectos y", "Projects and")
-      }}<br /><span>{{ t("colaboraciones.", "collaborations.") }}</span>
-    </h1>
+    <h1>{{ t("Contacto.", "Contact.") }}</h1>
     <app-living-mark class="contact-mark" />
   </div>
   <section class="enquiry-section" aria-labelledby="enquiry-title">
@@ -21,7 +18,8 @@
         }}
       </h2>
       <a [href]="'mailto:' + email" class="contact-email"
-        >{{ email }} <span aria-hidden="true">↗</span></a
+        >{{ email }}
+        <span aria-hidden="true"><app-icon name="up-right" /></span></a
       ><app-living-mark class="form-mark" variant="frog" />
     </div>
     <form #enquiry="ngForm" (ngSubmit)="prepare(enquiry)" novalidate>
@@ -127,7 +125,8 @@
           }}
         </p>
         <button type="submit" class="send-enquiry">
-          {{ t("Hablemos", "Let’s talk") }} <span aria-hidden="true">↗</span>
+          {{ t("Hablemos", "Let’s talk") }}
+          <span aria-hidden="true"><app-icon name="up-right" /></span>
         </button>
       </div>
       @if (prepared) {
@@ -146,7 +145,7 @@
           </p>
           <button type="button" class="text-link" (click)="copyDraft()">
             {{ t("Copiar mensaje", "Copy message") }}
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true"><app-icon name="up-right" /></span>
           </button>
           <p aria-live="polite">{{ copyState }}</p>
           <details>
@@ -160,25 +159,22 @@
   <div class="contact-bottom">
     <div>
       <p>
-        {{ t("Las buenas conversaciones", "Good conversations") }}<br />{{
-          t("pueden empezar por cualquier sitio.", "can start anywhere.")
+        {{ t("También puedes", "You can also") }}<br />{{
+          t("encontrarme aquí.", "find me here.")
         }}
       </p>
-      <a
-        href="/assets/pdf/Camilo_Arias_Curriculum.pdf"
-        download="Camilo_Arias_CV.pdf"
-        class="text-link"
+      <a [href]="cvUrl" download class="text-link"
         >{{ t("Descargar CV", "Download CV") }}
-        <span aria-hidden="true">↓</span></a
-      >
+        <span aria-hidden="true"><app-icon name="down" /></span
+      ></a>
     </div>
     <div class="contact-links">
       @for (link of links; track link.label) {
         <a [href]="link.url" target="_blank" rel="noopener noreferrer"
           ><span
             >{{ link.label }}<small>{{ l(link.note) }}</small></span
-          ><span aria-hidden="true">↗</span></a
-        >
+          ><span aria-hidden="true"><app-icon name="up-right" /></span
+        ></a>
       }
     </div>
   </div>

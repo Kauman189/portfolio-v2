@@ -1,27 +1,12 @@
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Localized } from '../../i18n/locale.service';
-import { Component, inject } from '@angular/core';
-import {
-  NavigationEnd,
-  Router,
-  RouterLink,
-  RouterLinkActive,
-} from '@angular/router';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { IconComponent } from '../icon/icon.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, IconComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent extends Localized {
-  menuOpen = false;
-  constructor() {
-    super();
-    inject(Router)
-      .events.pipe(takeUntilDestroyed())
-      .subscribe((event) => {
-        if (event instanceof NavigationEnd) this.menuOpen = false;
-      });
-  }
-}
+export class HeaderComponent extends Localized {}

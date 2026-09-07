@@ -14,7 +14,6 @@ const cube = new RoundedBoxGeometry(1, 1, 1, 3, 0.18);
 
 const petalGeometry = new T.SphereGeometry(1, 16, 10);
 const PAPER = new T.Color('#fafaf8');
-const NIGHT = new T.Color('#142a2a');
 
 /** Original cartoon characters with flat shading and a compact pond; no model downloads or textures. */
 export class PondWorld {
@@ -33,7 +32,6 @@ export class PondWorld {
   private hearts: T.Group[] = [];
   private rain: T.LineSegments;
   private rainPositions: Float32Array;
-  private fireflies: T.Points;
   private sun = new T.DirectionalLight('#ffefd1', 2.1);
   private fill = new T.HemisphereLight('#fff5d9', '#688a73', 0.85);
   private mobile = false;
@@ -178,24 +176,6 @@ export class PondWorld {
     this.rain = new T.LineSegments(rainGeo, rainMat);
     this.rain.frustumCulled = false;
     this.world.add(this.rain);
-    const dots = new Float32Array(45 * 3);
-    for (let i = 0; i < 45; i++) {
-      dots[i * 3] = Math.sin(i * 8.31) * 6;
-      dots[i * 3 + 1] = 0.5 + (i % 7) * 0.55;
-      dots[i * 3 + 2] = Math.cos(i * 3.7) * 5;
-    }
-    const dustGeo = this.keep(new T.BufferGeometry());
-    dustGeo.setAttribute('position', new T.BufferAttribute(dots, 3));
-    const dustMat = new T.PointsMaterial({
-      color: '#ffe59e',
-      size: 0.08,
-      transparent: true,
-      opacity: 0,
-      depthWrite: false,
-    });
-    this.materials.add(dustMat);
-    this.fireflies = new T.Points(dustGeo, dustMat);
-    this.world.add(this.fireflies);
     this.resize(1200, 800);
     this.update(0, 0, false);
   }
@@ -442,7 +422,7 @@ export class PondWorld {
     const cameraAngle = reduced ? 0 : Math.sin(p * Math.PI * 2) * 0.13;
     this.camera.position.set(
       Math.sin(cameraAngle) * 13,
-      5.8 - between(p, 0.15, 0.3) * 0.3 + pose.night * 0.3,
+      5.8 - between(p, 0.15, 0.3) * 0.3,
       13,
     );
     this.cameraTarget.set(0, this.mobile ? 2.55 : 0.25, 0);
@@ -458,8 +438,11 @@ export class PondWorld {
       frog.eyes.forEach(
         (eye) => (eye.scale.y = reduced ? 1 : 1 - blink * 0.86),
       );
-      frog.arms[0].rotation.z = i === 1 ? -pose.wave - pose.flower * 0.16 : 0;
-      frog.arms[1].rotation.z = i === 0 ? pose.flower * 0.42 : 0;
+      frog.arms[0].rotation.z =
+        i === 1 ? -pose.wave - pose.flower * 0.16 - pose.together * 1.05 : 0;
+      frog.arms[1].rotation.z =
+        i === 0 ? pose.flower * 0.42 + pose.together * 0.7 : 0;
+      frog.arms[i === 0 ? 1 : 0].rotation.x = -pose.together * 0.3;
       frog.cheeks.forEach((cheek) => {
         cheek.scale.x = 0.18 + pose.hearts * 0.025;
       });
@@ -481,8 +464,7 @@ export class PondWorld {
       const phase = (t * 0.15 + i * 0.21) % 1;
       const s = 0.5 + phase * 0.75 + pose.splash * 0.4;
       ring.scale.setScalar(s);
-      ring.material.opacity =
-        (0.1 + Math.sin(phase * Math.PI) * 0.24) * (1 - pose.night * 0.6);
+      ring.material.opacity = 0.1 + Math.sin(phase * Math.PI) * 0.24;
     });
     this.flower.visible = pose.flower > 0.001;
     this.flower.position.set(mix(-1, 0.1, pose.flower), 0.35, 0.8);
@@ -520,11 +502,6 @@ export class PondWorld {
         Math.sin(t * 0.6 + i) * 0.17,
       );
     });
-    (this.scene.background as T.Color).copy(PAPER).lerp(NIGHT, pose.night);
-    this.fill.intensity = mix(0.85, 0.42, pose.night);
-    this.sun.intensity = mix(2.1, 0.8, pose.night);
-    (this.fireflies.material as T.PointsMaterial).opacity = pose.night * 0.85;
-    this.fireflies.rotation.y = t * 0.015;
     this.world.updateMatrixWorld(true);
   }
   dispose() {

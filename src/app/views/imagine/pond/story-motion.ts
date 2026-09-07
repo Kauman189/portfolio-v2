@@ -29,15 +29,15 @@ export function storyPose(progress: number, time = 0) {
     zB: -Math.sin(danceAngle) * 0.85,
     turnA: mix(0.12, 0.55, meet) - together * 0.38,
     turnB: mix(-0.12, -0.55, meet) + together * 0.38,
-    tiltA: Math.sin(jump * Math.PI * 2) * -0.3 + shelter * -0.1,
-    tiltB: shelter * 0.1,
+    tiltA:
+      Math.sin(jump * Math.PI * 2) * -0.3 + shelter * -0.1 - together * 0.055,
+    tiltB: shelter * 0.1 + together * 0.055,
     wave:
       Math.sin(time * 2.3) *
       0.2 *
       (between(p, 0.2, 0.23) - between(p, 0.3, 0.34)),
     flower: between(p, 0.49, 0.58),
     rain: between(p, 0.62, 0.65) * (1 - between(p, 0.73, 0.76)),
-    night: between(p, 0.74, 0.86) * (1 - between(p, 0.94, 1)),
     hearts: between(p, 0.82, 0.94),
     umbrella: between(p, 0.65, 0.7) * (1 - between(p, 0.74, 0.79)),
     splash: Math.sin(recover * Math.PI),

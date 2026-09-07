@@ -20,6 +20,15 @@ describe('Music player', () => {
     expect(player.playing).toBeFalse();
     expect(player.waiting).toBeFalse();
   });
+  it('does not report a playback error when a play request is cancelled', async () => {
+    spyOn(player.track.nativeElement, 'play').and.returnValue(
+      Promise.reject(new DOMException('Playback cancelled', 'AbortError')),
+    );
+    await player.toggle();
+    expect(player.failed).toBeFalse();
+    expect(player.playing).toBeFalse();
+    expect(player.waiting).toBeFalse();
+  });
   it('uses media events as the source for playing and paused states', () => {
     player.started();
     expect(player.playing).toBeTrue();

@@ -1,13 +1,6 @@
 .home-page {
   padding: 128px var(--gutter) 0;
 }
-.intro-meta {
-  display: flex;
-  justify-content: space-between;
-}
-.intro-meta .eyebrow {
-  font-size: 11px;
-}
 .home-intro h1 {
   font-size: clamp(70px, 14.7vw, 240px);
   letter-spacing: -0.078em;
@@ -68,12 +61,6 @@
   .home-page {
     padding-top: 108px;
   }
-  .intro-meta .eyebrow {
-    font-size: 9px;
-  }
-  .intro-meta > .eyebrow:last-child {
-    display: none;
-  }
   .home-intro h1 {
     font-size: 14.1vw;
     margin-top: 20px;
@@ -100,5 +87,131 @@
   }
   .home-statement h2 {
     font-size: 45px;
+  }
+}
+
+@media (max-width: 759px) {
+  .home-page {
+    padding: 46px 24px 0;
+    max-width: 560px;
+    margin: auto;
+  }
+  .mobile-intro {
+    padding: 0 0 58px;
+  }
+  .mobile-portrait {
+    width: 60px;
+    height: 68px;
+    object-fit: cover;
+    object-position: center 38%;
+    border-radius: 6px;
+    margin-bottom: 26px;
+  }
+  .mobile-intro h1 {
+    font-size: 28px;
+    line-height: 1.24;
+    letter-spacing: -0.045em;
+    max-width: 420px;
+    margin-bottom: 20px;
+  }
+  .mobile-intro > p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #53534f;
+    max-width: 450px;
+  }
+  .mobile-intro .mobile-current {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .intro-links {
+    display: flex;
+    gap: 26px;
+    margin-top: 25px;
+    font-size: 12px;
+  }
+  .intro-links a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+  }
+  .intro-links app-icon {
+    font-size: 12px;
+  }
+  .mobile-section-heading {
+    border-top: 1px solid var(--line);
+    padding: 25px 0 30px;
+  }
+  .mobile-section-heading h2,
+  .mobile-experience > h2 {
+    font: 400 13px/1.5 var(--font);
+    color: var(--muted);
+    letter-spacing: 0;
+  }
+  .mobile-inline-link {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    font-size: 13px;
+    border-bottom: 1px solid var(--line);
+    padding: 9px 0;
+    line-height: 1.6;
+  }
+  .mobile-experience {
+    border-top: 1px solid var(--line);
+    padding: 27px 0 5px;
+    margin-top: 52px;
+  }
+  .experience-row {
+    padding: 25px 0 20px;
+  }
+  .experience-row > div {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    justify-content: space-between;
+  }
+  .experience-row h3 {
+    font: 500 14px/1.5 var(--font);
+    letter-spacing: -0.02em;
+  }
+  .experience-row span {
+    color: var(--muted);
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .experience-row p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .mobile-experience .mobile-inline-link {
+    margin-top: 8px;
+  }
+}
+
+.intro-bottom {
+  grid-template-columns: 1fr 1fr;
+}
+.home-intro h1 {
+  margin-top: 0;
+}
+.home-statement h2 {
+  font-size: clamp(40px, 5vw, 72px);
+}
+
+@media (max-width: 759px) {
+  .mobile-section-heading {
+    padding-bottom: 13px;
+  }
+  .mobile-selected > .mobile-inline-link {
+    margin-top: 26px;
+  }
+  .mobile-intro {
+    padding-bottom: 65px;
   }
 }

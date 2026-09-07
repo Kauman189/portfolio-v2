@@ -378,26 +378,11 @@ button {
     transform: none;
   }
 }
-[appFloatSurface] img {
-  translate: var(--pointer-x, 0px) var(--pointer-y, 0px);
-  transition:
-    translate 0.7s var(--ease),
-    transform 0.9s var(--ease);
-}
+
 .about-main figure {
   position: relative;
 }
-.about-main figure::after {
-  content: "+";
-  position: absolute;
-  right: -15px;
-  top: -8px;
-  color: var(--accent);
-  font-size: 60px;
-  font-weight: 400;
-  line-height: 1;
-  animation: registration-turn 18s linear infinite;
-}
+
 .photo-interest img {
   animation: photo-sway 10s ease-in-out infinite;
 }
@@ -411,8 +396,135 @@ button {
     transform: translateY(-7px) rotate(0.5deg);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  [appFloatSurface] img {
+@media (max-width: 759px) {
+  :root {
+    --gutter: 24px;
+  }
+  html {
+    scroll-padding-top: 24px;
+  }
+  .page {
+    padding: 44px 24px 55px;
+    max-width: 560px;
+    margin: auto;
+    min-height: 65svh;
+  }
+  .page-topline {
+    display: none;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .display-title {
+    font-size: 38px;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+    margin: 0 0 30px;
+  }
+  .text-link {
+    font-size: 13px;
+    gap: 20px;
+  }
+  .scroll-reveal {
+    translate: 0 8px;
+    filter: blur(3px);
+    transition:
+      opacity 0.8s var(--ease),
+      translate 0.8s var(--ease),
+      filter 0.8s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .scroll-reveal.is-revealed {
     translate: none;
+    filter: blur(0);
+  }
+  .page-enter {
+    animation: mobile-page-enter 0.8s var(--ease) both;
+  }
+  .mobile-intro > * {
+    animation: mobile-intro-enter 0.8s var(--ease) both;
+  }
+  .mobile-intro h1 {
+    animation-delay: 40ms;
+  }
+  .mobile-intro > p {
+    animation-delay: 80ms;
+  }
+  .mobile-intro > .mobile-current {
+    animation-delay: 120ms;
+  }
+  .mobile-intro > .intro-links {
+    animation-delay: 160ms;
+  }
+  a,
+  button {
+    transition:
+      color 0.22s,
+      transform 0.22s var(--ease);
+  }
+  button:active,
+  .intro-links a:active,
+  .mobile-inline-link:active {
+    transform: scale(0.97);
+    transition-duration: 90ms;
+  }
+  .motion-ticker {
+    display: none;
+  }
+  ::view-transition-old(root) {
+    animation: mobile-route-out 0.2s ease both;
+  }
+  ::view-transition-new(root) {
+    animation: mobile-page-enter 0.65s var(--ease) both;
+  }
+}
+@keyframes mobile-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes mobile-intro-enter {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+@keyframes mobile-route-out {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-revealed {
+    opacity: 1;
+    translate: none;
+    filter: none;
+    transition: none;
+  }
+  .page-enter,
+  .mobile-intro > * {
+    animation: none;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }
