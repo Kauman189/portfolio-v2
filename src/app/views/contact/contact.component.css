@@ -201,6 +201,7 @@
 .service-choice.chosen {
   background: var(--accent);
   border-color: var(--accent);
+  color: var(--paper);
 }
 .form-submit {
   display: flex;
@@ -229,7 +230,7 @@
 }
 .send-enquiry:hover {
   background: var(--accent);
-  color: var(--ink);
+  color: var(--paper);
   transform: translateY(-3px);
 }
 .send-enquiry span {
@@ -418,6 +419,7 @@
   .service-choice.chosen {
     background: none;
     border-color: var(--line);
+    color: var(--ink);
   }
   .form-submit {
     align-items: flex-start;

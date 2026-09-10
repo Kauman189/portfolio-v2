@@ -211,6 +211,7 @@
 }
 .play-track:hover {
   background: var(--accent);
+  color: var(--paper);
   transform: scale(1.05);
 }
 svg {

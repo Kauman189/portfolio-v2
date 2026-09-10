@@ -98,7 +98,7 @@
   position: absolute;
   inset: -15px -15px -15px -50px;
   z-index: -1;
-  background: linear-gradient(90deg, #fafaf8fa 45%, #fafaf8e8 80%, #fafaf800);
+  background: linear-gradient(90deg, #fffffffa 45%, #ffffffe8 80%, #ffffff00);
 }
 .chapter-copy h2 {
   font-size: clamp(32px, 3.4vw, 52px);
@@ -197,6 +197,9 @@
   }
 }
 @media (max-width: 759px) {
+  .chapter-copy {
+    display: none;
+  }
   .imagine-film {
     padding-top: 44px;
   }
@@ -233,7 +236,7 @@
   }
   .chapter-copy:before {
     inset: 0 -15px;
-    background: linear-gradient(180deg, #fafaf8f7 65%, #fafaf800);
+    background: linear-gradient(180deg, #fffffff7 65%, #ffffff00);
   }
   .chapter-copy h2 {
     font-size: 29px;

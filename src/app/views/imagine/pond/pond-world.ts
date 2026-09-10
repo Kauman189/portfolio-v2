@@ -13,7 +13,7 @@ const sphere = new T.SphereGeometry(1, 24, 16);
 const cube = new RoundedBoxGeometry(1, 1, 1, 3, 0.18);
 
 const petalGeometry = new T.SphereGeometry(1, 16, 10);
-const PAPER = new T.Color('#fafaf8');
+const PAPER = new T.Color('#ffffff');
 
 /** Original cartoon characters with flat shading and a compact pond; no model downloads or textures. */
 export class PondWorld {
@@ -139,7 +139,7 @@ export class PondWorld {
     canopy.position.y = 2.5;
     this.umbrella.add(canopy);
     this.world.add(this.umbrella);
-    const heartMaterial = this.mat('#ff6b35');
+    const heartMaterial = this.mat('#003c29');
     const heartShape = new T.Shape();
     heartShape.moveTo(0, -0.6);
     heartShape.bezierCurveTo(-1.1, 0.1, -0.6, 0.85, 0, 0.4);
@@ -376,7 +376,7 @@ export class PondWorld {
         0.033,
       ),
     );
-    const petals = this.mat('#ff864b');
+    const petals = this.mat('#003c29');
     for (let i = 0; i < 6; i++) {
       const a = (i * Math.PI) / 3;
       const p = this.ellipsoid(

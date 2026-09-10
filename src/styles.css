@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-  --paper: #fafaf8;
+  --paper: #ffffff;
   --ink: #1a1a1a;
-  --accent: #ff6b35;
+  --accent: #00994a;
   --muted: #6b6b6b;
   --line: #deded8;
   --font: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -74,7 +74,7 @@ button {
 }
 ::selection {
   background: var(--accent);
-  color: var(--ink);
+  color: var(--paper);
 }
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -201,7 +201,7 @@ button {
 .cookie-btn-accept {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--ink);
+  color: var(--paper);
 }
 @media (max-width: 650px) {
   .page {

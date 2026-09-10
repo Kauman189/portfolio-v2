@@ -4,8 +4,8 @@
   "description": "Portfolio de diseño UX/UI y visual de Camilo Arias",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#FF6B35",
-  "background_color": "#FAFAF8",
+  "theme_color": "#003C29",
+  "background_color": "#FFFFFF",
   "icons": [
     {
       "src": "/assets/images/favicon.ico",
