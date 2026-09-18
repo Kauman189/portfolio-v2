@@ -1,0 +1,12 @@
+.angular/
+dist/
+coverage/
+.idea/
+.vscode/
+src/assets/images/lemon.png
+src/assets/images/landing.png
+src/assets/images/dashboard.png
+src/assets/images/me.png
+src/assets/images/itsTime.png
+src/assets/images/posterJKU.png
+src/assets/images/posterAutotok.png

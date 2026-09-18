@@ -27,7 +27,20 @@
                 "input": "public"
               },
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets",
+                "ignore": [
+                  "images/lemon.png",
+                  "images/landing.png",
+                  "images/dashboard.png",
+                  "images/me.png",
+                  "images/itsTime.png",
+                  "images/posterJKU.png",
+                  "images/posterAutotok.png"
+                ]
+              }
             ],
             "styles": ["src/styles.css"],
             "scripts": []
