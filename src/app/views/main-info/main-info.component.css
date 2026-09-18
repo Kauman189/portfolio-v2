@@ -9,7 +9,7 @@
   white-space: nowrap;
   font-weight: 500;
 }
-.name-mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.name-mask { display: inline-block; overflow: visible; vertical-align: bottom; }
 .name-mask > span { display: inline-block; }
 .name-mask + .name-mask { margin-left: .16em; }
 .home-intro { padding-bottom: 48px; }
