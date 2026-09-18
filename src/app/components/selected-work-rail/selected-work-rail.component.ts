@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../data/projects';
 import { Localized } from '../../i18n/locale.service';
@@ -11,10 +11,16 @@ import { IconComponent } from '../icon/icon.component';
   templateUrl: './selected-work-rail.component.html',
   styleUrl: './selected-work-rail.component.css',
 })
-export class SelectedWorkRailComponent extends Localized {
+export class SelectedWorkRailComponent extends Localized implements AfterViewInit {
   @Input({ required: true }) projects: Project[] = [];
   @ViewChild('track') track?: ElementRef<HTMLElement>;
   activeIndex = 1;
+
+  ngAfterViewInit() {
+    requestAnimationFrame(() => {
+      if (this.track) this.track.nativeElement.scrollLeft = 0;
+    });
+  }
 
   updateActive() {
     const track = this.track?.nativeElement;

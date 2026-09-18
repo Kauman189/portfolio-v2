@@ -34,14 +34,12 @@ export class MotionService {
       ].join(',');
 
       root.querySelectorAll<HTMLElement>(selectors).forEach((element, index) => {
+        const isCard = element.classList.contains('rail-card');
+        if (isCard && !element.previousElementSibling) return;
         const stop = inView(element, () => {
-          const isCard = element.classList.contains('rail-card');
-          animate(element, {
+          animate(element, isCard ? { opacity: [0, 1] } : {
             opacity: [0, 1],
-            transform: [
-              isCard ? 'translateX(64px) scale(0.985)' : 'translateY(28px)',
-              'translate(0px, 0px) scale(1)',
-            ],
+            transform: ['translateY(28px)', 'translateY(0px)'],
           }, {
             duration: isCard ? 0.95 : 0.72,
             delay: isCard ? Math.min(index * 0.09, 0.3) : (index % 3) * 0.06,
