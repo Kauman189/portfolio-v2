@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     component: MainInfoComponent,
-    title: 'Camilo Arias — UX/UI & Visual Designer',
+    title: 'Camilo Arias — Product Designer & Developer',
   },
   {
     path: 'projects',

@@ -2,15 +2,24 @@
   padding: 128px var(--gutter) 0;
 }
 .home-intro h1 {
-  font-size: clamp(70px, 14.7vw, 240px);
+  font-size: clamp(70px, 11.5vw, 190px);
   letter-spacing: -0.078em;
   line-height: 1.04;
   margin: 17px 0 27px;
   white-space: nowrap;
   font-weight: 500;
 }
+.name-mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.name-mask > span { display: inline-block; }
+.name-mask + .name-mask { margin-left: .16em; }
+.home-intro { padding-bottom: 48px; }
 .title-period {
   color: var(--accent);
+}
+.home-selected {
+  max-width: 1120px;
+  margin: 38px auto 0;
+  padding-bottom: 52px;
 }
 .intro-bottom {
   display: grid;

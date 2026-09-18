@@ -12,10 +12,12 @@ import { IconComponent } from '../icon/icon.component';
       <a class="project-index-row" [routerLink]="['/projects', project.slug]">
         <span
           ><span class="index-title">{{
-            t(project.shortTitleEs, project.shortTitle)
+            t(project.featuredRank ? project.titleEs : project.shortTitleEs, project.featuredRank ? project.title : project.shortTitle)
           }}</span
           ><span class="index-description">{{
-            l(descriptions[project.slug])
+            project.statusText
+              ? l(project.statusText) + ' · ' + l(project.cardSummary ?? descriptions[project.slug])
+              : l(project.cardSummary ?? descriptions[project.slug])
           }}</span></span
         ><app-icon name="up-right" />
       </a>

@@ -1,39 +1,60 @@
 import { Injectable, NgZone, inject } from '@angular/core';
+import { animate } from 'motion/mini';
+import { inView } from 'motion';
+
 @Injectable({ providedIn: 'root' })
 export class MotionService {
   private zone = inject(NgZone);
-  private observer?: IntersectionObserver;
+  private stops: Array<() => void> = [];
+
   observe(root: HTMLElement) {
+    this.destroy();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     this.zone.runOutsideAngular(() => {
-      this.observer?.disconnect();
-      this.observer ??= new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              this.observer?.unobserve(entry.target);
-            }
-          }
-        },
-        { threshold: 0.07, rootMargin: '0px 0px -25px 0px' },
-      );
-      root
-        .querySelectorAll(
-          '.project-index-row,.experience-row,.mobile-experience,.process-step,.experience-entry,.education-row,.home-statement,.work-picture,.work-detail,.case-cover,.case-context,.case-challenge,.case-section-head,.case-flow li,.case-decision,.case-detail-image,.case-facts>div,.case-measurement,.case-learning,.case-process-gallery,.next-project,.about-main figure,.about-copy,.moodboard-heading,.principle-card,.about-listening,.work-interlude,.ability,.about-next,.off-duty,.contact-links>a,.contact-bottom>div:first-child,.footer-top,.enquiry-intro,.form-field,.service-options,.form-submit',
-        )
-        .forEach((el, i) => {
-          if (el.classList.contains('is-revealed')) return;
-          el.classList.add('scroll-reveal');
-          (el as HTMLElement).style.setProperty(
-            '--reveal-delay',
-            `${(i % 3) * 40}ms`,
-          );
-          this.observer?.observe(el);
+      root.querySelectorAll<HTMLElement>('.home-intro .name-mask > span')
+        .forEach((word, index) => {
+          animate(word, {
+            transform: ['translateY(105%)', 'translateY(0%)'],
+          }, { duration: 1.05, delay: 0.12 + index * 0.16, ease: [0.22, 1, 0.36, 1] });
         });
+
+      const selectors = [
+        '.rail-intro', '.rail-card', '.project-index-row', '.process-step',
+        '.home-statement', '.case-header', '.case-cover', '.case-context',
+        '.case-challenge', '.case-depth-intro', '.case-depth-item',
+        '.case-section-head', '.case-flow li', '.case-decision', '.case-outcome',
+        '.case-learning', '.case-process-gallery', '.next-project',
+        '.work-archive', '.experience-row', '.experience-entry',
+        '.education-row', '.about-main figure', '.about-copy',
+        '.moodboard-heading', '.principle-card', '.about-listening',
+        '.ability', '.about-next', '.off-duty', '.enquiry-intro',
+        '.form-field', '.service-options', '.form-submit', '.contact-links>a',
+        '.footer-top',
+      ].join(',');
+
+      root.querySelectorAll<HTMLElement>(selectors).forEach((element, index) => {
+        const stop = inView(element, () => {
+          const isCard = element.classList.contains('rail-card');
+          animate(element, {
+            opacity: [0, 1],
+            transform: [
+              isCard ? 'translateX(64px) scale(0.985)' : 'translateY(28px)',
+              'translate(0px, 0px) scale(1)',
+            ],
+          }, {
+            duration: isCard ? 0.95 : 0.72,
+            delay: isCard ? Math.min(index * 0.09, 0.3) : (index % 3) * 0.06,
+            ease: [0.22, 1, 0.36, 1],
+          });
+        }, { margin: '0px 0px -25px 0px' });
+        this.stops.push(stop);
+      });
     });
   }
+
   destroy() {
-    this.observer?.disconnect();
+    this.stops.forEach((stop) => stop());
+    this.stops = [];
   }
 }

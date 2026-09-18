@@ -21,4 +21,9 @@ describe('MainInfoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('uses the selected cases and no project orbit', () => {
+    expect(component.selected.length).toBe(5);
+    expect(fixture.nativeElement.querySelector('app-project-orbit')).toBeNull();
+  });
 });

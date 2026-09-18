@@ -37,7 +37,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       const page = url.split('/')[1];
       const project = PROJECTS.find((p) => url === '/projects/' + p.slug);
       const names: Record<string, string> = {
-        projects: this.locale.t('Proyectos', 'Work'),
+        projects: this.locale.t('Proyectos seleccionados', 'Selected work'),
         about: this.locale.t('Sobre mí', 'About'),
         imagine: 'Imagine',
         contact: this.locale.t('Contacto', 'Contact'),
@@ -46,14 +46,19 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       const heading = project
         ? this.locale.t(project.shortTitleEs, project.shortTitle)
         : (names[page] ??
-          this.locale.t('Diseñador UX/UI y visual', 'UX/UI & visual designer'));
+          this.locale.t('Diseñador de producto y desarrollador', 'Product designer and developer'));
       title.setTitle(`${heading} — Camilo Arias`);
       const description = project
         ? this.locale.l(CASE_STUDIES[project.slug].overview)
-        : this.locale.t(
-            'Camilo Arias, diseñador UX/UI y visual en Valencia. Proyectos de producto, interfaces y diseño editorial.',
-            'Camilo Arias, UX/UI and visual designer in Valencia. Product, interface and print design projects.',
-          );
+        : page === 'projects'
+          ? this.locale.t(
+              'Productos que he ayudado a definir, diseñar y llevar a producción. Cinco casos principales y un archivo visual.',
+              'Products I have helped define, design and ship. Five selected case studies and a visual archive.',
+            )
+          : this.locale.t(
+              'Camilo Arias, diseñador de producto digital y desarrollador en Valencia. Diseño y construyo productos desde los primeros flujos hasta producción.',
+              'Camilo Arias, digital product designer and developer in Valencia. I design and build products from early flows through production.',
+            );
       meta.updateTag({ name: 'description', content: description });
       meta.updateTag({
         property: 'og:title',

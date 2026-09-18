@@ -810,3 +810,87 @@
     font-size: 23px;
   }
 }
+
+/* Selected work keeps the site's editorial grid, with one visual per case. */
+@media (min-width: 760px) {
+  .work-stream .work-chapter {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    gap: 7%;
+    align-items: center;
+    padding: 80px 0;
+  }
+  .work-stream .work-story {
+    position: relative;
+    top: auto;
+    padding: 0;
+  }
+  .work-stream .work-story h2 {
+    font-size: clamp(35px, 4vw, 61px);
+    line-height: 1.06;
+    margin-top: 22px;
+  }
+  .work-stream .work-story h3 {
+    font: 400 clamp(17px, 1.45vw, 21px)/1.55 var(--font);
+    letter-spacing: -0.02em;
+    margin: 29px 0 0;
+    max-width: 520px;
+    white-space: normal;
+  }
+  .work-stream .work-story > .text-link {
+    display: inline-flex;
+    margin-top: 32px;
+  }
+  .work-stream .work-picture {
+    height: clamp(360px, 47vw, 630px);
+    min-height: 0;
+    max-height: none;
+  }
+  .work-stream .work-picture img {
+    padding: 5%;
+  }
+  .work-stream .work-no-visual {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .work-stream .work-no-visual .work-story { max-width: 850px; }
+  .work-stream .work-no-visual .work-story h2 { max-width: 800px; }
+}
+.work-scope {
+  display: grid;
+  gap: 17px;
+  margin-top: 35px;
+  border-top: 1px solid var(--line);
+  padding-top: 23px;
+}
+.work-scope p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+.work-scope .eyebrow {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.work-archive {
+  border-top: 1px solid var(--line);
+  margin: 28px 0 85px;
+  padding-top: 55px;
+}
+.work-archive-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px 50px;
+  margin-bottom: 38px;
+}
+.work-archive-heading .eyebrow { grid-row: 1 / 3; padding-top: 9px; }
+.work-archive-heading h2 { font-size: clamp(32px, 4vw, 58px); }
+.work-archive-heading p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+.work-archive .project-index { gap: 0; }
+.work-archive .project-index-row { border-top: 1px solid var(--line); }
+@media (max-width: 759px) {
+  .work-archive { margin: 50px 0 0; padding-top: 28px; }
+  .work-archive-heading { display: block; margin-bottom: 20px; }
+  .work-archive-heading .eyebrow { display: block; padding: 0; }
+  .work-archive-heading h2 { font-size: 25px; margin-top: 14px; }
+  .work-archive-heading p { font-size: 12px; margin-top: 9px; }
+}

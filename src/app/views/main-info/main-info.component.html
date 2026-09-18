@@ -1,11 +1,11 @@
-<div class="home-page page-enter">
+<div class="home-page">
   @if (!mobile()) {
     <section class="home-intro" aria-labelledby="home-title">
-      <h1 id="home-title">Camilo Arias<span class="title-period">.</span></h1>
+      <h1 id="home-title"><span class="name-mask"><span>Camilo</span></span> <span class="name-mask"><span>Arias<span class="title-period">.</span></span></span></h1>
       <div class="intro-bottom">
         <span class="eyebrow"
           >{{ t("Proyectos seleccionados", "Selected work") }}
-          <span class="muted">(06)</span></span
+          <span class="muted">(05)</span></span
         >
 
         <a routerLink="/projects" class="all-work-link"
@@ -14,7 +14,7 @@
         ></a>
       </div>
     </section>
-    <app-project-orbit />
+    <app-selected-work-rail [projects]="selected" />
   } @else {
     <section class="mobile-intro" aria-labelledby="mobile-title">
       <img

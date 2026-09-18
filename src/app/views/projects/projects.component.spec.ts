@@ -21,4 +21,20 @@ describe('ProjectsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shows five selected cases and four archive projects in the intended order', () => {
+    expect(component.projects.map((project) => project.slug)).toEqual([
+      'digital-commerce',
+      'operations-analytics',
+      'fynaq',
+      'its-time',
+      'altura',
+    ]);
+    expect(component.archive.map((project) => project.slug)).toEqual([
+      'autotok-web',
+      'autotok-dashboard',
+      'autotok-poster',
+      'acera-jku',
+    ]);
+  });
 });

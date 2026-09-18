@@ -2,7 +2,7 @@ import { IconComponent } from '../../components/icon/icon.component';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { PROJECTS, Project } from '../../data/projects';
+import { PROJECTS, SELECTED_PROJECTS, Project } from '../../data/projects';
 import { CASE_STUDIES, CaseStudy } from '../../data/case-studies';
 import { Localized } from '../../i18n/locale.service';
 import { LivingMarkComponent } from '../../components/living-mark/living-mark.component';
@@ -16,7 +16,7 @@ import { LivingMarkComponent } from '../../components/living-mark/living-mark.co
 export class ProjectDetailComponent extends Localized {
   project: Project | undefined;
   study: CaseStudy | undefined;
-  nextProject = PROJECTS[0];
+  nextProject = SELECTED_PROJECTS[0];
   get toolsLabel() {
     const names: Record<string, string> = {
       'Print Design': 'Diseño impreso',
@@ -35,7 +35,10 @@ export class ProjectDetailComponent extends Localized {
         const index = PROJECTS.findIndex((p) => p.slug === params.get('slug'));
         this.project = PROJECTS[index];
         this.study = this.project ? CASE_STUDIES[this.project.slug] : undefined;
-        this.nextProject = PROJECTS[(index + 1) % PROJECTS.length];
+        const selectedIndex = SELECTED_PROJECTS.findIndex((p) => p.slug === this.project?.slug);
+        this.nextProject = selectedIndex >= 0
+          ? SELECTED_PROJECTS[(selectedIndex + 1) % SELECTED_PROJECTS.length]
+          : SELECTED_PROJECTS[0];
       });
   }
 }

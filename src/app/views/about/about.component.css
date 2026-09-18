@@ -2,7 +2,7 @@
   padding-bottom: 70px;
 }
 .about-italic {
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 400;
 }
 .about-main {
@@ -21,7 +21,7 @@
   content: "";
   position: absolute;
   inset: 0 0 80px 50px;
-  background: #e1ac88;
+  background: #e9e9e7;
   z-index: -1;
   transform: rotate(5deg);
 }
@@ -38,7 +38,7 @@
   width: 100%;
   height: 620px;
   object-fit: cover;
-  filter: none;
+  filter: grayscale(100%) contrast(1.06);
   box-shadow: 0 15px 28px #201a0c14;
 }
 .about-portrait figcaption {
@@ -71,7 +71,9 @@
   gap: 5%;
   padding: 90px 5% 100px;
   margin: 65px calc(var(--gutter) * -1) 0;
-  background: #e6ebdf;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   align-items: center;
   overflow: hidden;
 }
@@ -88,12 +90,12 @@
   margin: 30px 0;
 }
 .moodboard-heading h2 > span {
-  color: #648053;
+  color: var(--ink);
 }
 .moodboard-heading p {
   font-size: 15px;
   line-height: 1.8;
-  color: #66745d;
+  color: var(--muted);
   max-width: 300px;
 }
 .mood-photo {
@@ -104,16 +106,17 @@
 .mood-photo img {
   width: 100%;
   object-fit: cover;
-  box-shadow: 0 20px 35px #36422c18;
+  filter: grayscale(100%) contrast(1.04);
+  box-shadow: 0 20px 35px #00000012;
 }
 .mood-photo figcaption {
   font-size: 8px;
   line-height: 1.7;
   margin-top: 15px;
-  color: #58694b;
+  color: var(--muted);
 }
 .mood-photo a {
-  border-bottom: 1px solid #71856455;
+  border-bottom: 1px solid var(--line);
 }
 .mood-architecture {
   transform: translateY(calc(var(--scene-progress, 0) * -45px)) rotate(-5deg);
@@ -134,29 +137,7 @@
   top: 35px;
   font-size: 40px;
   font-weight: 300;
-  color: #738767;
-}
-.mood-palette {
-  position: absolute;
-  bottom: 38px;
-  left: 5%;
-  display: flex;
-  gap: 8px;
-}
-.mood-palette i {
-  width: 19px;
-  height: 19px;
-  background: #e1ac88;
-  border-radius: 50%;
-}
-.mood-palette i:nth-child(2) {
-  background: #a9c5bd;
-}
-.mood-palette i:nth-child(3) {
-  background: #648053;
-}
-.mood-palette i:nth-child(4) {
-  background: #f4f1e4;
+  color: var(--muted);
 }
 .about-principles {
   margin-top: 110px;
@@ -183,15 +164,16 @@
   min-height: 370px;
   position: relative;
   overflow: hidden;
-  background: #f1e5d4;
+  background: var(--paper);
+  border: 1px solid var(--line);
   transition: transform 0.8s var(--ease);
 }
 .principle-card:nth-child(3) {
-  background: #e3e9d9;
+  background: var(--paper);
   transform: translateY(30px);
 }
 .principle-card:nth-child(4) {
-  background: #efb993;
+  background: var(--paper);
   transform: translateY(60px);
 }
 .principle-card > .eyebrow {
@@ -218,7 +200,7 @@
 .drawing-circles i {
   width: 48px;
   height: 48px;
-  border: 1px solid #917b57;
+  border: 1px solid #858585;
   border-radius: 50%;
   margin-right: -26px;
   animation: study-breathe 6s ease-in-out infinite;
@@ -238,7 +220,7 @@
 .drawing-grid i {
   width: 19px;
   height: 19px;
-  border: 1px solid #648053;
+  border: 1px solid #858585;
 }
 .drawing-lines {
   flex-direction: column;
@@ -248,7 +230,7 @@
 .drawing-lines i {
   width: 70px;
   height: 1px;
-  background: #9c583d;
+  background: #858585;
   animation: study-line 5s ease-in-out infinite;
   transform-origin: left;
 }
@@ -515,10 +497,6 @@
   }
   .mood-shutter {
     transform: rotate(4deg);
-  }
-  .mood-palette {
-    left: var(--gutter);
-    bottom: 27px;
   }
   .about-principles {
     grid-template-columns: 1fr;
@@ -820,8 +798,7 @@
     color: var(--muted);
     margin-top: 10px;
   }
-  .mood-registration,
-  .mood-palette {
+  .mood-registration {
     display: none;
   }
   .about-principles {
