@@ -8,10 +8,10 @@
     <div class="work-lead">
       <app-living-mark />
       <p>{{ t(
-        "Productos que he ayudado a definir, diseñar y llevar a producción, desde las primeras decisiones hasta la implementación.",
-        "Products I’ve helped define, design and ship, from early product decisions to production."
+        "Casos de diseño de producto: el contexto, la investigación y las decisiones que dieron forma a cada experiencia.",
+        "Product design case studies: the context, research and decisions that shaped each experience."
       ) }}</p>
-      <span class="eyebrow">{{ t("Selección / 05 proyectos", "Selected / 05 projects") }} <app-icon name="down" /></span>
+      <span class="eyebrow">{{ t("Selección /", "Selected /") }} 0{{ projects.length }} {{ t("proyectos", "projects") }} <app-icon name="down" /></span>
     </div>
   </header>
     <app-project-index [projects]="projects" />

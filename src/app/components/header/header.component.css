@@ -46,8 +46,10 @@
 .site-header nav a.active {
   color: var(--accent);
 }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
 .site-header nav a:hover {
   color: var(--accent);
+}
 }
 .contact-link app-icon {
   margin-left: 8px;

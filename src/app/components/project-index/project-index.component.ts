@@ -9,7 +9,18 @@ import { IconComponent } from '../icon/icon.component';
   imports: [RouterLink, IconComponent],
   template: ` <div class="project-index">
     @for (project of projects; track project.slug) {
-      <a class="project-index-row" [routerLink]="['/projects', project.slug]">
+      <a class="project-index-row" [class.project-index-visual]="project.featuredRank && project.displayImage" [routerLink]="['/projects', project.slug]">
+        @if (project.featuredRank && project.displayImage) {
+          <div class="index-preview" [class.index-preview-phones]="project.imageLayout === 'phone'">
+            @if (project.imageLayout === 'phone') {
+              @for (image of project.processImages.slice(0, 3); track image.src) {
+                <img [src]="image.src" [alt]="image.caption ? l(image.caption) : image.alt" loading="lazy" width="390" height="844" />
+              }
+            } @else {
+              <img [src]="project.displayImage" [alt]="t(project.titleEs, project.title)" loading="lazy" width="1440" height="1024" />
+            }
+          </div>
+        }
         <span
           ><span class="index-title">{{
             t(project.featuredRank ? project.titleEs : project.shortTitleEs, project.featuredRank ? project.title : project.shortTitle)
@@ -70,15 +81,23 @@ import { IconComponent } from '../icon/icon.component';
         color: #83837b;
         transition: transform 0.5s var(--ease);
       }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
       .project-index-row:hover {
         color: var(--accent);
       }
+}
       .project-index-row:hover > app-icon {
         transform: translate(3px, -3px);
       }
       .project-index-row:active {
         transform: translateX(3px);
       }
+      .project-index-visual { display: grid; grid-template-columns: 1fr auto; gap: 20px; padding-top: 0; }
+      .index-preview { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 1.5; background: #fff; overflow: hidden; border: 1px solid var(--line); }
+      .index-preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+      .index-preview-phones { gap: 4%; padding: 24px 7%; background: #f0f2f4; }
+      .index-preview-phones img { width: 28%; height: auto; max-height: 100%; border-radius: 12px; }
+      .project-index-visual .index-description { max-width: 38ch; }
       @media (prefers-reduced-motion: reduce) {
         .project-index-row,
         .project-index-row > app-icon {
@@ -96,10 +115,6 @@ export class ProjectIndexComponent extends Localized {
     'acera-jku': [
       'Comunicación visual para la comunidad científica.',
       'Visual communication for the research community.',
-    ],
-    'its-time': [
-      'Una interfaz para registrar y revisar el tiempo.',
-      'An interface for recording and reviewing time.',
     ],
     'autotok-poster': [
       'Una presentación del producto en papel.',

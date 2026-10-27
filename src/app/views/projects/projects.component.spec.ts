@@ -27,7 +27,7 @@ describe('ProjectsComponent', () => {
       'digital-commerce',
       'operations-analytics',
       'fynaq',
-      'its-time',
+      'poketrade',
       'altura',
     ]);
     expect(component.archive.map((project) => project.slug)).toEqual([

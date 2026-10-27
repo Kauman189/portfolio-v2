@@ -1,10 +1,10 @@
 <section class="selected-rail" aria-labelledby="rail-title">
   <div class="rail-intro">
-    <span class="eyebrow">{{ t("Portfolio / 05", "Portfolio / 05") }}</span>
+    <span class="eyebrow">Portfolio / 0{{ projects.length }}</span>
     <h2 id="rail-title">{{ t("Proyectos", "Selected") }}<br />{{ t("seleccionados.", "work.") }}</h2>
     <p>{{ t(
-      "Productos que he ayudado a definir, diseñar y construir. En cada caso cuento mi papel, las decisiones y lo que llegó a funcionar.",
-      "Products I’ve helped define, design and build. Each case explains my role, the decisions and what made it into use."
+      "Distintos contextos, distintas decisiones. Research, estrategia y diseño de producto contados desde mi papel en cada proyecto.",
+      "Different contexts, different decisions. Research, strategy and product design through my role in each project."
     ) }}</p>
     <div class="rail-controls">
       <button type="button" (click)="move(-1)" [disabled]="activeIndex === 1" [attr.aria-label]="t('Proyecto anterior', 'Previous project')">←</button>
@@ -21,8 +21,14 @@
           <app-icon name="up-right" />
         </div>
         @if (project.displayImage) {
-          <div class="rail-card-image">
-            <img [src]="project.displayImage" [alt]="t(project.titleEs, project.title)" [style.object-fit]="project.slug === 'altura' ? 'contain' : 'cover'" loading="lazy" />
+          <div class="rail-card-image" [class.rail-card-phones]="project.imageLayout === 'phone'">
+            @if (project.imageLayout === 'phone') {
+              @for (image of project.processImages.slice(0, 3); track image.src) {
+                <img [src]="image.src" [alt]="image.caption ? l(image.caption) : image.alt" loading="lazy" width="390" height="844" />
+              }
+            } @else {
+              <img [src]="project.displayImage" [alt]="t(project.titleEs, project.title)" [style.object-fit]="project.imageFit" loading="lazy" />
+            }
           </div>
         } @else {
           <div class="rail-card-type" aria-hidden="true">{{ t(project.shortTitleEs, project.shortTitle) }}</div>

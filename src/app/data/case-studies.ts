@@ -24,81 +24,277 @@ export interface CaseStudy {
   reflection?: Bilingual;
 }
 export const CASE_STUDIES: Record<string, CaseStudy> = {
-  'digital-commerce': {
-    context: ['El proyecto reunía una experiencia de compra orientada al público y herramientas para continuar la operación después de cada transacción. Mi trabajo abarcó decisiones de producto, diseño y la capa de interfaz, dentro de una entrega en equipo que llegó a producción.', 'The project combined a customer-facing purchase experience with tools for continuing the operation after each transaction. My work covered product decisions, design and the interface layer within a team delivery that reached production.'],
-    headline: ['Del flujo de compra al producto real.', 'From purchase flow to live product.'],
-    category: ['Comercio digital · Producción · Confidencial', 'Digital commerce · Production · Confidential'],
-    overview: [
-      'Una plataforma de comercio digital en producción. Lideré el proyecto y el diseño, y trabajé en la implementación de la interfaz a lo largo de los flujos de compra, pedidos y pagos.',
-      'A digital commerce platform in production. I led the project and design, and worked on interface implementation across purchase, order and payment flows.',
+  "digital-commerce": {
+    "headline": [
+  "Evolucionar una herramienta que ya formaba parte del trabajo.",
+  "Evolving a tool already embedded in daily work."
+],
+    "category": [
+      "Retail · Punto de venta · Caso anonimizado",
+      "Retail · Point of sale · Anonymized case"
     ],
-    role: ['Liderazgo de proyecto, diseño de producto e implementación de interfaz', 'Project lead, product design and interface implementation'],
-    audience: ['Personas que compran y equipos que gestionan la operación', 'Customers and the teams managing operations'],
-    team: ['Trabajo en equipo; la integración backend especializada de pagos la realizaron otros desarrolladores.', 'Team project; other developers built the specialized payment backend integration.'],
-    constraints: ['Había que coordinar una experiencia continua entre selección, reserva, pago y pedido, mientras una parte crítica del pago dependía de una integración backend especializada. La confidencialidad limita lo que puedo publicar sobre pantallas, reglas y datos.', 'The experience had to stay coherent across selection, reservation, payment and order while a critical part of payment depended on a specialist backend integration. Confidentiality limits what I can publish about screens, rules and data.'],
-    owned: ['Lideré el proyecto y la dirección de diseño. Me encargué de la estructura de los recorridos, la UX/UI y la implementación de la interfaz visible; coordiné los puntos de contacto con el backend de pagos desarrollado por el equipo.', 'I led the project and design direction. I owned journey structure, UX/UI and visible interface implementation, coordinating the touchpoints with the payment backend built by the team.'],
-    keyDecisions: ['Traté compra, reserva y pedido como una misma secuencia de producto. La información de cada etapa tenía que explicar qué acababa de suceder y qué venía después, especialmente cuando la acción pasaba por el pago.', 'I treated purchase, reservation and order as one product sequence. Information at each stage needed to explain what had just happened and what came next, especially where the action passed through payment.'],
-    flowDetail: ['El recorrido conecta exploración y selección con reserva o compra, confirmación de pago y seguimiento del pedido. El diseño también contempla la información que necesita el equipo para continuar la operación después de la acción del cliente.', 'The journey connects discovery and selection with reservation or purchase, payment confirmation and order follow-up. The design also considers the information the team needs to continue the operation after the customer acts.'],
-    iterations: ['El alcance pasó de resolver pantallas individuales a comprobar la continuidad entre estados del recorrido. Las decisiones de interfaz se ajustaron al conectar las acciones del cliente con pagos y gestión posterior; no publico aquí versiones internas concretas.', 'The scope moved from individual screens to continuity across journey states. Interface decisions evolved as customer actions were connected to payments and subsequent management; I do not publish specific internal versions here.'],
-    designSystem: ['La interfaz necesitaba patrones coherentes para formularios, estados, confirmaciones y vistas de pedido. Esa consistencia ayuda a que el usuario reconozca qué puede hacer y a que el equipo mantenga las distintas partes del producto.', 'The interface needed consistent patterns for forms, states, confirmations and order views. That consistency helps customers recognize available actions and helps the team maintain the different parts of the product.'],
-    implementation: ['Mi trabajo continuó del diseño a la construcción de la interfaz. Coordiné comportamiento y estados visibles con quienes desarrollaron la integración de pagos, manteniendo clara la separación entre mi aportación y ese backend especializado.', 'My work continued from design into interface development. I coordinated visible behavior and states with the developers of the payment integration, keeping my contribution distinct from that specialist backend.'],
-    shipped: ['Una plataforma de comercio digital en producción con flujos conectados de compra, reservas, pagos y pedidos.', 'A live digital commerce platform with connected purchase, reservation, payment and order flows.'],
-    reflection: ['En un comercio real, la claridad entre pasos importa tanto como cada pantalla. Diseñar el recorrido completo permitió tratar la confirmación y la gestión posterior como parte de la experiencia de compra.', 'In real commerce, clarity between steps matters as much as each screen. Designing the whole journey made confirmation and subsequent management part of the purchase experience.'],
-    challenge: [
-      'Una compra no termina al pulsar «pagar»: la persona necesita avanzar con claridad entre selección, reserva, pago y pedido, mientras el equipo mantiene el control de la operación. El producto debía conectar esos momentos sin exponer la complejidad técnica al comprador.',
-      'A purchase does not end at “pay”: customers need clarity across selection, reservation, payment and order, while the team needs control of the operation. The product had to connect those moments without passing technical complexity on to the buyer.',
+    "overview": [
+  "Rediseñé una solución de punto de venta heredada para un retailer con más de 500 tiendas y presencia internacional. Lideré el diseño de producto, la investigación y las iteraciones con el equipo, hasta acompañar la integración de la nueva experiencia.",
+  "I redesigned a legacy point-of-sale solution for a retailer with more than 500 stores and an international presence. I led product design, research and iterations with the team, through to the integration of the new experience."
+],
+    "role": [
+  "Product Designer · Team Lead",
+  "Product Designer · Team Lead"
+],
+    "audience": [
+      "Personal de tienda y responsables de caja",
+      "Store staff and checkout supervisors"
     ],
-    chapters: [
-      { title: ['01 — Pensar en el recorrido completo', '01 — Consider the full journey'], body: ['Lideré el proyecto y el diseño más allá de una pantalla de compra. El alcance incluía selección, reservas, pagos y pedidos; por eso el trabajo de interfaz debía contemplar la continuidad entre cada paso y la gestión posterior.', 'I led project and design work beyond a single checkout screen. The scope included selection, reservations, payments and orders, so the interface work had to account for continuity between each step and the work that followed.'] },
-      { title: ['02 — Separar responsabilidades técnicas', '02 — Separate technical responsibilities'], body: ['Trabajé en la experiencia y su implementación, coordinándola con la integración backend especializada de pagos que construyeron otros desarrolladores. Esa división importa: mi responsabilidad cubría el producto y su interfaz, no atribuirme un backend ajeno.', 'I worked on the experience and interface implementation alongside a specialized payment backend built by other developers. That split matters: I owned the product and its interface work, while the specialist backend belonged to the team.'] },
-      { title: ['03 — Llegar a producción', '03 — Ship the product'], body: ['La entrega reunió diseño e implementación en un producto de comercio digital operativo. Las pantallas y datos internos no se publican aquí; el alcance puede explicarse con más detalle en privado.', 'Design and implementation came together in a working digital commerce product. Internal screens and data are not published here; I can explain the scope in more detail privately.'] },
+    "team": [
+      "Liderazgo de producto y diseño, en coordinación con desarrollo e integración.",
+      "Product and design leadership, coordinating development and integration."
     ],
-    flow: [],
-    outcome: ['La plataforma y sus flujos de comercio están en producción.', 'The platform and its commerce flows are in production.'],
-    privateNote: ['Las pantallas del producto no son públicas. Puedo enseñarlas y explicar el trabajo en una conversación privada.', 'Product screens are not public. I can show them and discuss the work in a private conversation.'],
+    "challenge": [
+  "Cambiar un sistema conocido implica cambiar hábitos de trabajo. El reto era mejorar la claridad y la organización de la venta sin exigir que el personal de tienda aprendiera de nuevo cada tarea.",
+  "Changing a familiar system also changes working habits. The challenge was to improve clarity and the organization of the sales experience without making store staff relearn every task."
+],
+    "context": [
+  "Evolución de una solución legacy dentro de un retailer de más de 500 tiendas. La escala describe el contexto del negocio, no una cifra de despliegue del rediseño.",
+  "An evolution of a legacy solution within a retailer of more than 500 stores. This describes the business context, not a rollout figure for the redesign."
+],
+    "constraints": [
+  "Respetar hábitos existentes, organizar una interfaz de uso intensivo y mantener coherencia entre formatos y situaciones de tienda.",
+  "Respect existing habits, organize an interface used throughout the day and maintain consistency across formats and store situations."
+],
+    "owned": [
+  "Investigación, definición de recorridos, arquitectura de información, UX/UI y liderazgo del diseño. Acompañé la integración para conservar el criterio de experiencia acordado.",
+  "Research, journey definition, information architecture, UX/UI and design leadership. I supported integration to preserve the agreed experience principles."
+],
+    "keyDecisions": [
+  "Dar al ticket un lugar estable, separar el área de tarea de la información de la venta y hacer que la jerarquía visual ayude a reconocer el siguiente paso.",
+  "Give the receipt a stable position, separate the task area from sale information and use visual hierarchy to make the next step recognizable."
+],
+    "flowDetail": [
+      "Escanear → revisar ticket → cobrar → confirmar o recuperar → cerrar turno.",
+      "Scan → review receipt → collect payment → confirm or recover → close shift."
+    ],
+    "iterations": [
+  "Realicé entrevistas, análisis, pruebas y QA. El diseño pasó por más de cuatro rondas de iteración, revisando decisiones a partir del feedback y las comprobaciones de uso.",
+  "I conducted interviews, analysis, testing and QA. The design went through more than four rounds of iteration, revisiting decisions through feedback and usage checks."
+],
+    "designSystem": [
+      "Patrones compartidos para navegación, artículos, líneas de ticket, métodos de pago, alertas y dispositivos.",
+      "Shared patterns for navigation, products, receipt lines, payment methods, alerts and devices."
+    ],
+    "implementation": [
+  "Trabajé con el equipo para que jerarquía, comportamiento y consistencia se conservaran durante la integración. Las revisiones y el QA formaron parte de la entrega de diseño.",
+  "I worked with the team to preserve hierarchy, behavior and consistency during integration. Reviews and QA were part of the design delivery."
+],
+    "shipped": [
+      "Sistema visual y recorridos de venta, pago, recuperación y arqueo documentados para integración.",
+      "A visual system and documented sales, payment, recovery and till reconciliation journeys for integration."
+    ],
+    "reflection": [
+  "Rediseñar una herramienta de trabajo exige saber qué cambiar y qué conviene conservar. La familiaridad también tiene valor de diseño.",
+  "Redesigning a working tool means knowing what to change and what to preserve. Familiarity has design value too."
+],
+    "chapters": [
+  {
+    "title": [
+      "Una estructura que acompaña el trabajo",
+      "A structure that supports the work"
+    ],
+    "body": [
+      "Organicé la pantalla en dos áreas: la tarea que está realizando la persona y la información de la venta. Mantener el ticket en un lugar estable evita que cada paso obligue a buscar de nuevo el contexto.",
+      "I organized the screen around two areas: the task being performed and the sale information. Keeping the receipt in a stable position avoids making people find their context again at every step."
+    ]
   },
-  'operations-analytics': {
-    context: ['El panel forma parte de la misma realidad operativa que la experiencia de comercio, pero está pensado para quienes supervisan y resuelven el trabajo interno. Reunir actividad, métricas e incidencias exigía definir una lectura común para información de naturaleza distinta.', 'The dashboard belongs to the same operational reality as the commerce experience, but serves the people supervising and resolving internal work. Bringing together activity, metrics and issues required a shared reading structure for different kinds of information.'],
-    headline: ['Hacer visible la operación.', 'Making operations visible.'],
-    category: ['Operaciones y analítica · Producción · Confidencial', 'Operations and analytics · Production · Confidential'],
-    overview: [
-      'Un panel en producción para reunir información operativa y métricas. Lideré el proyecto y el diseño y participé en la implementación de la interfaz.',
-      'A production dashboard bringing together operational information and metrics. I led the project and design and worked on interface implementation.',
+  {
+    "title": [
+      "Menos esfuerzo para decidir",
+      "Less effort to make the next decision"
     ],
-    role: ['Liderazgo de proyecto, diseño de producto e implementación de interfaz', 'Project lead, product design and interface implementation'],
-    audience: ['Equipos que supervisan actividad y gestionan incidencias', 'Teams monitoring activity and handling issues'],
-    team: ['Proyecto desarrollado en equipo, con liderazgo de proyecto y diseño a mi cargo.', 'Team project, with project and design leadership under my responsibility.'],
-    constraints: ['La información procede de áreas con ritmos y necesidades distintos: compras, reservas, pagos, pedidos e incidencias. El panel debía permitir lectura rápida y acceso a detalle sin perder el contexto. Las pantallas y datos operativos son confidenciales.', 'Information comes from areas with different rhythms and needs: purchases, reservations, payments, orders and issues. The dashboard needed to support a quick read and access to detail without losing context. Screens and operational data are confidential.'],
-    owned: ['Lideré el proyecto y el diseño del panel: estructura de información, jerarquía de métricas, recorridos operativos e implementación de la interfaz en colaboración con el equipo.', 'I led the dashboard project and design: information structure, metric hierarchy, operational journeys and interface implementation in collaboration with the team.'],
-    keyDecisions: ['Organicé la experiencia alrededor de las preguntas de la operación: qué ocurre, qué ha cambiado y qué requiere atención. Las métricas debían aportar contexto a pedidos e incidencias, no competir con ellos por espacio.', 'I organized the experience around operational questions: what is happening, what has changed and what needs attention. Metrics needed to give context to orders and issues rather than compete with them for space.'],
-    flowDetail: ['La lectura comienza con una visión de actividad; desde allí se puede entrar en compras, reservas, pagos o pedidos y llegar a las incidencias que requieren seguimiento. La estructura conserva el vínculo entre resumen y acción.', 'The read begins with an activity overview; from there, people can move into purchases, reservations, payments or orders and reach issues that need follow-up. The structure preserves the link between summary and action.'],
-    iterations: ['El relato del panel evolucionó desde reunir datos hasta ordenar tareas y prioridades. Ese cambio de enfoque dio más peso a estados, excepciones y continuidad del trabajo; no atribuyo pruebas o ciclos concretos que no puedo documentar públicamente.', 'The dashboard direction evolved from gathering data to organizing tasks and priorities. That shift gave more weight to states, exceptions and work continuity; I do not claim specific tests or cycles I cannot document publicly.'],
-    designSystem: ['Se trabajaron patrones de tabla, filtros, estados y tarjetas de resumen para que tipos distintos de información conservaran una lectura común. El objetivo era que nuevas vistas pudieran encajar sin reinventar la interacción.', 'Table, filter, state and summary-card patterns gave different information types a shared reading language. The aim was for additional views to fit without reinventing interaction.'],
-    implementation: ['Participé en convertir la estructura diseñada en una interfaz funcional, revisando cómo se presentan los estados y cómo se pasa del resumen al detalle. El desarrollo se realizó en equipo.', 'I helped turn the designed structure into a working interface, reviewing how states appear and how people move from overview to detail. Development was collaborative.'],
-    shipped: ['Un panel en producción que reúne actividad operativa, métricas y seguimiento de incidencias.', 'A live dashboard bringing together operational activity, metrics and issue follow-up.'],
-    reflection: ['Un dashboard es útil cuando ayuda a tomar la siguiente decisión. La jerarquía visual debía hacer comprensible la actividad y dar una ruta clara hacia lo que necesita atención.', 'A dashboard is useful when it helps someone make the next decision. Visual hierarchy had to make activity understandable and give a clear path to what needs attention.'],
-    challenge: [
-      'El equipo operativo necesita leer la actividad y actuar sobre ella. Compras, reservas, pagos, pedidos, métricas e incidencias aportan información distinta; el reto era darles una estructura de trabajo, no solo reunir cifras en una pantalla.',
-      'Operations teams need to read activity and act on it. Purchases, reservations, payments, orders, metrics and issues each carry different information; the challenge was to give them a workable structure, not simply collect numbers on one screen.',
+    "body": [
+      "Trabajé el orden, el tamaño y la agrupación de las acciones para que las opciones se lean con claridad. La prioridad era que la persona reconociera dónde continuar, incluso cuando cambia el tipo de tarea.",
+      "I worked on the order, size and grouping of actions so choices can be read clearly. The priority was to make the next step recognizable, even when the type of task changes."
+    ]
+  },
+  {
+    "title": [
+      "Diseñar también los momentos de incertidumbre",
+      "Designing for moments of uncertainty"
     ],
-    chapters: [
-      { title: ['01 — Una audiencia distinta', '01 — A different audience'], body: ['Este caso se centra en quienes gestionan la operación, no en la persona que compra. Esa diferencia cambia las preguntas de diseño: qué está pasando, qué requiere atención y dónde continuar el trabajo.', 'This case focuses on the people managing operations rather than the customer buying. That changes the design questions: what is happening, what needs attention and where work continues.'] },
-      { title: ['02 — Datos con contexto operativo', '02 — Data in operational context'], body: ['Lideré la organización de flujos e información para que métricas, pedidos e incidencias pudieran consultarse en el contexto del trabajo diario. La jerarquía debía servir tanto a la lectura como a la acción.', 'I led the organization of flows and information so metrics, orders and issues could be reviewed in the context of day-to-day work. The hierarchy needed to support both reading and action.'] },
-      { title: ['03 — De diseño a interfaz funcional', '03 — From design to working interface'], body: ['Mi participación siguió durante la implementación de la interfaz y la entrega del panel. El producto está en producción; por confidencialidad, aquí no se muestran pantallas ni datos reales.', 'My involvement continued through interface implementation and dashboard delivery. The product is in production; confidentiality prevents me from showing real screens or data here.'] },
+    "body": [
+      "La confianza también depende de los momentos en los que la experiencia se interrumpe. Utilicé jerarquía visual, mensajes breves y una acción principal reconocible para orientar a la persona y evitar que tenga que interpretar qué hacer.",
+      "Confidence also depends on the moments when an experience is interrupted. I used visual hierarchy, concise messages and a recognizable primary action to guide people rather than make them interpret what to do."
+    ]
+  }
+],
+    "flow": [
+      [
+        "Escanear",
+        "Scan"
+      ],
+      [
+        "Revisar",
+        "Review"
+      ],
+      [
+        "Cobrar",
+        "Collect payment"
+      ],
+      [
+        "Conciliar",
+        "Reconcile"
+      ]
     ],
-    flow: [],
-    outcome: ['El panel está en producción como herramienta para consultar la actividad operativa.', 'The dashboard is in production as a tool for reviewing operational activity.'],
-    privateNote: ['Las pantallas del producto no son públicas. Puedo enseñarlas y explicar el trabajo en una conversación privada.', 'Product screens are not public. I can show them and discuss the work in a private conversation.'],
+    "outcome": [
+  "Una propuesta de punto de venta que reorganiza la experiencia existente alrededor de las tareas de tienda, afinada mediante investigación, iteración y QA.",
+  "A point-of-sale experience that reorganizes the existing product around store tasks, refined through research, iteration and QA."
+],
+    "privateNote": [
+      "Caso profesional anonimizado. Se han retirado marcas, nombres e identificadores de las capturas. Las cifras ilustran el diseño; no son resultados de negocio.",
+      "Anonymized professional case study. Brands, names and identifiers have been removed from the screenshots. Figures illustrate the design; they are not business results."
+    ]
+  },
+  "operations-analytics": {
+    "headline": [
+  "Dar forma a un producto de pagos desde cero.",
+  "Shaping a payments product from the ground up."
+],
+    "category": [
+      "Fintech · Operaciones · Caso anonimizado",
+      "Fintech · Operations · Anonymized case"
+    ],
+    "overview": [
+  "Lideré el diseño de producto de una solución creada desde cero para una integración personalizada con Redsys y múltiples comercios. El trabajo unió investigación, definición del producto y diseño de una experiencia operativa común.",
+  "I led product design for a solution built from scratch around a custom Redsys integration and multiple merchants. The work brought together research, product definition and the design of a shared operational experience."
+],
+    "role": [
+  "Product Designer · Team Lead",
+  "Product Designer · Team Lead"
+],
+    "audience": [
+  "Comercios y equipos responsables de su operativa de pagos",
+  "Merchants and teams responsible for payment operations"
+],
+    "team": [
+      "Liderazgo de diseño y coordinación con el equipo técnico.",
+      "Design leadership and coordination with the technical team."
+    ],
+    "challenge": [
+  "El reto no era añadir un panel a una integración. Había que convertir necesidades distintas de cobro y gestión en un producto comprensible para varios comercios, manteniendo una lectura clara de la información y de las acciones disponibles.",
+  "The challenge went beyond adding a dashboard to an integration. Different payment and management needs had to become a coherent product for multiple merchants, with clear information and recognizable actions."
+],
+    "context": [
+  "Producto 0→1 para una integración personalizada con Redsys, planteado para trabajar con varios comercios dentro de una misma plataforma.",
+  "A 0→1 product for a custom Redsys integration, designed to support multiple merchants within one platform."
+],
+    "constraints": [
+  "Un producto nuevo, necesidades de distintos comercios y una integración de pagos que había que traducir a una experiencia de uso clara.",
+  "A new product, different merchant needs and a payment integration that needed to become a clear user experience."
+],
+    "owned": [
+  "Research, análisis, definición de producto, arquitectura de información y diseño de interfaz, con liderazgo de equipo y seguimiento de la integración.",
+  "Research, analysis, product definition, information architecture and interface design, with team leadership and integration follow-through."
+],
+    "keyDecisions": [
+  "Separé la lectura del negocio, la consulta de operaciones y la gestión de enlaces. Cada espacio responde a una intención concreta, con una jerarquía y acciones acordes.",
+  "I separated business overview, transaction investigation and payment-link management. Each space serves a specific intent, with a corresponding hierarchy and set of actions."
+],
+    "flowDetail": [
+      "Consultar actividad → filtrar transacciones → revisar estado → gestionar enlaces de pago.",
+      "Review activity → filter transactions → inspect status → manage payment links."
+    ],
+    "iterations": [
+  "Entrevistas, análisis, pruebas y QA acompañaron el diseño desde el inicio. Más de cuatro rondas de iteración permitieron revisar las propuestas y ajustar las decisiones con feedback.",
+  "Interviews, analysis, testing and QA accompanied the design from the beginning. More than four rounds of iteration allowed proposals and decisions to be revisited through feedback."
+],
+    "designSystem": [
+      "Navegación común, filtros reutilizables, estados de operación y acciones consistentes sobre tablas.",
+      "Shared navigation, reusable filters, operation statuses and consistent table actions."
+    ],
+    "implementation": [
+  "Acompañé la integración para contrastar la experiencia diseñada con el producto en construcción, revisando estados, consistencia visual y claridad de uso junto al equipo.",
+  "I supported integration by comparing the intended experience with the product being built, reviewing states, visual consistency and clarity with the team."
+],
+    "shipped": [
+      "Diseño de los módulos de panel, transacciones y enlaces de pago con sus patrones de consulta y gestión.",
+      "Dashboard, transaction and payment-link module designs with their investigation and management patterns."
+    ],
+    "reflection": [
+      "Una métrica es útil cuando abre una pregunta que el producto permite resolver. El detalle y la acción deben estar cerca del resumen.",
+      "A metric is useful when it raises a question the product can help answer. Detail and action need to stay close to the overview."
+    ],
+    "chapters": [
+  {
+    "title": [
+      "Decidir qué necesita verse primero",
+      "Deciding what deserves attention first"
+    ],
+    "body": [
+      "Organicé el panel para separar una primera lectura del negocio de la consulta en profundidad. El tamaño, el espacio y la posición de cada bloque definen un orden de lectura antes de entrar en los detalles.",
+      "I organized the dashboard to separate an initial business overview from deeper investigation. Size, space and placement establish a reading order before people move into details."
+    ]
+  },
+  {
+    "title": [
+      "Hacer legible la información densa",
+      "Making dense information readable"
+    ],
+    "body": [
+      "En la vista de operaciones trabajé la jerarquía entre datos, filtros y acciones. La tabla debía permitir comparar y localizar información sin dar el mismo peso visual a cada elemento.",
+      "In the transaction view, I worked on the hierarchy between data, filters and actions. The table needed to support comparison and lookup without giving every element equal visual weight."
+    ]
+  },
+  {
+    "title": [
+      "Dar a cada tarea su propio espacio",
+      "Giving each task its own space"
+    ],
+    "body": [
+      "La gestión de enlaces tiene necesidades distintas de la supervisión del negocio. Le di una estructura propia, conservando los patrones compartidos para que cambiar de sección no supusiera aprender otra interfaz.",
+      "Payment-link management has different needs from business monitoring. I gave it a dedicated structure while preserving shared patterns, so moving between sections would not mean learning a different interface."
+    ]
+  }
+],
+    "flow": [
+      [
+        "Supervisar",
+        "Monitor"
+      ],
+      [
+        "Filtrar",
+        "Filter"
+      ],
+      [
+        "Investigar",
+        "Investigate"
+      ],
+      [
+        "Gestionar",
+        "Manage"
+      ]
+    ],
+    "outcome": [
+  "Una definición de producto y una experiencia común para supervisar, consultar y gestionar cobros en un entorno con múltiples comercios.",
+  "A product definition and shared experience for monitoring, investigating and managing payments across multiple merchants."
+],
+    "privateNote": [
+      "Caso profesional anonimizado. Se han retirado marcas, nombres e identificadores de las capturas. Las cifras ilustran el diseño; no son resultados de negocio.",
+      "Anonymized professional case study. Brands, names and identifiers have been removed from the screenshots. Figures illustrate the design; they are not business results."
+    ]
   },
   fynaq: {
     context: ['Fynaq empezó como una empresa creada desde cero para diseñar y construir soluciones digitales. La web pública presenta la matriz y su oferta; los sistemas para restaurantes de sushi son entregas para clientes dentro de esa actividad, con uso operativo continuado.', 'Fynaq began as a company built from scratch to design and develop digital solutions. The public website presents the parent company and its offer; sushi restaurant systems are client deliveries within that work, with ongoing operational use.'],
-    headline: ['De cero a sistemas en uso.', 'From zero to systems in use.'],
+    headline: [
+  "Una identidad para una empresa con muchas posibilidades.",
+  "One identity for a company with many possibilities."
+],
     category: ['0→1 · Software para empresas · En producción', '0→1 · Business software · Live'],
     overview: [
-      'Creé Fynaq desde cero como matriz para desarrollar productos y servicios digitales. Definí su dirección de producto, diseñé y construí su web y trabajé en soluciones para restaurantes de sushi junto a un compañero de backend.',
-      'I built Fynaq from scratch as the parent company for digital products and services. I shaped its product direction, designed and built its website, and worked on solutions for sushi restaurants with a backend teammate.',
-    ],
-    role: ['Dirección de producto, UX/UI, sistema visual y frontend', 'Product direction, UX/UI, visual system and frontend'],
+  "Creé Fynaq desde cero como matriz para productos y servicios digitales. Definí su posicionamiento, su identidad visual y la experiencia de su web para presentar una oferta amplia de forma reconocible y clara.",
+  "I built Fynaq from scratch as a parent company for digital products and services. I defined its positioning, visual identity and website experience to present a broad offer with clarity and a recognizable character."
+],
+    role: [
+  "Fundador · Product Designer · Dirección creativa",
+  "Founder · Product Designer · Creative direction"
+],
     audience: ['Empresas cliente, restaurantes de sushi y usuarios de sus sistemas', 'Client businesses, sushi restaurants and users of their systems'],
     team: ['Trabajé con un compañero responsable del backend de los sistemas para clientes.', 'I worked with a teammate responsible for the backend of client systems.'],
     constraints: ['Fynaq tenía que presentar una empresa nueva y, a la vez, servir de base a productos reales para clientes. La web pública podía mostrarse; las interfaces y datos de los sistemas para restaurantes requerían una presentación privada.', 'Fynaq had to introduce a new company while providing a base for real client products. The public website could be shown; interfaces and data from restaurant systems require a private presentation.'],
@@ -115,14 +311,40 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       'Fynaq needed to explain an offer that goes beyond a website and turn it into real deliveries. For sushi restaurant solutions, the public experience and operational work needed to be considered as parts of one system.',
     ],
     chapters: [
-      { title: ['01 — Definir qué es Fynaq', '01 — Define what Fynaq is'], body: ['Partí de una empresa nueva, no de un encargo de rediseño. Trabajé su dirección, su sistema visual y la forma de explicar software, webs y sistemas conectados para empresas.', 'I started with a new company, not a website redesign brief. I shaped its direction, visual system and the way it explains connected software, websites and systems for businesses.'] },
-      { title: ['02 — Construir la capa pública', '02 — Build the public layer'], body: ['Diseñé la estructura y la interfaz de la web y desarrollé el frontend que está publicado. La captura de este caso corresponde a esa web real.', 'I designed the structure and interface of the website and developed the live frontend. The image in this case is a screenshot of that real website.'] },
-      { title: ['03 — Soluciones para restaurantes de sushi', '03 — Solutions for sushi restaurants'], body: ['El trabajo continuó en sistemas para restaurantes de sushi con usuarios y actividad operativa diarios. Mi responsabilidad estuvo en la dirección de producto, UX/UI y frontend; mi compañero desarrolló el backend.', 'The work continued in systems for sushi restaurants with daily users and operational activity. I owned product direction, UX/UI and frontend; my teammate developed the backend.'] },
-      { title: ['04 — Web y operación conectadas', '04 — Connect website and operations'], body: ['La propuesta pública de Fynaq une la capa visible con los procesos internos. Este caso muestra por qué la web no se diseñó como una pieza aislada: debía sostener una oferta de software que también llega a operaciones reales.', 'Fynaq’s public proposition connects the visible layer with internal processes. This case shows why the website was not treated as an isolated piece: it needed to support a software offer that extends into real operations.'] },
+  {
+    "title": [
+      "Definir una marca que pueda crecer",
+      "Defining a brand with room to grow"
     ],
+    "body": [
+      "Fynaq debía reunir servicios y productos propios bajo una misma identidad. Trabajé el posicionamiento y el lenguaje visual para construir reconocimiento sin limitar la empresa a una única herramienta.",
+      "Fynaq needed to bring services and owned products together under one identity. I worked on positioning and visual language to build recognition without defining the company through a single tool."
+    ]
+  },
+  {
+    "title": [
+      "Ordenar la oferta antes de pedir una acción",
+      "Structuring the offer before asking for action"
+    ],
+    "body": [
+      "Organicé los servicios para que una empresa pudiera reconocer qué necesita y entender dónde encaja Fynaq. Las exploraciones en distintos idiomas muestran cómo esa estructura y la composición visual se adaptan al contenido.",
+      "I organized services so a business could recognize its needs and understand where Fynaq fits. Explorations across languages show how that structure and visual composition adapt to content."
+    ]
+  },
+  {
+    "title": [
+      "Conectar identidad y experiencia",
+      "Connecting identity and experience"
+    ],
+    "body": [
+      "La tipografía, el espacio y los recursos gráficos construyen un mismo tono entre la web y las aplicaciones de marca. El objetivo era que la personalidad de Fynaq se reconociera también fuera de una pantalla concreta.",
+      "Typography, space and graphic elements establish a shared tone across the website and brand applications. The aim was for Fynaq’s personality to remain recognizable beyond a single screen."
+    ]
+  }
+],
     flow: [],
     outcome: ['La web y los sistemas para clientes están en producción y forman parte de operaciones reales.', 'The website and client systems are live and support real operations.'],
-    privateNote: ['La imagen muestra la web pública de Fynaq. Las interfaces de los sistemas para clientes pueden verse en privado durante una llamada.', 'The image shows Fynaq’s public website. Client system interfaces can be reviewed privately on a call.'],
+    privateNote: ['Las capturas muestran las exploraciones originales de marca y web en Figma; la web publicada ha evolucionado desde estos diseños. Los sistemas privados de clientes no se muestran.', 'Screenshots show the original brand and website explorations in Figma; the live website has evolved from these designs. Private client systems are not shown.'],
   },
   altura: {
     context: ['Altura nació de una investigación propia sobre espacios de trabajo, propuestas competidoras y el entorno cotidiano de Valencia. A partir de ahí desarrollé una hipótesis de producto y wireframes para discutir cómo podría descubrirse y reservarse un espacio.', 'Altura grew from my own research into workspaces, competing offers and Valencia’s everyday environment. From there I developed a product hypothesis and wireframes to explore how a space could be discovered and booked.'],
@@ -200,91 +422,133 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
 outcome: ['El resultado es un concepto documentado con análisis de contexto y wireframes; no se lanzó como producto.', 'The outcome is a concept documented through context research and wireframes; it was not launched as a product.'],
   },
-  'its-time': {
-    context: ['En JKU ITS, el registro y la conciliación de tiempo para proyectos europeos dependían de hojas de Excel y cálculos manuales. Diseñé y desarrollé un sistema que reúne el registro diario, las reglas laborales y la revisión mensual en un único flujo de trabajo.', 'At JKU ITS, time recording and reconciliation for European projects depended on Excel sheets and manual calculations. I designed and developed a system bringing daily entries, working rules and monthly review into one workflow.'],
-    team: ['Diseñé y desarrollé el sistema completo. El personal y los responsables de proyectos de JKU ITS aportaron el contexto operativo de uso.', 'I designed and built the full system. JKU ITS staff and project managers provided the operational context for its use.'],
-    constraints: ['Los registros debían ajustarse a paquetes de trabajo de proyectos europeos, horarios individuales, vacaciones pagadas y cierres mensuales. Un error en un dato podía afectar la conciliación; por eso las reglas debían ser visibles antes de exportar.', 'Entries had to fit European project Work Packages, individual schedules, paid leave and monthly close. A data error could affect reconciliation, so rules needed to be visible before export.'],
-    owned: ['Fui responsable del diseño y del desarrollo completo, desde modelar los flujos y la interfaz hasta implementar frontend y backend. También traduje las reglas del proceso anterior en un sistema de uso cotidiano.', 'I owned design and full development, from modeling flows and interface to implementing frontend and backend. I also translated the rules of the previous process into a system for everyday use.'],
-    keyDecisions: ['Puse la entrada diaria en el centro y llevé las comprobaciones al momento de registrar, en lugar de dejar todos los problemas para el cierre mensual. La visualización del tiempo previsto frente al registrado ayuda a detectar diferencias antes de preparar informes.', 'I centered the daily entry and brought checks into the moment of recording instead of leaving every issue until monthly close. Showing planned against recorded time helps people spot differences before preparing reports.'],
-    flowDetail: ['Cada persona registra tiempo por paquete de trabajo según su horario. El sistema contempla ausencias pagadas, permite revisar el avance y reúne la información para conciliar y preparar informes de proyectos europeos.', 'Each person records time against a Work Package according to their schedule. The system accounts for paid leave, supports progress review and brings information together for reconciliation and European project reporting.'],
-    iterations: ['El cambio principal fue pasar de fórmulas y cálculos manuales en Excel a registros guiados, validaciones y revisión dentro del producto. La estructura se amplió para abarcar horarios diferentes y vacaciones pagadas sin sacar esos casos del flujo.', 'The main change was moving from manual Excel formulas and calculations to guided entries, validation and in-product review. The structure expanded to cover different schedules and paid leave without taking those cases out of the flow.'],
-    designSystem: ['Usé patrones consistentes para entradas, edición en línea, estados, tarjetas de progreso y mensajes de validación. La repetición de esos componentes hace más predecible una tarea que se realiza muchas veces.', 'I used consistent patterns for entries, inline editing, states, progress cards and validation messages. Repeating those components makes a frequently performed task more predictable.'],
-    implementation: ['Desarrollé tanto frontend como backend, conectando el modelo de datos de tiempo y paquetes con las pantallas de registro, revisión y conciliación. Esa continuidad entre diseño y código permitió adaptar la interfaz a las reglas reales del proceso.', 'I developed both frontend and backend, connecting the time and Work Package data model to recording, review and reconciliation screens. That continuity between design and code let the interface reflect the real process rules.'],
-    shipped: ['Un sistema completo en producción para el registro de tiempo y la conciliación de proyectos europeos en JKU ITS.', 'A complete live system for time recording and European project reconciliation at JKU ITS.'],
-    reflection: ['El proyecto mostró cuánto esfuerzo se escondía en las hojas de cálculo. Convertir reglas y excepciones en pasos visibles hizo que el trabajo diario y la revisión mensual compartieran una fuente de información.', 'The project exposed how much work had been hidden in spreadsheets. Turning rules and exceptions into visible steps gave daily work and monthly review a shared source of information.'],
-    headline: [
-      'Menos fricción.\nMás claridad sobre el tiempo.',
-      'Less friction.\nMore clarity around time.',
+  "poketrade": {
+    "headline": [
+  "Diseñar desde dentro de la comunidad.",
+  "Designing from within the community."
+],
+    "category": [
+      "App móvil · Coleccionismo · Diseño de producto",
+      "Mobile app · Collectibles · Product design"
     ],
-    category: [
-      'Producto interno · JKU Linz · En producción',
-      'Internal product · JKU Linz · Live',
+    "overview": [
+  "PokéTrade nació como un proyecto personal alrededor del coleccionismo. Hice research, entrevistas y pruebas con amigos que juegan a las cartas, y utilicé ese contacto para diseñar e iterar la relación entre catálogo, colección e intercambio.",
+  "PokéTrade began as a personal project around collecting. I conducted research, interviews and testing with friends who play card games, using that contact to design and iterate the relationship between catalogue, collection and trading."
+],
+    "role": [
+  "Product Designer · Proyecto personal",
+  "Product Designer · Personal project"
+],
+    "audience": [
+      "Coleccionistas de cartas Pokémon y comunidades de intercambio",
+      "Pokémon card collectors and trading communities"
     ],
-    overview: [
-      'Diseñé y desarrollé un sistema de JKU ITS para registrar tiempo por paquete de trabajo y conciliar informes de proyectos europeos. Sustituyó un proceso anterior basado en hojas de Excel.',
-      'I designed and built a JKU ITS system for recording time by Work Package and reconciling European project reports. It replaced a process previously handled in Excel spreadsheets.',
+    "team": [
+  "Proyecto personal con participación de amigos jugadores en entrevistas, pruebas y QA.",
+  "A personal project with friends who play card games taking part in interviews, testing and QA."
+],
+    "challenge": [
+  "Quería entender cómo conectar lo que una persona colecciona con lo que busca y puede intercambiar. La experiencia tenía que responder al lenguaje y a las prioridades de los jugadores, además de organizar un catálogo de cartas.",
+  "I wanted to understand how to connect what someone collects with what they want and can trade. The experience needed to reflect players’ language and priorities, beyond organizing a card catalogue."
+],
+    "context": [
+      "Un producto móvil que conecta inventario personal, catálogo, anuncios y conversación.",
+      "A mobile product connecting personal inventory, catalogue, listings and conversation."
     ],
-    role: [
-      'Diseño y desarrollo completos, frontend y backend',
-      'Sole designer and developer, frontend and backend',
+    "constraints": [
+  "Investigación con jugadores de mi entorno. Sus aportaciones orientan el diseño, pero no representan por sí solas a toda la comunidad de coleccionistas.",
+  "Research with players in my own circle. Their input informs the design but does not on its own represent the wider collecting community."
+],
+    "owned": [
+  "Investigación, entrevistas, definición de producto, UX/UI, sistema visual e integración, con pruebas y QA a lo largo del proceso.",
+  "Research, interviews, product definition, UX/UI, visual system and integration, with testing and QA throughout the process."
+],
+    "keyDecisions": [
+      "Diferencié carta, ejemplar y anuncio. La colección funciona como origen del intercambio, no como una lista aislada.",
+      "I separated card, copy and listing. The collection becomes the starting point for a trade rather than an isolated list."
     ],
-    audience: [
-      'Personal y responsables de proyectos de JKU ITS',
-      'JKU ITS employees and project managers',
+    "flowDetail": [
+      "Explorar → revisar la carta → consultar la colección → proponer un intercambio → conversar.",
+      "Explore → inspect a card → review the collection → propose a trade → talk."
     ],
-    challenge: [
-      'El equipo calculaba y conciliaba horas en Excel. El nuevo sistema debía cubrir paquetes de trabajo, horarios distintos, vacaciones pagadas y revisiones mensuales dentro de las exigencias de los proyectos europeos.',
-      'The team calculated and reconciled hours in Excel. The new system needed to cover Work Packages, different schedules, paid leave and monthly reviews within the requirements of European projects.',
+    "iterations": [
+  "Más de cuatro rondas de iteración. Las entrevistas y las pruebas llevaron a revisar botones y la forma de presentar las cartas, además de afinar el recorrido.",
+  "More than four rounds of iteration. Interviews and testing led to changes in buttons and card presentation, alongside refinements to the journey."
+],
+    "designSystem": [
+      "Un kit de interfaz para Flutter conecta navegación, cartas, filtros, álbumes, anuncios y propuestas.",
+      "A Flutter UI kit connects navigation, cards, filters, albums, listings and proposals."
     ],
-    chapters: [
-      {
-        title: [
-          '01 — La entrada diaria como punto de partida',
-          '01 — Starting with the daily entry',
-        ],
-        body: [
-          'La captura se organiza alrededor de acciones pequeñas y repetibles. La edición en línea evita saltos innecesarios entre pantallas y mantiene el registro en su contexto.',
-          'Capture is organized around small, repeatable actions. Inline editing avoids unnecessary jumps between screens and keeps each entry in context.',
-        ],
-      },
-      {
-        title: [
-          '02 — Hacer visible lo que queda',
-          '02 — Making remaining time visible',
-        ],
-        body: [
-          'Tarjetas y barras de progreso comparan el tiempo previsto con el real. Una jerarquía consistente permite leer la situación de cada paquete de trabajo sin reconstruir mentalmente una tabla completa.',
-          'Cards and progress bars compare planned and actual time. A consistent hierarchy makes each Work Package understandable without mentally reconstructing an entire table.',
-        ],
-      },
-      {
-        title: [
-          '03 — Revisar antes de exportar',
-          '03 — Reviewing before export',
-        ],
-        body: [
-          'Las validaciones se muestran antes de guardar y los informes pasan por un paso de revisión. La intención es prevenir errores cuando aún son fáciles de corregir, en lugar de explicarlos al final del proceso.',
-          'Validation appears before saving, and reports pass through a review step. The intent is to prevent mistakes while they are still easy to correct rather than explain them at the end.',
-        ],
-      },
-      {
-        title: [
-          '04 — Las reglas del trabajo real',
-          '04 — Rules from real working life',
-        ],
-        body: [
-          'El sistema debía contemplar horarios diferentes y vacaciones pagadas además de los registros por paquete de trabajo. Estos casos importan porque la conciliación mensual tiene que reflejar el tiempo real sin volver a cálculos manuales en Excel.',
-          'The system needed to account for different schedules and paid leave alongside Work Package entries. Those cases matter because monthly reconciliation has to reflect actual time without returning to manual Excel calculations.',
-        ],
-      },
+    "implementation": [
+  "Contrasté el diseño con la experiencia móvil y utilicé el QA para revisar la coherencia entre los recorridos planteados y su comportamiento.",
+  "I compared the design with the mobile experience and used QA to review consistency between the intended journeys and their behavior."
+],
+    "shipped": [
+      "Sistema de producto y pantallas de catálogo, colección, anuncios e intercambios documentados en Figma.",
+      "Product system and catalogue, collection, listing and trading screens documented in Figma."
     ],
-    flow: [
-      ['Registrar', 'Record'],
-      ['Revisar', 'Review'],
-      ['Comparar', 'Compare'],
-      ['Exportar', 'Export'],
+    "reflection": [
+      "El intercambio funciona cuando ambas personas comparten el mismo contexto: qué ofrecen, qué buscan y en qué estado está la propuesta.",
+      "Trading works when both people share the same context: what they offer, what they want and the proposal’s current state."
     ],
-outcome: ['El sistema completo está en producción y se usa actualmente para proyectos europeos en JKU ITS.', 'The complete system is in production and currently used for European projects at JKU ITS.'],
+    "chapters": [
+  {
+    "title": [
+      "Entender cómo descubren los jugadores",
+      "Understanding how players discover cards"
+    ],
+    "body": [
+      "El research y las conversaciones con jugadores ayudaron a plantear diferentes entradas: expansiones, búsqueda y anuncios cercanos. La exploración debía admitir intereses distintos, sin imponer un único camino hacia una carta.",
+      "Research and conversations with players informed different entry points: expansions, search and nearby listings. Discovery needed to accommodate different interests rather than impose one route to a card."
+    ]
+  },
+  {
+    "title": [
+      "Diseñar desde la colección real",
+      "Designing around the collection"
+    ],
+    "body": [
+      "La colección da sentido a lo que se busca y se ofrece. Trabajé la lectura de las cartas y la distinción entre las que se tienen y las que faltan; las pruebas sirvieron para revisar su presentación y las acciones asociadas.",
+      "The collection gives meaning to what people want and offer. I worked on card readability and the distinction between owned and missing cards; testing helped revisit their presentation and associated actions."
+    ]
+  },
+  {
+    "title": [
+      "Iterar lo que se ve y se toca",
+      "Iterating what people see and interact with"
+    ],
+    "body": [
+      "El feedback se tradujo en cambios concretos en botones, jerarquía y disposición de las cartas. Las decisiones se revisaron en varias rondas, buscando que la interfaz se acercara a la forma de pensar y actuar de los jugadores.",
+      "Feedback led to concrete changes in buttons, hierarchy and card layout. Decisions were revisited over several rounds, bringing the interface closer to how players think and act."
+    ]
+  }
+],
+    "flow": [
+      [
+        "Descubrir",
+        "Discover"
+      ],
+      [
+        "Coleccionar",
+        "Collect"
+      ],
+      [
+        "Proponer",
+        "Propose"
+      ],
+      [
+        "Intercambiar",
+        "Trade"
+      ]
+    ],
+    "outcome": [
+  "Un proyecto personal que conecta investigación con decisiones visibles de navegación, presentación de cartas y construcción del intercambio.",
+  "A personal project connecting research with visible decisions about navigation, card presentation and the trading experience."
+],
+    "privateNote": [
+      "Las capturas muestran el diseño de producto. Los precios, perfiles y propuestas son contenido de interfaz, no métricas de adopción.",
+      "Screenshots show the product design. Prices, profiles and proposals are interface content, not adoption metrics."
+    ]
   },
   'autotok-web': {
     context: ['AutoTok es una idea de automatización de vídeo desarrollada con compañeros de la UPV en Start Inf. La web pública actúa como primera explicación del producto mientras la demo continúa en construcción.', 'AutoTok is a video automation idea developed with UPV teammates through Start Inf. The public website acts as the first explanation of the product while the demo remains under construction.'],

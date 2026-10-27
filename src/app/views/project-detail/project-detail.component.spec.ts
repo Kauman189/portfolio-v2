@@ -27,20 +27,30 @@ describe('Case-study navigation', () => {
     TestBed.inject(LocaleService).set('es');
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/projects/digital-commerce', ProjectDetailComponent);
-    expect(
-      harness.routeNativeElement?.querySelector('h1')?.textContent,
-    ).toContain('Plataforma de comercio digital');
-    expect(harness.routeNativeElement?.querySelector('.case-cover')).toBeNull();
-    expect(harness.routeNativeElement?.textContent).toContain('conversación privada');
-    await harness.navigateByUrl('/projects/its-time', ProjectDetailComponent);
-    expect(
-      harness.routeNativeElement?.querySelector('h1')?.textContent,
-    ).toContain('ITS Time');
-    expect(harness.routeNativeElement?.textContent).toContain('hojas de Excel');
-    expect(harness.routeNativeElement?.textContent).not.toContain('Resultado aún no medido');
+    expect(harness.routeNativeElement?.querySelector('h1')?.textContent).toContain('Retail POS');
+    expect(harness.routeNativeElement?.querySelector('.case-cover img')).toBeTruthy();
+    expect(harness.routeNativeElement?.textContent).toContain('anonimizado');
+    const darkTheme = harness.routeNativeElement?.querySelector<HTMLButtonElement>('.theme-choice button:last-child');
+    expect(darkTheme).toBeTruthy();
+    darkTheme?.click();
+    harness.detectChanges();
+    expect(harness.routeNativeElement?.querySelector('.pos-system img')?.getAttribute('src')).toContain('pos-dark.webp');
+    const component = await harness.navigateByUrl('/projects/poketrade', ProjectDetailComponent);
+    expect(harness.routeNativeElement?.querySelector('h1')?.textContent).toContain('PokéTrade');
+    expect(harness.routeNativeElement?.querySelector('.pos-system')).toBeNull();
+    expect(harness.routeNativeElement?.querySelector('.poke-collection')).toBeTruthy();
+    expect(harness.routeNativeElement?.querySelectorAll('.case-cover-phones img').length).toBe(3);
+    component.openImage(4);
+    harness.detectChanges();
+    expect(component.imageDialog?.nativeElement.open).toBeTrue();
+    component.onGalleryKey(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
+    expect(component.selectedImage).toBe(0);
+    component.onGalleryKey(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
+    expect(component.selectedImage).toBe(4);
     TestBed.inject(LocaleService).set('en');
     harness.detectChanges();
-    expect(harness.routeNativeElement?.textContent).toContain('paid leave');
+    expect(harness.routeNativeElement?.textContent).toContain('A conversation with trading context');
+    component.imageDialog?.nativeElement.close();
     await harness.navigateByUrl('/projects/autotok-web', ProjectDetailComponent);
     expect(harness.routeNativeElement?.querySelector('h1')?.textContent).toContain('AutoTok');
   });

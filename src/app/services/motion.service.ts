@@ -25,6 +25,7 @@ export class MotionService {
         '.case-challenge', '.case-depth-intro', '.case-depth-item',
         '.case-section-head', '.case-flow li', '.case-decision', '.case-outcome',
         '.case-learning', '.case-process-gallery', '.next-project',
+        '.case-visual-chapter', '.case-screen-gallery', '.case-deep-dive', '.case-composition', '.brand-opening',
         '.work-archive', '.experience-row', '.experience-entry',
         '.education-row', '.about-main figure', '.about-copy',
         '.moodboard-heading', '.principle-card', '.about-listening',

@@ -17,56 +17,134 @@ export interface Project {
   externalUrl: string | null;
   imageFit: string;
   repositoryUrl?: string;
-  processImages: { src: string; alt: string }[];
+  imageLayout?: 'screen' | 'phone';
+  designUrl?: string;
+  processImages: { src: string; alt: string; caption?: readonly [string, string] }[];
 }
 
 // Add project photography to processImages; keep original source assets.
 export const PROJECTS: Project[] = [
   {
-    slug: 'digital-commerce',
-    featuredRank: 1,
-    title: 'Digital Commerce Platform',
-    titleEs: 'Plataforma de comercio digital',
-    shortTitle: 'Digital Commerce',
-    shortTitleEs: 'Comercio digital',
-    category: 'Digital commerce · Production · Confidential',
-    cardSummary: [
-      'Flujos de compra y pago convertidos en una experiencia de comercio digital lista para producción.',
-      'Purchase and payment flows shaped into a production digital commerce experience.',
+    "color": "#ffffff",
+    "imageFit": "contain",
+    "tools": [
+      "Product Design",
+      "Team Leadership",
+      "Interface Integration"
     ],
-    roleSummary: ['Liderazgo de proyecto, diseño de producto e interfaz', 'Project lead, product design and interface implementation'],
-    ownership: ['Flujos · UX/UI · Frontend · Entrega', 'Flows · UX/UI · Frontend · Delivery'],
-    statusText: ['Producto en producción · Confidencial', 'Production product · Confidential'],
-    displayImage: '',
-    color: '#FAFAF8',
-    tools: ['Product Design', 'Frontend'],
-    status: 'Production',
-    externalUrl: null,
-    imageFit: 'contain',
-    processImages: [],
+    "externalUrl": null,
+    "status": "Production",
+    "imageLayout": "screen",
+    "roleSummary": ["Product Designer · Research · Team Lead","Product Designer · Research · Team Lead"],
+    "ownership": ["Research · Flujos · UX/UI · Sistema","Research · Flows · UX/UI · System"],
+    "slug": "digital-commerce",
+    "featuredRank": 1,
+    "title": "Retail POS",
+    "titleEs": "Retail POS",
+    "shortTitle": "Retail POS",
+    "shortTitleEs": "Retail POS",
+    "category": "Retail · Point of sale · Confidential",
+    "cardSummary": [
+      "Rediseño de una solución legacy para un retailer de más de 500 tiendas, desde la investigación hasta la experiencia de caja.",
+      "Redesigning a legacy solution for a retailer with 500+ stores, from research to the checkout experience."
+    ],
+    "statusText": ["Rediseño de producto · Anonimizado","Product redesign · Anonymized"],
+    "displayImage": "/assets/images/case-studies/pos-sale.webp",
+    "processImages": [
+      {
+        "src": "/assets/images/case-studies/pos-sale.webp",
+        "alt": "Sale and receipt remain visible",
+        "caption": [
+          "Venta y ticket siempre visibles",
+          "Sale and receipt remain visible"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/pos-payment.webp",
+        "alt": "Payment methods and remaining balance",
+        "caption": [
+          "Métodos de pago y saldo pendiente",
+          "Payment methods and remaining balance"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/pos-recovery.webp",
+        "alt": "Designing clarity in moments of uncertainty",
+        "caption": [
+          "Diseñar claridad en momentos de incertidumbre",
+          "Recover printing without charging twice"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/pos-dark.webp",
+        "alt": "The same system in dark mode",
+        "caption": [
+          "El mismo sistema en modo oscuro",
+          "The same system in dark mode"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/pos-closing.webp",
+        "alt": "Till reconciliation and shift review",
+        "caption": [
+          "Arqueo y revisión del turno",
+          "Till reconciliation and shift review"
+        ]
+      }
+    ]
   },
   {
-    slug: 'operations-analytics',
-    featuredRank: 2,
-    title: 'Operations & Analytics Dashboard',
-    titleEs: 'Panel de operaciones y analítica',
-    shortTitle: 'Operations & Analytics',
-    shortTitleEs: 'Operaciones y analítica',
-    category: 'Operations · Analytics · Production · Confidential',
-    cardSummary: [
-      'Información operativa y métricas organizadas para dar visibilidad al trabajo diario.',
-      'Operational information and metrics organized to make daily work visible.',
+    "color": "#ffffff",
+    "imageFit": "contain",
+    "tools": [
+      "Product Design",
+      "Team Leadership",
+      "Interface Integration"
     ],
-    roleSummary: ['Liderazgo de proyecto, diseño de producto e interfaz', 'Project lead, product design and interface implementation'],
-    ownership: ['Flujos · UX/UI · Frontend · Entrega', 'Flows · UX/UI · Frontend · Delivery'],
-    statusText: ['Producto en producción · Confidencial', 'Production product · Confidential'],
-    displayImage: '',
-    color: '#FAFAF8',
-    tools: ['Product Design', 'Frontend'],
-    status: 'Production',
-    externalUrl: null,
-    imageFit: 'contain',
-    processImages: [],
+    "externalUrl": null,
+    "status": "Production",
+    "imageLayout": "screen",
+    "roleSummary": ["Product Designer · Research · Team Lead","Product Designer · Research · Team Lead"],
+    "ownership": ["Research · Producto · UX/UI · Validación","Research · Product · UX/UI · Validation"],
+    "slug": "operations-analytics",
+    "featuredRank": 2,
+    "title": "Payments Platform",
+    "titleEs": "Plataforma de pagos",
+    "shortTitle": "Payments Platform",
+    "shortTitleEs": "Plataforma de pagos",
+    "category": "Fintech · Operations · Confidential",
+    "cardSummary": [
+      "Un producto de pagos desde cero: research, UX/UI y una experiencia común para múltiples comercios.",
+      "A payments product built from scratch: research, UX/UI and one experience for multiple merchants."
+    ],
+    "statusText": ["Producto 0→1 · Anonimizado","0→1 product · Anonymized"],
+    "displayImage": "/assets/images/case-studies/payments-overview.webp",
+    "processImages": [
+      {
+        "src": "/assets/images/case-studies/payments-overview.webp",
+        "alt": "From key indicators to operational detail",
+        "caption": [
+          "De los indicadores al detalle de la operación",
+          "From key indicators to operational detail"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/payments-transactions.webp",
+        "alt": "Transactions, filters and statuses",
+        "caption": [
+          "Transacciones, filtros y estados",
+          "Transactions, filters and statuses"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/payments-links.webp",
+        "alt": "Payment links and follow-up",
+        "caption": [
+          "Enlaces de pago y seguimiento",
+          "Payment links and follow-up"
+        ]
+      }
+    ]
   },
   {
     slug: 'fynaq',
@@ -80,16 +158,17 @@ export const PROJECTS: Project[] = [
       'Una empresa creada desde cero y soluciones digitales para restaurantes de sushi en uso real.',
       'A company built from scratch, with digital solutions used by sushi restaurants.',
     ],
-    roleSummary: ['Dirección de producto, UX/UI y frontend', 'Product direction, UX/UI and frontend'],
+    roleSummary: ["Fundador · Product Designer · Dirección creativa","Founder · Product Designer · Creative direction"],
     ownership: ['Estrategia · UX/UI · Sistema visual · Frontend', 'Strategy · UX/UI · Visual system · Frontend'],
     statusText: ['Empresa y sistemas en producción', 'Live company and client systems'],
-    displayImage: '/assets/images/fynaq-hero.jpg',
+    displayImage: '/assets/images/case-studies/fynaq-home.webp',
     color: '#FAFAF8',
     tools: ['Product Design', 'Frontend'],
     status: 'Live',
     externalUrl: 'https://www.fynaq.com/en',
     imageFit: 'contain',
-    processImages: [],
+    designUrl: 'https://www.figma.com/design/CtTO7GP2PJzKmTQShAKwZV/Fynaq',
+    processImages: [{"src":"/assets/images/case-studies/fynaq-home.webp","alt":"Visual exploration of the Chinese website","caption":["Exploración visual de la web en chino","Visual exploration of the Chinese website"]},{"src":"/assets/images/case-studies/fynaq-direction.webp","alt":"Service structure and offer","caption":["Estructura de servicios y oferta","Service structure and offer"]},{"src":"/assets/images/case-studies/fynaq-brand.webp","alt":"Visual identity and brand applications","caption":["Identidad visual y aplicaciones de marca","Visual identity and brand applications"]}],
   },
   {
     slug: 'altura',
@@ -132,27 +211,75 @@ export const PROJECTS: Project[] = [
     shortTitleEs: 'ACERA / JKU',
   },
   {
-    slug: 'its-time',
-    featuredRank: 4,
-    cardSummary: [
-      'Un sistema interno que sustituye hojas de cálculo para registrar y conciliar tiempo de proyectos europeos.',
-      'An internal system replacing spreadsheets for recording and reconciling time on European projects.',
+    "color": "#ffffff",
+    "imageFit": "contain",
+    "tools": [
+      "Figma",
+      "Flutter",
+      "Product Design",
+      "Team Leadership"
     ],
-    roleSummary: ['Diseño y desarrollo completos', 'Sole designer and developer'],
-    ownership: ['Requisitos · UX/UI · Frontend · Backend', 'Requirements · UX/UI · Frontend · Backend'],
-    statusText: ['Producto interno en producción · JKU Linz', 'Live internal product · JKU Linz'],
-    title: 'ITS Time Management System',
-    shortTitle: 'ITS Time',
-    category: 'UX/UI Design · Interface Design',
-    color: '#e5e9ea',
-    tools: ['HTML/CSS', 'JavaScript', 'Python', 'Figma', 'Interface Design'],
-    status: null,
-    externalUrl: null,
-    imageFit: 'cover',
-    processImages: [],
-    displayImage: '/assets/images/optimized/itsTime-large.webp',
-    titleEs: 'ITS Time · Gestión del tiempo',
-    shortTitleEs: 'ITS Time',
+    "externalUrl": null,
+    "status": null,
+    "imageLayout": "phone",
+    "roleSummary": ["Research · UX/UI · Proyecto personal","Research · UX/UI · Personal project"],
+    "ownership": ["Entrevistas · Flujos · UI · Pruebas","Interviews · Flows · UI · Testing"],
+    "slug": "poketrade",
+    "featuredRank": 4,
+    "title": "PokéTrade",
+    "titleEs": "PokéTrade",
+    "shortTitle": "PokéTrade",
+    "shortTitleEs": "PokéTrade",
+    "category": "Mobile · Collectibles · Product design",
+    "cardSummary": [
+      "Tu colección, las cartas que buscas y el próximo intercambio, dentro de una misma experiencia móvil.",
+      "Your collection, the cards you want and your next trade, in one mobile experience."
+    ],
+    "statusText": ["Proyecto personal · Research y diseño","Personal project · Research and design"],
+    "designUrl": "https://www.figma.com/design/ISj3A6iewkWx9epPKV0nQb/PokeTrade",
+    "displayImage": "/assets/images/case-studies/poke-explore.webp",
+    "processImages": [
+      {
+        "src": "/assets/images/case-studies/poke-explore.webp",
+        "alt": "Explore cards, expansions and nearby listings",
+        "caption": [
+          "Explorar cartas, expansiones y anuncios cercanos",
+          "Explore cards, expansions and nearby listings"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/poke-collection.webp",
+        "alt": "Owned and missing: the collection as a starting point",
+        "caption": [
+          "Tengo, faltan: la colección como punto de partida",
+          "Owned and missing: the collection as a starting point"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/poke-card.webp",
+        "alt": "Card price, history and condition",
+        "caption": [
+          "Precio, historial y estado de la carta",
+          "Card price, history and condition"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/poke-trade.webp",
+        "alt": "Review a trade proposal",
+        "caption": [
+          "Revisar una propuesta de intercambio",
+          "Review a trade proposal"
+        ]
+      },
+      {
+        "src": "/assets/images/case-studies/poke-chat.webp",
+        "alt": "A conversation with trading context",
+        "caption": [
+          "Conversación con contexto de intercambio",
+          "A conversation with trading context"
+        ]
+      }
+    ]
   },
   {
     slug: 'autotok-poster',

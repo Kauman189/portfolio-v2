@@ -45,8 +45,10 @@
   display: flex;
   gap: 20px;
 }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
 .site-footer a:hover {
   color: var(--accent);
+}
 }
 @media (max-width: 700px) {
   .site-footer {
@@ -86,8 +88,10 @@
   font-size: 11px;
   color: inherit;
 }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
 .motion-switch:hover {
   color: var(--accent);
+}
 }
 @media (max-width: 650px) {
   .footer-bottom > div {

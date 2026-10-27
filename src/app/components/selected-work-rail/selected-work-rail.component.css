@@ -45,3 +45,6 @@
 }
 @media (max-width: 759px) { :host { display: none; } }
 @media (prefers-reduced-motion: reduce) { .rail-card { transition: none; } }
+.rail-card-image { padding: 20px; }
+.rail-card-phones { display: flex; gap: 4%; justify-content: center; align-items: center; padding: 25px 5%; background: #f0f2f4; }
+.rail-card-phones img { width: 28%; height: auto; max-height: 100%; object-fit: contain; border-radius: 12px; }

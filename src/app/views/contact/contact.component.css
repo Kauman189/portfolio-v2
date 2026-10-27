@@ -53,9 +53,11 @@
 .contact-links > a > span:last-child {
   transition: transform 0.5s var(--ease);
 }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
 .contact-links > a:hover > span:last-child {
   color: var(--accent);
   transform: translate(5px, -5px);
+}
 }
 @keyframes contact-float {
   50% {
@@ -228,10 +230,12 @@
     background 0.3s,
     transform 0.4s var(--ease);
 }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
 .send-enquiry:hover {
   background: var(--accent);
   color: var(--paper);
   transform: translateY(-3px);
+}
 }
 .send-enquiry span {
   font-size: 24px;

@@ -209,10 +209,12 @@
     background 0.2s,
     transform 0.2s;
 }
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
 .play-track:hover {
   background: var(--accent);
   color: var(--paper);
   transform: scale(1.05);
+}
 }
 svg {
   width: 23px;
