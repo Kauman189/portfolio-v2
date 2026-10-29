@@ -3,16 +3,12 @@ import { IconComponent } from '../../components/icon/icon.component';
 import { Component } from '@angular/core';
 import { MusicPlayerComponent } from '../../components/music-player/music-player.component';
 import { ScrollSceneDirective } from '../../components/scroll-scene.directive';
-import { RouterLink } from '@angular/router';
 import { Localized } from '../../i18n/locale.service';
-import { LivingMarkComponent } from '../../components/living-mark/living-mark.component';
 @Component({
   selector: 'app-about',
   standalone: true,
   imports: [
     IconComponent,
-    RouterLink,
-    LivingMarkComponent,
     MusicPlayerComponent,
     ScrollSceneDirective,
   ],
@@ -25,45 +21,33 @@ export class AboutComponent extends Localized {
   get skills() {
     return [
       {
-        name: this.t('Diseño UX/UI', 'UX/UI design'),
+        name: this.t('Diseño de producto', 'Product design'),
         items: this.t(
-          'Investigación de usuarios · Wireframes · Prototipos · Sistemas de diseño · Tests de usabilidad · Accesibilidad · Arquitectura de información · Diseño responsive',
-          'User research · Wireframing · Prototyping · Design systems · Usability testing · Accessibility · Information architecture · Responsive design',
+          'Research · Arquitectura de información · Flujos de usuario · Prototipado · Sistemas de diseño · Usabilidad y accesibilidad',
+          'Research · Information architecture · User flows · Prototyping · Design systems · Usability and accessibility',
+        ),
+      },
+      {
+        name: this.t('Dirección de diseño', 'Design leadership'),
+        items: this.t(
+          'Definición de producto · Coordinación de equipo · Revisiones de diseño · Documentación · Pruebas y QA',
+          'Product definition · Team coordination · Design reviews · Documentation · Testing and QA',
         ),
       },
       {
         name: this.t('Herramientas de diseño', 'Design tools'),
-        items:
-          'Figma · Adobe XD · Photoshop · Illustrator · InDesign · After Effects · Jira · Git',
+        items: 'Figma · FigJam · Illustrator · Photoshop · InDesign · After Effects',
       },
       {
-        name: this.t('Colaboración', 'Collaboration'),
+        name: this.t('IA y agentes', 'AI and agents'),
         items: this.t(
-          'Trabajo en equipo · Comunicación · Agile/Scrum · Empatía · Gestión de proyectos · Soporte técnico · Documentación · Formación',
-          'Teamwork · Communication · Agile/Scrum · Empathy · Project management · Technical support · Documentation · Training',
+          'Codex · Agent harnesses · MCP · Prototipado asistido por IA · Automatización · Revisión de resultados',
+          'Codex · Agent harnesses · MCP · AI-assisted prototyping · Automation · Output review',
         ),
       },
       {
-        name: this.t('Desarrollo creativo', 'Creative development'),
-        items:
-          'HTML/CSS · JavaScript · TypeScript · Angular · React · Node.js · PHP · Java · SQL · NoSQL · REST APIs · Linux',
-      },
-    ];
-  }
-  get references() {
-    return [
-      {
-        name: this.t('Diseño gráfico', 'Graphic design'),
-        items:
-          'Dieter Rams · Paul Rand · Josef Müller-Brockmann · Massimo Vignelli',
-      },
-      {
-        name: this.t('Estudios', 'Studios'),
-        items: 'Pentagram · Moving Brands · MetaDesign · Ammunition Group',
-      },
-      {
-        name: this.t('Experiencias digitales', 'Digital experiences'),
-        items: 'Apple Design Team · Google Material · Stripe · Linear',
+        name: this.t('Desarrollo e integración', 'Development and integration'),
+        items: 'HTML/CSS · JavaScript · TypeScript · Angular · React · Node.js · SQL · APIs · Git',
       },
     ];
   }

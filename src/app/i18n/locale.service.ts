@@ -31,9 +31,7 @@ export class LocaleService {
 export abstract class Localized {
   readonly locale = inject(LocaleService);
   get cvUrl() {
-    return this.locale.language() === 'es'
-      ? '/assets/pdf/Camilo_Arias_CV_ES.pdf'
-      : '/assets/pdf/Camilo_Arias_CV.pdf';
+    return '/assets/pdf/cv-3.pdf';
   }
   t = (es: string, en: string) => this.locale.t(es, en);
   l = (text: Bilingual) => this.locale.l(text);

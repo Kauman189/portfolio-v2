@@ -8,27 +8,27 @@ import { Localized } from '../../i18n/locale.service';
   styleUrl: './how-i-work.component.css',
 })
 export class HowIWorkComponent extends Localized {
-  get steps() {
+  get strengths() {
     return [
       {
-        title: this.t('Entender el problema.', 'Understand the problem.'),
+        title: this.t('Research que orienta.', 'Research that informs decisions.'),
         body: this.t(
-          'Aclaro requisitos, personas y restricciones antes de definir un flujo.',
-          'I clarify requirements, users and constraints before shaping a flow.',
+          'Hago entrevistas, analizo necesidades y pruebo propuestas. Uso el feedback para revisar decisiones y ajustar el diseño.',
+          'I interview users, analyze needs and test ideas. Feedback helps me revisit decisions and refine the design.',
         ),
       },
       {
-        title: this.t('Diseñar el recorrido.', 'Design the journey.'),
+        title: this.t('Claridad en productos complejos.', 'Clarity in complex products.'),
         body: this.t(
-          'Organizo la información y trabajo en flujos, componentes y estados que el producto necesita.',
-          'I organize information and work through the flows, components and states the product needs.',
+          'Trabajo en retail, pagos y SaaS. Organizo recorridos e información para que las tareas y las opciones se entiendan.',
+          'I work across retail, payments and SaaS, organizing journeys and information to make tasks and choices clear.',
         ),
       },
       {
-        title: this.t('Construir y revisar.', 'Build and refine.'),
+        title: this.t('Dirección de diseño, en equipo.', 'Design leadership, with the team.'),
         body: this.t(
-          'Llevo el diseño a código, compruebo los detalles en funcionamiento y ajusto lo que haga falta.',
-          'I bring the design into code, check how it works and adjust the details that need it.',
+          'Alineo al equipo con prototipos y revisiones. Acompaño el diseño hasta la entrega y compruebo la experiencia con pruebas y QA.',
+          'I align the team through prototypes and design reviews, stay involved through delivery and check the experience through testing and QA.',
         ),
       },
     ];

@@ -1,14 +1,13 @@
 <section class="process-simple" aria-labelledby="process-title">
   <div class="process-heading">
-    <span class="eyebrow">{{ t("Mi proceso", "My process") }}</span>
-    <h2 id="process-title">{{ t("Cómo trabajo.", "How I work.") }}</h2>
+    <span class="eyebrow">{{ t("Mi enfoque", "My approach") }}</span>
+    <h2 id="process-title">{{ t("Lo que aporto.", "What I bring.") }}</h2>
   </div>
   <div class="process-list">
-    @for (step of steps; track step.title; let i = $index) {
+    @for (strength of strengths; track strength.title) {
       <section class="process-step">
-        <span class="eyebrow">0{{ i + 1 }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.body }}</p>
+        <h3>{{ strength.title }}</h3>
+        <p>{{ strength.body }}</p>
       </section>
     }
   </div>
